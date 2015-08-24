@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0041B89B1B8BBCFF00E0D845 /* CheckPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */; };
+		0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B89A1B8BBCFF00E0D845 /* Hunt.swift */; };
 		4C717A931B8B8F9F00D176FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A911B8B8F9F00D176FF /* Bolts.framework */; };
 		4C717A941B8B8F9F00D176FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A921B8B8F9F00D176FF /* Parse.framework */; };
 		4C717A971B8B8FFA00D176FF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A961B8B8FFA00D176FF /* AudioToolbox.framework */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPoint.swift; sourceTree = "<group>"; };
+		0041B89A1B8BBCFF00E0D845 /* Hunt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hunt.swift; sourceTree = "<group>"; };
 		4C717A911B8B8F9F00D176FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4C717A921B8B8F9F00D176FF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		4C717A961B8B8FFA00D176FF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -145,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */,
-				4C717AAE1B8B92AC00D176FF /* Keys.swift */,
 				4C9410F51B88DE3B00CAE08B /* ViewController.swift */,
 				4C717AB01B8B953900D176FF /* ParseService.swift */,
 				4C9410F71B88DE3B00CAE08B /* Main.storyboard */,
@@ -282,10 +285,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */,
 				4C9410F61B88DE3B00CAE08B /* ViewController.swift in Sources */,
 				4C717AB11B8B953900D176FF /* ParseService.swift in Sources */,
 				4C717AAF1B8B92AC00D176FF /* Keys.swift in Sources */,
 				4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */,
+				0041B89B1B8BBCFF00E0D845 /* CheckPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
