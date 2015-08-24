@@ -22,6 +22,7 @@
 		4C717AAB1B8B905700D176FF /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717AAA1B8B905700D176FF /* Accounts.framework */; };
 		4C717AAD1B8B905D00D176FF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717AAC1B8B905D00D176FF /* Social.framework */; };
 		4C717AAF1B8B92AC00D176FF /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C717AAE1B8B92AC00D176FF /* Keys.swift */; };
+		4C717AB11B8B953900D176FF /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C717AB01B8B953900D176FF /* ParseService.swift */; };
 		4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */; };
 		4C9410F61B88DE3B00CAE08B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9410F51B88DE3B00CAE08B /* ViewController.swift */; };
 		4C9410F91B88DE3B00CAE08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410F71B88DE3B00CAE08B /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		4C717AAA1B8B905700D176FF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		4C717AAC1B8B905D00D176FF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		4C717AAE1B8B92AC00D176FF /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		4C717AB01B8B953900D176FF /* ParseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseService.swift; path = ../ParseService.swift; sourceTree = "<group>"; };
 		4C9410EE1B88DE3B00CAE08B /* Scavenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scavenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9410F21B88DE3B00CAE08B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */,
 				4C717AAE1B8B92AC00D176FF /* Keys.swift */,
 				4C9410F51B88DE3B00CAE08B /* ViewController.swift */,
+				4C717AB01B8B953900D176FF /* ParseService.swift */,
 				4C9410F71B88DE3B00CAE08B /* Main.storyboard */,
 				4C9410FA1B88DE3B00CAE08B /* Images.xcassets */,
 				4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */,
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C9410F61B88DE3B00CAE08B /* ViewController.swift in Sources */,
+				4C717AB11B8B953900D176FF /* ParseService.swift in Sources */,
 				4C717AAF1B8B92AC00D176FF /* Keys.swift in Sources */,
 				4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */,
 			);
