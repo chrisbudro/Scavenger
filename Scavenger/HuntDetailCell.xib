@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HuntDetailCell" rowHeight="98" id="z7m-o3-Y3Y" customClass="HuntDetailCell" customModule="Scavenger" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="511" height="98"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z7m-o3-Y3Y" id="SBO-BY-w1V">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjV-KG-DsG">
+                        <rect key="frame" x="8" y="8" width="417" height="81.5"/>
+                        <string key="text">Hellooooo,  Our project is coming along very slow. Our name does not do our idea justice. We call clues "check pionts", each check piont will have 3 parameters. We are currently having merge conflicts.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Icon-76" translatesAutoresizingMaskIntoConstraints="NO" id="gc0-g0-5h6">
+                        <rect key="frame" x="433" y="16" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="OGg-eJ-Y5W"/>
+                            <constraint firstAttribute="height" constant="70" id="RQ3-ct-WcF"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gc0-g0-5h6" firstAttribute="top" secondItem="SBO-BY-w1V" secondAttribute="topMargin" constant="8" id="5Vx-AC-xcY"/>
+                    <constraint firstItem="gc0-g0-5h6" firstAttribute="leading" secondItem="hjV-KG-DsG" secondAttribute="trailing" constant="8" id="Cvs-1y-yTV"/>
+                    <constraint firstItem="hjV-KG-DsG" firstAttribute="bottom" secondItem="SBO-BY-w1V" secondAttribute="bottomMargin" id="KSg-dc-fAO"/>
+                    <constraint firstItem="hjV-KG-DsG" firstAttribute="leading" secondItem="SBO-BY-w1V" secondAttribute="leadingMargin" id="NRD-pJ-VfY"/>
+                    <constraint firstItem="hjV-KG-DsG" firstAttribute="top" secondItem="SBO-BY-w1V" secondAttribute="topMargin" id="RX1-mA-xgC"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="gc0-g0-5h6" secondAttribute="bottom" constant="8" id="eRe-uB-hUm"/>
+                    <constraint firstItem="gc0-g0-5h6" firstAttribute="trailing" secondItem="SBO-BY-w1V" secondAttribute="trailingMargin" id="k4w-cK-bTe"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="eRe-uB-hUm"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="301.5" y="262"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Icon-76" width="76" height="76"/>
+    </resources>
+</document>
