@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0041B89B1B8BBCFF00E0D845 /* CheckPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */; };
+		0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B89A1B8BBCFF00E0D845 /* Hunt.swift */; };
 		3E3EAAC11B8BBE6D00905F8B /* HuntCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */; };
 		3E3EAAC31B8BBE7700905F8B /* HuntDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC21B8BBE7700905F8B /* HuntDetailCell.swift */; };
 		3E3EAAC51B8BBE7F00905F8B /* HuntDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC41B8BBE7F00905F8B /* HuntDetailCell.xib */; };
 		3E3EAAC71B8BBE8C00905F8B /* HuntDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC61B8BBE8C00905F8B /* HuntDetailViewController.swift */; };
 		3E3EAAC91B8BBE9200905F8B /* HuntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC81B8BBE9200905F8B /* HuntViewController.swift */; };
 		3E3EAACB1B8BBF3600905F8B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAACA1B8BBF3600905F8B /* Keys.swift */; };
+		3E3EAACD1B8BCC7100905F8B /* HuntCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAACC1B8BCC7100905F8B /* HuntCreationViewController.swift */; };
 		4C717A931B8B8F9F00D176FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A911B8B8F9F00D176FF /* Bolts.framework */; };
 		4C717A941B8B8F9F00D176FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A921B8B8F9F00D176FF /* Parse.framework */; };
 		4C717A971B8B8FFA00D176FF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A961B8B8FFA00D176FF /* AudioToolbox.framework */; };
@@ -45,12 +48,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPoint.swift; sourceTree = "<group>"; };
+		0041B89A1B8BBCFF00E0D845 /* Hunt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hunt.swift; sourceTree = "<group>"; };
 		3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntCell.swift; sourceTree = "<group>"; };
 		3E3EAAC21B8BBE7700905F8B /* HuntDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntDetailCell.swift; sourceTree = "<group>"; };
 		3E3EAAC41B8BBE7F00905F8B /* HuntDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HuntDetailCell.xib; sourceTree = "<group>"; };
 		3E3EAAC61B8BBE8C00905F8B /* HuntDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntDetailViewController.swift; sourceTree = "<group>"; };
 		3E3EAAC81B8BBE9200905F8B /* HuntViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntViewController.swift; sourceTree = "<group>"; };
 		3E3EAACA1B8BBF3600905F8B /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		3E3EAACC1B8BCC7100905F8B /* HuntCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntCreationViewController.swift; sourceTree = "<group>"; };
 		4C717A911B8B8F9F00D176FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4C717A921B8B8F9F00D176FF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		4C717A961B8B8FFA00D176FF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -151,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */,
+				0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */,
+				0041B89A1B8BBCFF00E0D845 /* Hunt.swift */,
 				3E3EAACA1B8BBF3600905F8B /* Keys.swift */,
 				3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */,
 				3E3EAAC21B8BBE7700905F8B /* HuntDetailCell.swift */,
@@ -158,6 +166,7 @@
 				3E3EAAC61B8BBE8C00905F8B /* HuntDetailViewController.swift */,
 				3E3EAAC81B8BBE9200905F8B /* HuntViewController.swift */,
 				4C9410F71B88DE3B00CAE08B /* Main.storyboard */,
+				3E3EAACC1B8BCC7100905F8B /* HuntCreationViewController.swift */,
 				4C9410FA1B88DE3B00CAE08B /* Images.xcassets */,
 				4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */,
 				4C717A951B8B8FA900D176FF /* Frameworks */,
@@ -292,10 +301,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */,
 				3E3EAAC11B8BBE6D00905F8B /* HuntCell.swift in Sources */,
+				3E3EAACD1B8BCC7100905F8B /* HuntCreationViewController.swift in Sources */,
 				3E3EAACB1B8BBF3600905F8B /* Keys.swift in Sources */,
 				3E3EAAC91B8BBE9200905F8B /* HuntViewController.swift in Sources */,
 				4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */,
+				0041B89B1B8BBCFF00E0D845 /* CheckPoint.swift in Sources */,
 				3E3EAAC71B8BBE8C00905F8B /* HuntDetailViewController.swift in Sources */,
 				3E3EAAC31B8BBE7700905F8B /* HuntDetailCell.swift in Sources */,
 			);
