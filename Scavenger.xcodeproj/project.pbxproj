@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0041B89B1B8BBCFF00E0D845 /* CheckPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */; };
-		0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B89A1B8BBCFF00E0D845 /* Hunt.swift */; };
+		3E3EAAC11B8BBE6D00905F8B /* HuntCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */; };
+		3E3EAAC31B8BBE7700905F8B /* HuntDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC21B8BBE7700905F8B /* HuntDetailCell.swift */; };
+		3E3EAAC51B8BBE7F00905F8B /* HuntDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC41B8BBE7F00905F8B /* HuntDetailCell.xib */; };
+		3E3EAAC71B8BBE8C00905F8B /* HuntDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC61B8BBE8C00905F8B /* HuntDetailViewController.swift */; };
+		3E3EAAC91B8BBE9200905F8B /* HuntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC81B8BBE9200905F8B /* HuntViewController.swift */; };
+		3E3EAACB1B8BBF3600905F8B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAACA1B8BBF3600905F8B /* Keys.swift */; };
 		4C717A931B8B8F9F00D176FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A911B8B8F9F00D176FF /* Bolts.framework */; };
 		4C717A941B8B8F9F00D176FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A921B8B8F9F00D176FF /* Parse.framework */; };
 		4C717A971B8B8FFA00D176FF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A961B8B8FFA00D176FF /* AudioToolbox.framework */; };
@@ -25,11 +29,14 @@
 		4C717AAD1B8B905D00D176FF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717AAC1B8B905D00D176FF /* Social.framework */; };
 		4C717AB11B8B953900D176FF /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C717AB01B8B953900D176FF /* ParseService.swift */; };
 		4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */; };
+		4C9410F91B88DE3B00CAE08B /* (null) in Resources */ = {isa = PBXBuildFile; };
 		4C9410FB1B88DE3B00CAE08B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410FA1B88DE3B00CAE08B /* Images.xcassets */; };
 		4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */; };
 		4C94110A1B88DE3B00CAE08B /* ScavengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9411091B88DE3B00CAE08B /* ScavengerTests.swift */; };
-		4CB012601B8BC403005AA7F4 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0125F1B8BC403005AA7F4 /* Keys.swift */; };
 		4CB012671B8BDB05005AA7F4 /* ParseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB012661B8BDB05005AA7F4 /* ParseServiceTests.swift */; };
+		4CB0126A1B8BE16C005AA7F4 /* Hunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB012691B8BE16C005AA7F4 /* Hunt.swift */; };
+		4CB0126C1B8BE175005AA7F4 /* CheckPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0126B1B8BE175005AA7F4 /* CheckPoint.swift */; };
+		4CB0126F1B8BE1C9005AA7F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB0126D1B8BE1C9005AA7F4 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPoint.swift; sourceTree = "<group>"; };
-		0041B89A1B8BBCFF00E0D845 /* Hunt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hunt.swift; sourceTree = "<group>"; };
+		3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntCell.swift; sourceTree = "<group>"; };
+		3E3EAAC21B8BBE7700905F8B /* HuntDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntDetailCell.swift; sourceTree = "<group>"; };
+		3E3EAAC41B8BBE7F00905F8B /* HuntDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HuntDetailCell.xib; sourceTree = "<group>"; };
+		3E3EAAC61B8BBE8C00905F8B /* HuntDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntDetailViewController.swift; sourceTree = "<group>"; };
+		3E3EAAC81B8BBE9200905F8B /* HuntViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntViewController.swift; sourceTree = "<group>"; };
+		3E3EAACA1B8BBF3600905F8B /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		4C717A911B8B8F9F00D176FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4C717A921B8B8F9F00D176FF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		4C717A961B8B8FFA00D176FF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -68,9 +79,11 @@
 		4C9411031B88DE3B00CAE08B /* ScavengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScavengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9411081B88DE3B00CAE08B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C9411091B88DE3B00CAE08B /* ScavengerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengerTests.swift; sourceTree = "<group>"; };
-		4CB0125F1B8BC403005AA7F4 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		4CB012651B8BD2F5005AA7F4 /* Objective-CBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objective-CBridgingHeader.h"; sourceTree = "<group>"; };
 		4CB012661B8BDB05005AA7F4 /* ParseServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseServiceTests.swift; path = ../Scavenger/ParseServiceTests.swift; sourceTree = "<group>"; };
+		4CB012691B8BE16C005AA7F4 /* Hunt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hunt.swift; sourceTree = "<group>"; };
+		4CB0126B1B8BE175005AA7F4 /* CheckPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPoint.swift; sourceTree = "<group>"; };
+		4CB0126E1B8BE1C9005AA7F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,10 +161,16 @@
 			isa = PBXGroup;
 			children = (
 				4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */,
-				4CB0125F1B8BC403005AA7F4 /* Keys.swift */,
+				4CB0126B1B8BE175005AA7F4 /* CheckPoint.swift */,
+				4CB0126D1B8BE1C9005AA7F4 /* Main.storyboard */,
+				4CB012691B8BE16C005AA7F4 /* Hunt.swift */,
+				3E3EAACA1B8BBF3600905F8B /* Keys.swift */,
+				3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */,
+				3E3EAAC21B8BBE7700905F8B /* HuntDetailCell.swift */,
+				3E3EAAC41B8BBE7F00905F8B /* HuntDetailCell.xib */,
+				3E3EAAC61B8BBE8C00905F8B /* HuntDetailViewController.swift */,
+				3E3EAAC81B8BBE9200905F8B /* HuntViewController.swift */,
 				4C717AB01B8B953900D176FF /* ParseService.swift */,
-				0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */,
-				0041B89A1B8BBCFF00E0D845 /* Hunt.swift */,
 				4C9410FA1B88DE3B00CAE08B /* Images.xcassets */,
 				4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */,
 				4C717A951B8B8FA900D176FF /* Frameworks */,
@@ -267,6 +286,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C9410F91B88DE3B00CAE08B /* (null) in Resources */,
+				4CB0126F1B8BE1C9005AA7F4 /* Main.storyboard in Resources */,
+				3E3EAAC51B8BBE7F00905F8B /* HuntDetailCell.xib in Resources */,
 				4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */,
 				4C9410FB1B88DE3B00CAE08B /* Images.xcassets in Resources */,
 			);
@@ -286,11 +308,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */,
+				3E3EAAC11B8BBE6D00905F8B /* HuntCell.swift in Sources */,
+				3E3EAACB1B8BBF3600905F8B /* Keys.swift in Sources */,
+				3E3EAAC91B8BBE9200905F8B /* HuntViewController.swift in Sources */,
 				4C717AB11B8B953900D176FF /* ParseService.swift in Sources */,
+				4CB0126A1B8BE16C005AA7F4 /* Hunt.swift in Sources */,
+				4CB0126C1B8BE175005AA7F4 /* CheckPoint.swift in Sources */,
 				4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */,
-				0041B89B1B8BBCFF00E0D845 /* CheckPoint.swift in Sources */,
-				4CB012601B8BC403005AA7F4 /* Keys.swift in Sources */,
+				3E3EAAC71B8BBE8C00905F8B /* HuntDetailViewController.swift in Sources */,
+				3E3EAAC31B8BBE7700905F8B /* HuntDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +346,14 @@
 				4C9410FD1B88DE3B00CAE08B /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		4CB0126D1B8BE1C9005AA7F4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CB0126E1B8BE1C9005AA7F4 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
