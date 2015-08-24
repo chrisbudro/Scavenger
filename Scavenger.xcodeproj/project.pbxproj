@@ -25,11 +25,11 @@
 		4C717AAD1B8B905D00D176FF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717AAC1B8B905D00D176FF /* Social.framework */; };
 		4C717AB11B8B953900D176FF /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C717AB01B8B953900D176FF /* ParseService.swift */; };
 		4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */; };
-		4C9410F91B88DE3B00CAE08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410F71B88DE3B00CAE08B /* Main.storyboard */; };
 		4C9410FB1B88DE3B00CAE08B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410FA1B88DE3B00CAE08B /* Images.xcassets */; };
 		4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */; };
 		4C94110A1B88DE3B00CAE08B /* ScavengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9411091B88DE3B00CAE08B /* ScavengerTests.swift */; };
 		4CB012601B8BC403005AA7F4 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0125F1B8BC403005AA7F4 /* Keys.swift */; };
+		4CB012671B8BDB05005AA7F4 /* ParseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB012661B8BDB05005AA7F4 /* ParseServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,13 +63,14 @@
 		4C9410EE1B88DE3B00CAE08B /* Scavenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scavenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9410F21B88DE3B00CAE08B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C9410F81B88DE3B00CAE08B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C9410FA1B88DE3B00CAE08B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C9410FD1B88DE3B00CAE08B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4C9411031B88DE3B00CAE08B /* ScavengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScavengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9411081B88DE3B00CAE08B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C9411091B88DE3B00CAE08B /* ScavengerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengerTests.swift; sourceTree = "<group>"; };
 		4CB0125F1B8BC403005AA7F4 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		4CB012651B8BD2F5005AA7F4 /* Objective-CBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objective-CBridgingHeader.h"; sourceTree = "<group>"; };
+		4CB012661B8BDB05005AA7F4 /* ParseServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseServiceTests.swift; path = ../Scavenger/ParseServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +152,6 @@
 				4C717AB01B8B953900D176FF /* ParseService.swift */,
 				0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */,
 				0041B89A1B8BBCFF00E0D845 /* Hunt.swift */,
-				4C9410F71B88DE3B00CAE08B /* Main.storyboard */,
 				4C9410FA1B88DE3B00CAE08B /* Images.xcassets */,
 				4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */,
 				4C717A951B8B8FA900D176FF /* Frameworks */,
@@ -164,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				4C9410F21B88DE3B00CAE08B /* Info.plist */,
+				4CB012651B8BD2F5005AA7F4 /* Objective-CBridgingHeader.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -171,6 +172,7 @@
 		4C9411061B88DE3B00CAE08B /* ScavengerTests */ = {
 			isa = PBXGroup;
 			children = (
+				4CB012661B8BDB05005AA7F4 /* ParseServiceTests.swift */,
 				4C9411091B88DE3B00CAE08B /* ScavengerTests.swift */,
 				4C9411071B88DE3B00CAE08B /* Supporting Files */,
 			);
@@ -265,7 +267,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C9410F91B88DE3B00CAE08B /* Main.storyboard in Resources */,
 				4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */,
 				4C9410FB1B88DE3B00CAE08B /* Images.xcassets in Resources */,
 			);
@@ -298,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C94110A1B88DE3B00CAE08B /* ScavengerTests.swift in Sources */,
+				4CB012671B8BDB05005AA7F4 /* ParseServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,14 +314,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4C9410F71B88DE3B00CAE08B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C9410F81B88DE3B00CAE08B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -371,6 +365,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -409,6 +404,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -417,6 +413,7 @@
 		4C94110E1B88DE3B00CAE08B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -425,12 +422,15 @@
 				INFOPLIST_FILE = Scavenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Scavenger/Objective-CBridgingHeader.h";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		4C94110F1B88DE3B00CAE08B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -439,12 +439,15 @@
 				INFOPLIST_FILE = Scavenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Scavenger/Objective-CBridgingHeader.h";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
 		4C9411111B88DE3B00CAE08B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -464,6 +467,7 @@
 		4C9411121B88DE3B00CAE08B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
