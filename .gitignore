@@ -23,10 +23,14 @@ xcuserdata
 *.xcuserstate
 *.xcscmblueprint
 
+Scavenger/Keys.swift
+
 ## Obj-C/Swift specific
 *.hmap
 *.ipa
 .DS_Store
+
+
 
 # CocoaPods
 #
