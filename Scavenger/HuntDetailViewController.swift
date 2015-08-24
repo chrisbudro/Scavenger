@@ -24,6 +24,12 @@ class HuntDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      tableView.estimatedRowHeight = 70
+      tableView.rowHeight = UITableViewAutomaticDimension
+      
+      tableView.registerNib(UINib(nibName: "HuntDetailCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "HuntDetailCell")
+
 
         navigationItem.title = "Hunt Detail"
     }
