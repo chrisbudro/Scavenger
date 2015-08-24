@@ -23,14 +23,13 @@
 		4C717AA91B8B904A00D176FF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717AA81B8B904A00D176FF /* libsqlite3.dylib */; };
 		4C717AAB1B8B905700D176FF /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717AAA1B8B905700D176FF /* Accounts.framework */; };
 		4C717AAD1B8B905D00D176FF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717AAC1B8B905D00D176FF /* Social.framework */; };
-		4C717AAF1B8B92AC00D176FF /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C717AAE1B8B92AC00D176FF /* Keys.swift */; };
 		4C717AB11B8B953900D176FF /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C717AB01B8B953900D176FF /* ParseService.swift */; };
 		4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */; };
-		4C9410F61B88DE3B00CAE08B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9410F51B88DE3B00CAE08B /* ViewController.swift */; };
 		4C9410F91B88DE3B00CAE08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410F71B88DE3B00CAE08B /* Main.storyboard */; };
 		4C9410FB1B88DE3B00CAE08B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410FA1B88DE3B00CAE08B /* Images.xcassets */; };
 		4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */; };
 		4C94110A1B88DE3B00CAE08B /* ScavengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9411091B88DE3B00CAE08B /* ScavengerTests.swift */; };
+		4CB012601B8BC403005AA7F4 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0125F1B8BC403005AA7F4 /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,18 +59,17 @@
 		4C717AA81B8B904A00D176FF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4C717AAA1B8B905700D176FF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		4C717AAC1B8B905D00D176FF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		4C717AAE1B8B92AC00D176FF /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		4C717AB01B8B953900D176FF /* ParseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseService.swift; path = ../ParseService.swift; sourceTree = "<group>"; };
 		4C9410EE1B88DE3B00CAE08B /* Scavenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scavenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9410F21B88DE3B00CAE08B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C9410F51B88DE3B00CAE08B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C9410F81B88DE3B00CAE08B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C9410FA1B88DE3B00CAE08B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C9410FD1B88DE3B00CAE08B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4C9411031B88DE3B00CAE08B /* ScavengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScavengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9411081B88DE3B00CAE08B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C9411091B88DE3B00CAE08B /* ScavengerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengerTests.swift; sourceTree = "<group>"; };
+		4CB0125F1B8BC403005AA7F4 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +147,10 @@
 			isa = PBXGroup;
 			children = (
 				4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */,
-				4C9410F51B88DE3B00CAE08B /* ViewController.swift */,
+				4CB0125F1B8BC403005AA7F4 /* Keys.swift */,
 				4C717AB01B8B953900D176FF /* ParseService.swift */,
+				0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */,
+				0041B89A1B8BBCFF00E0D845 /* Hunt.swift */,
 				4C9410F71B88DE3B00CAE08B /* Main.storyboard */,
 				4C9410FA1B88DE3B00CAE08B /* Images.xcassets */,
 				4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */,
@@ -286,11 +286,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */,
-				4C9410F61B88DE3B00CAE08B /* ViewController.swift in Sources */,
 				4C717AB11B8B953900D176FF /* ParseService.swift in Sources */,
-				4C717AAF1B8B92AC00D176FF /* Keys.swift in Sources */,
 				4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */,
 				0041B89B1B8BBCFF00E0D845 /* CheckPoint.swift in Sources */,
+				4CB012601B8BC403005AA7F4 /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
