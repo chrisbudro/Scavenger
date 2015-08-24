@@ -47,6 +47,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C717AAD1B8B905D00D176FF /* Social.framework in Frameworks */,
+				4C717AAB1B8B905700D176FF /* Accounts.framework in Frameworks */,
+				4C717AA91B8B904A00D176FF /* libsqlite3.dylib in Frameworks */,
+				4C717AA71B8B904000D176FF /* libz.dylib in Frameworks */,
+				4C717AA51B8B903600D176FF /* SystemConfiguration.framework in Frameworks */,
+				4C717AA31B8B902E00D176FF /* StoreKit.framework in Frameworks */,
+				4C717AA11B8B902800D176FF /* Security.framework in Frameworks */,
+				4C717A9F1B8B902000D176FF /* QuartzCore.framework in Frameworks */,
+				4C717A9D1B8B901A00D176FF /* CoreLocation.framework in Frameworks */,
+				4C717A9B1B8B901400D176FF /* CoreGraphics.framework in Frameworks */,
+				4C717A991B8B900D00D176FF /* CFNetwork.framework in Frameworks */,
+				4C717A971B8B8FFA00D176FF /* AudioToolbox.framework in Frameworks */,
+				4C717A941B8B8F9F00D176FF /* Parse.framework in Frameworks */,
+				4C717A931B8B8F9F00D176FF /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,10 +106,12 @@
 			children = (
 				0014FF7D1B8B8F3C0018E95D /* Model */,
 				4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */,
+				4C717AAE1B8B92AC00D176FF /* Keys.swift */,
 				4C9410F51B88DE3B00CAE08B /* ViewController.swift */,
 				4C9410F71B88DE3B00CAE08B /* Main.storyboard */,
 				4C9410FA1B88DE3B00CAE08B /* Images.xcassets */,
 				4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */,
+				4C717A951B8B8FA900D176FF /* Frameworks */,
 				4C9410F11B88DE3B00CAE08B /* Supporting Files */,
 			);
 			path = Scavenger;
@@ -358,6 +374,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Scavenger",
+				);
 				INFOPLIST_FILE = Scavenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -368,6 +388,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Scavenger",
+				);
 				INFOPLIST_FILE = Scavenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
