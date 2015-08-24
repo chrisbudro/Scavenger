@@ -1,5 +1,5 @@
 //
-//  Clue.swift
+//  CheckPoint.swift
 //  Scavenger
 //
 //  Created by mike davis on 8/24/15.
@@ -7,14 +7,14 @@
 //
 
 import Foundation
-import Parse
+//import Parse
 
 struct CheckPoint {
   let locationName: String
-  let location: PFGeoPoint?
+  let location: Double?
   let detail: String
   
-  init(locationName: String, detail: String, location: CLLocation?) {
+  init(locationName: String, detail: String, location: Double?) {
     self.locationName = locationName
     self.location = location
     self.detail = detail
