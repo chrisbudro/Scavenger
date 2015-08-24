@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E7E23971B8B94DF0008730F /* HuntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7E23961B8B94DF0008730F /* HuntViewController.swift */; };
+		3E7E23991B8B968F0008730F /* HuntCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7E23981B8B968F0008730F /* HuntCell.swift */; };
+		3E7E239B1B8B9CF70008730F /* HuntDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7E239A1B8B9CF70008730F /* HuntDetailViewController.swift */; };
+		3E7E239D1B8BA6080008730F /* HuntDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7E239C1B8BA6080008730F /* HuntDetailCell.xib */; };
+		3E7E239F1B8BA6A20008730F /* HuntDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7E239E1B8BA6A20008730F /* HuntDetailCell.swift */; };
 		4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */; };
-		4C9410F61B88DE3B00CAE08B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9410F51B88DE3B00CAE08B /* ViewController.swift */; };
 		4C9410F91B88DE3B00CAE08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410F71B88DE3B00CAE08B /* Main.storyboard */; };
 		4C9410FB1B88DE3B00CAE08B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410FA1B88DE3B00CAE08B /* Images.xcassets */; };
 		4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */; };
@@ -26,10 +30,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E7E23961B8B94DF0008730F /* HuntViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntViewController.swift; sourceTree = "<group>"; };
+		3E7E23981B8B968F0008730F /* HuntCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntCell.swift; sourceTree = "<group>"; };
+		3E7E239A1B8B9CF70008730F /* HuntDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntDetailViewController.swift; sourceTree = "<group>"; };
+		3E7E239C1B8BA6080008730F /* HuntDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HuntDetailCell.xib; sourceTree = "<group>"; };
+		3E7E239E1B8BA6A20008730F /* HuntDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntDetailCell.swift; sourceTree = "<group>"; };
 		4C9410EE1B88DE3B00CAE08B /* Scavenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scavenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9410F21B88DE3B00CAE08B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C9410F51B88DE3B00CAE08B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C9410F81B88DE3B00CAE08B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C9410FA1B88DE3B00CAE08B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C9410FD1B88DE3B00CAE08B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -56,6 +64,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E7E23931B8B91160008730F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3E7E23981B8B968F0008730F /* HuntCell.swift */,
+				3E7E239E1B8BA6A20008730F /* HuntDetailCell.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3E7E23941B8B91230008730F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C9410F71B88DE3B00CAE08B /* Main.storyboard */,
+				3E7E239C1B8BA6080008730F /* HuntDetailCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3E7E23951B8B912D0008730F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3E7E23961B8B94DF0008730F /* HuntViewController.swift */,
+				3E7E239A1B8B9CF70008730F /* HuntDetailViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		4C9410E51B88DE3B00CAE08B = {
 			isa = PBXGroup;
 			children = (
@@ -77,11 +112,9 @@
 		4C9410F01B88DE3B00CAE08B /* Scavenger */ = {
 			isa = PBXGroup;
 			children = (
-				4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */,
-				4C9410F51B88DE3B00CAE08B /* ViewController.swift */,
-				4C9410F71B88DE3B00CAE08B /* Main.storyboard */,
-				4C9410FA1B88DE3B00CAE08B /* Images.xcassets */,
-				4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */,
+				3E7E23951B8B912D0008730F /* Controller */,
+				3E7E23941B8B91230008730F /* View */,
+				3E7E23931B8B91160008730F /* Model */,
 				4C9410F11B88DE3B00CAE08B /* Supporting Files */,
 			);
 			path = Scavenger;
@@ -90,7 +123,10 @@
 		4C9410F11B88DE3B00CAE08B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */,
 				4C9410F21B88DE3B00CAE08B /* Info.plist */,
+				4C9410FA1B88DE3B00CAE08B /* Images.xcassets */,
+				4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -193,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C9410F91B88DE3B00CAE08B /* Main.storyboard in Resources */,
+				3E7E239D1B8BA6080008730F /* HuntDetailCell.xib in Resources */,
 				4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */,
 				4C9410FB1B88DE3B00CAE08B /* Images.xcassets in Resources */,
 			);
@@ -212,8 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C9410F61B88DE3B00CAE08B /* ViewController.swift in Sources */,
+				3E7E239F1B8BA6A20008730F /* HuntDetailCell.swift in Sources */,
+				3E7E23991B8B968F0008730F /* HuntCell.swift in Sources */,
 				4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */,
+				3E7E239B1B8B9CF70008730F /* HuntDetailViewController.swift in Sources */,
+				3E7E23971B8B94DF0008730F /* HuntViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +451,7 @@
 				4C94110F1B88DE3B00CAE08B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C9411101B88DE3B00CAE08B /* Build configuration list for PBXNativeTarget "ScavengerTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +460,7 @@
 				4C9411121B88DE3B00CAE08B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
