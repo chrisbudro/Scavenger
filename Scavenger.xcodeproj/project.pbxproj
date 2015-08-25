@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0041B89B1B8BBCFF00E0D845 /* CheckPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */; };
+		0041B89B1B8BBCFF00E0D845 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B8991B8BBCFF00E0D845 /* Checkpoint.swift */; };
 		0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B89A1B8BBCFF00E0D845 /* Hunt.swift */; };
 		3E3EAAC11B8BBE6D00905F8B /* HuntCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */; };
-		3E3EAAC31B8BBE7700905F8B /* HuntDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC21B8BBE7700905F8B /* HuntDetailCell.swift */; };
-		3E3EAAC51B8BBE7F00905F8B /* HuntDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC41B8BBE7F00905F8B /* HuntDetailCell.xib */; };
-		3E3EAAC71B8BBE8C00905F8B /* HuntDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC61B8BBE8C00905F8B /* HuntDetailViewController.swift */; };
-		3E3EAAC91B8BBE9200905F8B /* HuntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC81B8BBE9200905F8B /* HuntViewController.swift */; };
+		3E3EAAC31B8BBE7700905F8B /* CheckpointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC21B8BBE7700905F8B /* CheckpointCell.swift */; };
+		3E3EAAC51B8BBE7F00905F8B /* CheckpointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC41B8BBE7F00905F8B /* CheckpointCell.xib */; };
+		3E3EAAC71B8BBE8C00905F8B /* HuntPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC61B8BBE8C00905F8B /* HuntPlayerViewController.swift */; };
+		3E3EAAC91B8BBE9200905F8B /* HuntListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC81B8BBE9200905F8B /* HuntListViewController.swift */; };
 		3E3EAACB1B8BBF3600905F8B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAACA1B8BBF3600905F8B /* Keys.swift */; };
-		3E3EAACD1B8BCC7100905F8B /* HuntCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAACC1B8BCC7100905F8B /* HuntCreationViewController.swift */; };
+		3E3EAACD1B8BCC7100905F8B /* HuntCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAACC1B8BCC7100905F8B /* HuntCreatorViewController.swift */; };
 		3E3EAAD31B8BE74400905F8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3EAAD11B8BE74400905F8B /* Main.storyboard */; };
 		3E3EAAD51B8CCBD500905F8B /* PlayerMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAD41B8CCBD500905F8B /* PlayerMapViewController.swift */; };
 		4C717A931B8B8F9F00D176FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A911B8B8F9F00D176FF /* Bolts.framework */; };
@@ -39,6 +39,10 @@
 		4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */; };
 		4C94110A1B88DE3B00CAE08B /* ScavengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9411091B88DE3B00CAE08B /* ScavengerTests.swift */; };
 		4CB012671B8BDB05005AA7F4 /* ParseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB012661B8BDB05005AA7F4 /* ParseServiceTests.swift */; };
+		4CB8B4661B8CC28700959136 /* CheckpointAdderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8B4641B8CC28700959136 /* CheckpointAdderViewController.swift */; };
+		4CB8B4671B8CC28700959136 /* CheckpointCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8B4651B8CC28700959136 /* CheckpointCreatorViewController.swift */; };
+		4CB8B4691B8CC6C300959136 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8B4681B8CC6C300959136 /* ErrorAlertHandler.swift */; };
+		4CB8B46B1B8CCADF00959136 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8B46A1B8CCADF00959136 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,15 +56,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPoint.swift; sourceTree = "<group>"; };
+		0041B8991B8BBCFF00E0D845 /* Checkpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
 		0041B89A1B8BBCFF00E0D845 /* Hunt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hunt.swift; sourceTree = "<group>"; };
 		3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntCell.swift; sourceTree = "<group>"; };
-		3E3EAAC21B8BBE7700905F8B /* HuntDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntDetailCell.swift; sourceTree = "<group>"; };
-		3E3EAAC41B8BBE7F00905F8B /* HuntDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HuntDetailCell.xib; sourceTree = "<group>"; };
-		3E3EAAC61B8BBE8C00905F8B /* HuntDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntDetailViewController.swift; sourceTree = "<group>"; };
-		3E3EAAC81B8BBE9200905F8B /* HuntViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntViewController.swift; sourceTree = "<group>"; };
+		3E3EAAC21B8BBE7700905F8B /* CheckpointCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointCell.swift; sourceTree = "<group>"; };
+		3E3EAAC41B8BBE7F00905F8B /* CheckpointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckpointCell.xib; sourceTree = "<group>"; };
+		3E3EAAC61B8BBE8C00905F8B /* HuntPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntPlayerViewController.swift; sourceTree = "<group>"; };
+		3E3EAAC81B8BBE9200905F8B /* HuntListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntListViewController.swift; sourceTree = "<group>"; };
 		3E3EAACA1B8BBF3600905F8B /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		3E3EAACC1B8BCC7100905F8B /* HuntCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntCreationViewController.swift; sourceTree = "<group>"; };
+		3E3EAACC1B8BCC7100905F8B /* HuntCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntCreatorViewController.swift; sourceTree = "<group>"; };
 		3E3EAAD21B8BE74400905F8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E3EAAD41B8CCBD500905F8B /* PlayerMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMapViewController.swift; sourceTree = "<group>"; };
 		4C717A911B8B8F9F00D176FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -88,6 +92,10 @@
 		4C9411091B88DE3B00CAE08B /* ScavengerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengerTests.swift; sourceTree = "<group>"; };
 		4CB012651B8BD2F5005AA7F4 /* Objective-CBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objective-CBridgingHeader.h"; sourceTree = "<group>"; };
 		4CB012661B8BDB05005AA7F4 /* ParseServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseServiceTests.swift; path = ../Scavenger/ParseServiceTests.swift; sourceTree = "<group>"; };
+		4CB8B4641B8CC28700959136 /* CheckpointAdderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointAdderViewController.swift; sourceTree = "<group>"; };
+		4CB8B4651B8CC28700959136 /* CheckpointCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointCreatorViewController.swift; sourceTree = "<group>"; };
+		4CB8B4681B8CC6C300959136 /* ErrorAlertHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertHandler.swift; sourceTree = "<group>"; };
+		4CB8B46A1B8CCADF00959136 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C483CC31B8CFE3B007B9215 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C717AB01B8B953900D176FF /* ParseService.swift */,
+				0041B8991B8BBCFF00E0D845 /* Checkpoint.swift */,
+				0041B89A1B8BBCFF00E0D845 /* Hunt.swift */,
+				4CB8B4681B8CC6C300959136 /* ErrorAlertHandler.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4C483CC41B8CFE54007B9215 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */,
+				3E3EAAC21B8BBE7700905F8B /* CheckpointCell.swift */,
+				3E3EAAC41B8BBE7F00905F8B /* CheckpointCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4C483CC51B8CFE6D007B9215 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3E3EAAC81B8BBE9200905F8B /* HuntListViewController.swift */,
+				3E3EAACC1B8BCC7100905F8B /* HuntCreatorViewController.swift */,
+				3E3EAAD41B8CCBD500905F8B /* PlayerMapViewController.swift */,
+				3E3EAAC61B8BBE8C00905F8B /* HuntPlayerViewController.swift */,
+				4CB8B4641B8CC28700959136 /* CheckpointAdderViewController.swift */,
+				4CB8B4651B8CC28700959136 /* CheckpointCreatorViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		4C717A951B8B8FA900D176FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,18 +207,12 @@
 			isa = PBXGroup;
 			children = (
 				4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */,
-				0041B8991B8BBCFF00E0D845 /* CheckPoint.swift */,
-				0041B89A1B8BBCFF00E0D845 /* Hunt.swift */,
-				3E3EAACA1B8BBF3600905F8B /* Keys.swift */,
-				3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */,
-				3E3EAAC21B8BBE7700905F8B /* HuntDetailCell.swift */,
-				3E3EAAC41B8BBE7F00905F8B /* HuntDetailCell.xib */,
 				3E3EAAD11B8BE74400905F8B /* Main.storyboard */,
-				3E3EAAD41B8CCBD500905F8B /* PlayerMapViewController.swift */,
-				3E3EAAC61B8BBE8C00905F8B /* HuntDetailViewController.swift */,
-				3E3EAAC81B8BBE9200905F8B /* HuntViewController.swift */,
-				4C717AB01B8B953900D176FF /* ParseService.swift */,
-				3E3EAACC1B8BCC7100905F8B /* HuntCreationViewController.swift */,
+				4C483CC31B8CFE3B007B9215 /* Model */,
+				3E3EAACA1B8BBF3600905F8B /* Keys.swift */,
+				4C483CC41B8CFE54007B9215 /* View */,
+				4C483CC51B8CFE6D007B9215 /* Controller */,
+				4CB8B46A1B8CCADF00959136 /* Extensions.swift */,
 				4C9410FA1B88DE3B00CAE08B /* Images.xcassets */,
 				4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */,
 				4C717A951B8B8FA900D176FF /* Frameworks */,
@@ -293,7 +329,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C9410F91B88DE3B00CAE08B /* (null) in Resources */,
-				3E3EAAC51B8BBE7F00905F8B /* HuntDetailCell.xib in Resources */,
+				3E3EAAC51B8BBE7F00905F8B /* CheckpointCell.xib in Resources */,
+				3E3EAAC51B8BBE7F00905F8B /* CheckpointCell.xib in Resources */,
 				3E3EAAD31B8BE74400905F8B /* Main.storyboard in Resources */,
 				4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */,
 				4C9410FB1B88DE3B00CAE08B /* Images.xcassets in Resources */,
@@ -317,14 +354,18 @@
 				0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */,
 				3E3EAAD51B8CCBD500905F8B /* PlayerMapViewController.swift in Sources */,
 				3E3EAAC11B8BBE6D00905F8B /* HuntCell.swift in Sources */,
-				3E3EAACD1B8BCC7100905F8B /* HuntCreationViewController.swift in Sources */,
+				4CB8B4691B8CC6C300959136 /* ErrorAlertHandler.swift in Sources */,
+				4CB8B4661B8CC28700959136 /* CheckpointAdderViewController.swift in Sources */,
+				3E3EAACD1B8BCC7100905F8B /* HuntCreatorViewController.swift in Sources */,
 				3E3EAACB1B8BBF3600905F8B /* Keys.swift in Sources */,
-				3E3EAAC91B8BBE9200905F8B /* HuntViewController.swift in Sources */,
+				3E3EAAC91B8BBE9200905F8B /* HuntListViewController.swift in Sources */,
 				4C717AB11B8B953900D176FF /* ParseService.swift in Sources */,
 				4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */,
-				0041B89B1B8BBCFF00E0D845 /* CheckPoint.swift in Sources */,
-				3E3EAAC71B8BBE8C00905F8B /* HuntDetailViewController.swift in Sources */,
-				3E3EAAC31B8BBE7700905F8B /* HuntDetailCell.swift in Sources */,
+				0041B89B1B8BBCFF00E0D845 /* Checkpoint.swift in Sources */,
+				3E3EAAC71B8BBE8C00905F8B /* HuntPlayerViewController.swift in Sources */,
+				4CB8B4671B8CC28700959136 /* CheckpointCreatorViewController.swift in Sources */,
+				3E3EAAC31B8BBE7700905F8B /* CheckpointCell.swift in Sources */,
+				4CB8B46B1B8CCADF00959136 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

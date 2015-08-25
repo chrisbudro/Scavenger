@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Hunt Detail View Controller-->
+        <!--Hunt Player View Controller-->
         <scene sceneID="XSN-ng-Qpu">
             <objects>
-                <viewController id="JHu-LF-OrN" customClass="HuntDetailViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JHu-LF-OrN" customClass="HuntPlayerViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sTk-C7-s9y"/>
                         <viewControllerLayoutGuide type="bottom" id="avy-2M-LEN"/>
@@ -24,7 +24,7 @@
                                     <rect key="frame" x="0.0" y="-21" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </tableView>
@@ -83,7 +83,7 @@
         <!--Scavenger-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HuntViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HuntListViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -118,7 +118,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zow-uo-8Il">
                                                     <rect key="frame" x="21" y="103" width="59" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -153,7 +153,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Scavenger" id="bpO-ly-jjw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NNT-AC-iwB" customClass="HuntView">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NNT-AC-iwB">
                             <connections>
                                 <segue destination="7k3-6e-3R5" kind="show" identifier="showHuntCreation" id="xLO-nH-5Ra"/>
                             </connections>
@@ -167,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="1104" y="349"/>
         </scene>
-        <!--Hunt Creation View Controller-->
+        <!--Hunt Creator View Controller-->
         <scene sceneID="14c-is-x8Z">
             <objects>
-                <viewController id="7k3-6e-3R5" customClass="HuntCreationViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7k3-6e-3R5" customClass="HuntCreatorViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HYX-cn-gqN"/>
                         <viewControllerLayoutGuide type="bottom" id="oET-K1-1xw"/>
@@ -179,69 +179,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your full name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uUx-V3-eI3">
-                                <rect key="frame" x="16" y="72" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="creatorNameDidEnd:" destination="7k3-6e-3R5" eventType="editingDidEnd" id="Fy4-0b-bhj"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your hunt here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mth-Ob-IEj">
                                 <rect key="frame" x="16" y="110" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="huntNameDidEnd:" destination="7k3-6e-3R5" eventType="editingDidEnd" id="Zcv-S3-uil"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Describe your hunt here without giving too much away" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OPk-p1-gqz">
                                 <rect key="frame" x="16" y="148" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="huntDetailDidEnd:" destination="7k3-6e-3R5" eventType="editingDidEnd" id="2Ap-L9-ltP"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKf-LT-fqz">
                                 <rect key="frame" x="234" y="193" width="132" height="30"/>
-                                <state key="normal" title="Add Check Points">
+                                <state key="normal" title="Build Hunt">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fDy-00-fcl" kind="show" id="kHo-a3-1Os"/>
+                                    <action selector="buildHuntWasPressed" destination="7k3-6e-3R5" eventType="touchUpInside" id="MCw-QH-wQg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Mth-Ob-IEj" firstAttribute="top" secondItem="uUx-V3-eI3" secondAttribute="bottom" constant="8" id="3pp-YV-CAY"/>
                             <constraint firstItem="Mth-Ob-IEj" firstAttribute="leading" secondItem="qxm-i9-u3s" secondAttribute="leadingMargin" id="5J7-RJ-dep"/>
                             <constraint firstItem="OPk-p1-gqz" firstAttribute="trailing" secondItem="qxm-i9-u3s" secondAttribute="trailingMargin" id="6he-HI-Huj"/>
-                            <constraint firstItem="uUx-V3-eI3" firstAttribute="top" secondItem="HYX-cn-gqN" secondAttribute="bottom" constant="8" id="7n5-0z-Hvv"/>
                             <constraint firstItem="OPk-p1-gqz" firstAttribute="leading" secondItem="qxm-i9-u3s" secondAttribute="leadingMargin" id="8bs-nD-z41"/>
-                            <constraint firstItem="uUx-V3-eI3" firstAttribute="leading" secondItem="qxm-i9-u3s" secondAttribute="leadingMargin" id="UOc-eC-6Kg"/>
-                            <constraint firstItem="uUx-V3-eI3" firstAttribute="trailing" secondItem="qxm-i9-u3s" secondAttribute="trailingMargin" id="V8R-Lq-AsZ"/>
+                            <constraint firstItem="Mth-Ob-IEj" firstAttribute="top" secondItem="HYX-cn-gqN" secondAttribute="bottom" constant="46" id="8d8-M2-E6M"/>
                             <constraint firstItem="Mth-Ob-IEj" firstAttribute="trailing" secondItem="qxm-i9-u3s" secondAttribute="trailingMargin" id="hvs-qC-vtX"/>
-                            <constraint firstItem="OPk-p1-gqz" firstAttribute="top" secondItem="Mth-Ob-IEj" secondAttribute="bottom" constant="8" id="sDr-ZQ-JBc"/>
+                            <constraint firstItem="OPk-p1-gqz" firstAttribute="top" secondItem="Mth-Ob-IEj" secondAttribute="bottom" constant="8" symbolic="YES" id="sDr-ZQ-JBc"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="creatorName" destination="uUx-V3-eI3" id="A2K-0k-CLC"/>
                         <outlet property="huntDetail" destination="OPk-p1-gqz" id="i03-8u-tka"/>
                         <outlet property="huntName" destination="Mth-Ob-IEj" id="03T-Vl-KiN"/>
+                        <segue destination="fDy-00-fcl" kind="show" identifier="ShowCheckpointAdder" id="BN9-UR-epf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tD6-CT-eWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1841" y="349"/>
         </scene>
-        <!--View Controller-->
+        <!--Checkpoint Adder View Controller-->
         <scene sceneID="Y0s-kT-5Mk">
             <objects>
-                <viewController id="fDy-00-fcl" sceneMemberID="viewController">
+                <viewController id="fDy-00-fcl" customClass="CheckpointAdderViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FDb-eg-zdM"/>
                         <viewControllerLayoutGuide type="bottom" id="hXo-ro-bBD"/>
@@ -249,12 +232,113 @@
                     <view key="view" contentMode="scaleToFill" id="NOO-af-ZxF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dPw-1x-bwV">
+                                <rect key="frame" x="0.0" y="64" width="600" height="446"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLU-yI-2UA">
+                                <rect key="frame" x="16" y="518" width="568" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Add a Checkpoint">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCheckpointWasPressed" destination="fDy-00-fcl" eventType="touchUpInside" id="Zbx-Lj-Xb5"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cLU-yI-2UA" firstAttribute="trailing" secondItem="NOO-af-ZxF" secondAttribute="trailingMargin" id="8Lf-fq-HYA"/>
+                            <constraint firstAttribute="trailing" secondItem="dPw-1x-bwV" secondAttribute="trailing" id="Q0g-vQ-hqZ"/>
+                            <constraint firstItem="hXo-ro-bBD" firstAttribute="top" secondItem="cLU-yI-2UA" secondAttribute="bottom" constant="8" symbolic="YES" id="dJz-mO-WRt"/>
+                            <constraint firstItem="dPw-1x-bwV" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leading" id="fcs-Wp-aEn"/>
+                            <constraint firstItem="cLU-yI-2UA" firstAttribute="top" secondItem="dPw-1x-bwV" secondAttribute="bottom" constant="8" symbolic="YES" id="icV-2o-9ya"/>
+                            <constraint firstItem="cLU-yI-2UA" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" id="xQt-vr-jD6"/>
+                            <constraint firstItem="dPw-1x-bwV" firstAttribute="top" secondItem="FDb-eg-zdM" secondAttribute="bottom" id="z7b-oe-mCs"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="dPw-1x-bwV" id="cC7-OB-E1d"/>
+                        <segue destination="oqg-eQ-tw1" kind="show" identifier="ShowCheckpointCreate" id="uIV-Ho-9gX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBF-sd-dAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2589" y="349"/>
+        </scene>
+        <!--Checkpoint Creator View Controller-->
+        <scene sceneID="6cF-78-Xmi">
+            <objects>
+                <viewController id="oqg-eQ-tw1" customClass="CheckpointCreatorViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HvH-oD-daM"/>
+                        <viewControllerLayoutGuide type="bottom" id="iPL-x9-R2E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5QO-CK-6H4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rbK-Yy-8ZF">
+                                <rect key="frame" x="16" y="94" width="204" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ms5-jr-tVk">
+                                <rect key="frame" x="16" y="160" width="204" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Blc-Mo-nWo">
+                                <rect key="frame" x="16" y="232" width="204" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeU-nN-F3K">
+                                <rect key="frame" x="49" y="72" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Long" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTD-cc-jLl">
+                                <rect key="frame" x="97" y="203" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7U-xt-mE5">
+                                <rect key="frame" x="97" y="268" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-Xo-16Y">
+                                <rect key="frame" x="102" y="132" width="25" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter a Clue" translatesAutoresizingMaskIntoConstraints="NO" id="NFl-Ek-Dxp">
+                                <rect key="frame" x="7" y="310" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="clueTextView" destination="NFl-Ek-Dxp" id="hiS-Xq-vbB"/>
+                        <outlet property="latitudeInputField" destination="Ms5-jr-tVk" id="EOA-5C-JoO"/>
+                        <outlet property="locationNameTextField" destination="rbK-Yy-8ZF" id="sT5-y0-wrj"/>
+                        <outlet property="longitudeInputField" destination="Blc-Mo-nWo" id="JmQ-bq-Q13"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nP0-rG-uLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3312" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eao-Sw-jii">

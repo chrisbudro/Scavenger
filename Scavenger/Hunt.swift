@@ -10,17 +10,13 @@ import Foundation
 import Parse
 
 class Hunt: PFObject {
-  let name: String
-  let changeDate: NSDate!
-  let huntDescription: String
-  var checkpoints = [CheckPoint]()
+  @NSManaged var name: String
+  @NSManaged var huntDescription: String
+  @NSManaged var checkpoints: [Checkpoint]
   
-  init(name: String, creatorName: String, huntDescription: String) {
-    self.name = name
-    self.changeDate = NSDate()
-    self.huntDescription = huntDescription
-    
+  override init() {
     super.init()
+    checkpoints = [Checkpoint]()
   }
 }
 
@@ -28,27 +24,18 @@ extension Hunt: PFSubclassing {
   static func parseClassName() -> String {
     return "Hunt"
   }
-  
-  override class func initialize() {
-    struct Static {
-      static var onceToken: dispatch_once_t = 0
-    }
-    dispatch_once(&Static.onceToken) {
-      self.registerSubclass()
-    }
-  }
 }
 
-//extension Hunt: Printable {
-//  override var description: String {
-//    return "(\(name), \(creatorName), \(changeDate))"
-//  }
-//}
-//extension Hunt: Hashable {
-//  var hashValue: Int {
-//    return "\(creatorName)\(changeDate)".hashValue
-//  }
-//}
-//func == (lhs: Hunt, rhs: Hunt) -> Bool {
-//  return (lhs.creatorName == rhs.creatorName) && (lhs.changeDate == rhs.changeDate)
-//}
+extension Hunt: Printable {
+  override var description: String {
+    return "(\(name), \(huntDescription))"
+  }
+}
+extension Hunt: Hashable {
+  override var hashValue: Int {
+    return "\(name)\(huntDescription)".hashValue
+  }
+}
+func == (lhs: Hunt, rhs: Hunt) -> Bool {
+  return (lhs.name == rhs.name) && (lhs.huntDescription == rhs.huntDescription)
+}
