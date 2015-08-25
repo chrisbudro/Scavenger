@@ -58,14 +58,14 @@ class HuntPlayerViewController: UIViewController {
 // MARK: UITableViewDataSource
 extension HuntPlayerViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if let count = hunt?.checkpoints.count {
+    if let count = hunt?.getCheckpoints().count {
       return count
     }
     return 0
   }
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("CheckpointCell", forIndexPath: indexPath) as! CheckpointCell
-    cell.checkPoint = hunt?.checkpoints[indexPath.row]
+    cell.checkPoint = hunt?.getCheckpoints()[indexPath.row]
     return cell
   }
 }

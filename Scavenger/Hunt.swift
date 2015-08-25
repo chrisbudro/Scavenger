@@ -12,11 +12,23 @@ import Parse
 class Hunt: PFObject {
   @NSManaged var name: String
   @NSManaged var huntDescription: String
-  @NSManaged var checkpoints: [Checkpoint]
+  @NSManaged private var checkpoints: [Checkpoint]?
   
-  override init() {
-    super.init()
-    checkpoints = [Checkpoint]()
+//  override init() {
+//    super.init()
+//  }
+  
+  func getCheckpoints() -> [Checkpoint] {
+    if let checkpoints = checkpoints {
+      return checkpoints
+    } else {
+      return [Checkpoint]()
+    }
+//    return (checkpoints != nil) ? [Checkpoint]() : checkpoints
+  }
+  
+  func addCheckpoint(checkpoint: Checkpoint) {
+    checkpoints?.append(checkpoint)
   }
 }
 

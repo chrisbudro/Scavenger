@@ -12,5 +12,13 @@ class HuntCell: UICollectionViewCell {
 
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var huntLabel: UILabel!
+  var hunt: Hunt! {
+    didSet {
+      updateUI()
+    }
+  }
   
+  func updateUI() {
+    huntLabel.text = hunt.name
+  }
 }

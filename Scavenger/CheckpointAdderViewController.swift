@@ -73,13 +73,13 @@ class CheckpointAdderViewController: UIViewController {
 //MARK: Table View Data Source
 extension CheckpointAdderViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return hunt.checkpoints.count
+    return hunt.getCheckpoints().count
   }
 
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath) as! CheckpointCell
-    let checkpoint = hunt.checkpoints[indexPath.row]
+    let checkpoint = hunt.getCheckpoints()[indexPath.row]
     cell.checkPoint = checkpoint
     
     return cell
@@ -96,7 +96,7 @@ extension CheckpointAdderViewController: UITableViewDelegate {
 extension CheckpointAdderViewController: CheckpointCreatorDelegate {
   func checkpointCreatorDidSaveCheckpoint(checkpoint: Checkpoint) {
     
-    hunt.checkpoints.append(checkpoint)
+    hunt.addCheckpoint(checkpoint)
     hunt.saveInBackgroundWithBlock { (success, error) -> Void in
       if let error = error {
         let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: "Unable to save hunt", handler: nil)

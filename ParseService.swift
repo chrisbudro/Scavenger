@@ -24,8 +24,7 @@ class ParseService {
       }
     }
   }
-
-
+  
   class func loadHunts(completion: (hunts: [Hunt]?, error: String?) -> Void) {
     if let query = Hunt.query() {
       query.findObjectsInBackgroundWithBlock { (hunts, error) in
@@ -64,7 +63,7 @@ class ParseService {
   }
   
   class func fetchCheckpointsForHunt(hunt: Hunt, sortOrder: SortOrder, completion: ([Checkpoint]?, error: String?) -> Void) {
-    PFObject.fetchAllIfNeededInBackground(hunt.checkpoints) { (checkpoints, error) -> Void in
+    PFObject.fetchAllIfNeededInBackground(hunt.getCheckpoints()) { (checkpoints, error) -> Void in
       if let error = error {
         completion(nil, error: error.description)
       } else if let checkpoints = checkpoints as? [Checkpoint] {
