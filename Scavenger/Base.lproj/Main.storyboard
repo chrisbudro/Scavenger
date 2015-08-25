@@ -41,17 +41,17 @@
                     <connections>
                         <outlet property="huntNameLabel" destination="LYc-su-LAt" id="Fog-Xg-qpL"/>
                         <outlet property="tableView" destination="emj-L2-Piu" id="riV-9f-FBO"/>
-                        <segue destination="Iw5-Sv-CYR" kind="presentation" identifier="showParticipantMap" id="UvG-xu-8KZ"/>
+                        <segue destination="Iw5-Sv-CYR" kind="presentation" identifier="showPlayerMap" id="UvG-xu-8KZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nh4-cB-uvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="447" y="992"/>
         </scene>
-        <!--Participant Map View Controller-->
+        <!--Player Map View Controller-->
         <scene sceneID="49G-RC-P5P">
             <objects>
-                <viewController id="Iw5-Sv-CYR" customClass="ParticipantMapViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Iw5-Sv-CYR" customClass="PlayerMapViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SyQ-Kl-RxF"/>
                         <viewControllerLayoutGuide type="bottom" id="r96-9C-Zd3"/>

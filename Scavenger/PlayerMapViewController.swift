@@ -1,5 +1,5 @@
 //
-//  ParticipantMapViewController.swift
+//  PlayerMapViewController.swift
 //  Scavenger
 //
 //  Created by Sarah Hermanns on 8/25/15.
@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ParticipantMapViewController: UIViewController, MKMapViewDelegate {
+class PlayerMapViewController: UIViewController, MKMapViewDelegate {
 
   @IBOutlet weak var mapView: MKMapView! {
     didSet {

@@ -55,7 +55,7 @@ class HuntDetailViewController: UIViewController {
   }
   
   func mapPressed () {
-    performSegueWithIdentifier("showParticipantMap", sender: self)
+    performSegueWithIdentifier("showPlayerMap", sender: self)
   }
   
   // MARK: Private Helper Methods
