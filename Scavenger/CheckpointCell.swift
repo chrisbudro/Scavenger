@@ -1,5 +1,5 @@
 //
-//  HuntDetailCell.swift
+//  CheckpointCell.swift
 //  Scavenger
 //
 //  Created by Sarah Hermanns on 8/24/15.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class HuntDetailCell: UITableViewCell {
+class CheckpointCell: UITableViewCell {
 
   // MARK: Public Properties
-  var checkPoint: CheckPoint? {
+  var checkPoint: Checkpoint? {
     didSet {
       updateUI()
     }

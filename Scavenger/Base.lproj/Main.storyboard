@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Hunt Detail View Controller-->
+        <!--Hunt Player View Controller-->
         <scene sceneID="XSN-ng-Qpu">
             <objects>
-                <viewController id="JHu-LF-OrN" customClass="HuntDetailViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JHu-LF-OrN" customClass="HuntPlayerViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sTk-C7-s9y"/>
                         <viewControllerLayoutGuide type="bottom" id="avy-2M-LEN"/>
@@ -24,7 +24,7 @@
                                     <rect key="frame" x="0.0" y="-21" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </tableView>
@@ -50,7 +50,7 @@
         <!--Scavenger-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HuntViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HuntListViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -85,7 +85,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zow-uo-8Il">
                                                     <rect key="frame" x="21" y="103" width="59" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -120,7 +120,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Scavenger" id="bpO-ly-jjw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NNT-AC-iwB" customClass="HuntView">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NNT-AC-iwB">
                             <connections>
                                 <segue destination="7k3-6e-3R5" kind="show" identifier="showHuntCreation" id="xLO-nH-5Ra"/>
                             </connections>
@@ -134,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="1104" y="349"/>
         </scene>
-        <!--Hunt Creation View Controller-->
+        <!--Hunt Creator View Controller-->
         <scene sceneID="14c-is-x8Z">
             <objects>
-                <viewController id="7k3-6e-3R5" customClass="HuntCreationViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7k3-6e-3R5" customClass="HuntCreatorViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HYX-cn-gqN"/>
                         <viewControllerLayoutGuide type="bottom" id="oET-K1-1xw"/>
@@ -236,10 +236,10 @@
             </objects>
             <point key="canvasLocation" x="2589" y="349"/>
         </scene>
-        <!--Checkpoint Create View Controller-->
+        <!--Checkpoint Creator View Controller-->
         <scene sceneID="6cF-78-Xmi">
             <objects>
-                <viewController id="oqg-eQ-tw1" customClass="CheckpointCreateViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oqg-eQ-tw1" customClass="CheckpointCreatorViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HvH-oD-daM"/>
                         <viewControllerLayoutGuide type="bottom" id="iPL-x9-R2E"/>
@@ -266,25 +266,25 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeU-nN-F3K">
                                 <rect key="frame" x="49" y="72" width="117" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Long" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTD-cc-jLl">
                                 <rect key="frame" x="97" y="203" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7U-xt-mE5">
                                 <rect key="frame" x="97" y="268" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-Xo-16Y">
                                 <rect key="frame" x="102" y="132" width="25" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter a Clue" translatesAutoresizingMaskIntoConstraints="NO" id="NFl-Ek-Dxp">

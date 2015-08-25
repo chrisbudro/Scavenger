@@ -1,5 +1,5 @@
 //
-//  CheckPoint.swift
+//  Checkpoint.swift
 //  Scavenger
 //
 //  Created by mike davis on 8/24/15.
@@ -9,31 +9,31 @@
 import Foundation
 import Parse
 
-class CheckPoint: PFObject {
+class Checkpoint: PFObject {
   @NSManaged var locationName: String
   @NSManaged var location: PFGeoPoint
   @NSManaged var clue: String
 }
 
-extension CheckPoint: PFSubclassing {
+extension Checkpoint: PFSubclassing {
   static func parseClassName() -> String {
-    return "CheckPoint"
+    return "Checkpoint"
   }
 }
 
 
-extension CheckPoint: Printable {
+extension Checkpoint: Printable {
   override var description: String {
     return "(\(locationName),\(clue))"
   }
 }
-extension CheckPoint: Hashable {
+extension Checkpoint: Hashable {
   override var hashValue: Int {
     return "\(locationName)".hashValue
   }
 }
 
-func == (lhs: CheckPoint, rhs: CheckPoint) -> Bool {
+func == (lhs: Checkpoint, rhs: Checkpoint) -> Bool {
   return (lhs.locationName == rhs.locationName) && (lhs.location == rhs.location)
 }
 

@@ -63,11 +63,11 @@ class ParseService {
     }
   }
   
-  class func fetchCheckpointsForHunt(hunt: Hunt, sortOrder: SortOrder, completion: ([CheckPoint]?, error: String?) -> Void) {
+  class func fetchCheckpointsForHunt(hunt: Hunt, sortOrder: SortOrder, completion: ([Checkpoint]?, error: String?) -> Void) {
     PFObject.fetchAllIfNeededInBackground(hunt.checkpoints) { (checkpoints, error) -> Void in
       if let error = error {
         completion(nil, error: error.description)
-      } else if let checkpoints = checkpoints as? [CheckPoint] {
+      } else if let checkpoints = checkpoints as? [Checkpoint] {
 
         switch sortOrder {
           case .Distance:
@@ -81,11 +81,9 @@ class ParseService {
       }
     }
   }
-  
-  
-  
-  private class func checkpointsByDistance(checkpoints: [CheckPoint], currentLocation: PFGeoPoint) -> [CheckPoint]? {
-    let sortedCheckpoints = sorted(checkpoints, { (checkpoint1: CheckPoint, checkpoint2: CheckPoint) -> Bool in
+
+  private class func checkpointsByDistance(checkpoints: [Checkpoint], currentLocation: PFGeoPoint) -> [Checkpoint]? {
+    let sortedCheckpoints = sorted(checkpoints, { (checkpoint1: Checkpoint, checkpoint2: Checkpoint) -> Bool in
       return checkpoint1.location.distanceInMilesTo(currentLocation) < checkpoint2.location.distanceInMilesTo(currentLocation)
     })
     return sortedCheckpoints

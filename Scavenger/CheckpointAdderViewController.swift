@@ -42,7 +42,7 @@ class CheckpointAdderViewController: UIViewController {
   //MARK: Navigation
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "ShowCheckpointCreate" {
-      let vc = segue.destinationViewController as! CheckpointCreateViewController
+      let vc = segue.destinationViewController as! CheckpointCreatorViewController
       vc.delegate = self
     }
   }
@@ -78,7 +78,7 @@ extension CheckpointAdderViewController: UITableViewDataSource {
 
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath) as! HuntDetailCell
+    let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath) as! CheckpointCell
     let checkpoint = hunt.checkpoints[indexPath.row]
     cell.checkPoint = checkpoint
     
@@ -93,8 +93,8 @@ extension CheckpointAdderViewController: UITableViewDelegate {
 }
 
 //MARK: Checkpoint Creation Delegate
-extension CheckpointAdderViewController: CheckpointCreationDelegate {
-  func checkpointCreatorDidSaveCheckpoint(checkpoint: CheckPoint) {
+extension CheckpointAdderViewController: CheckpointCreatorDelegate {
+  func checkpointCreatorDidSaveCheckpoint(checkpoint: Checkpoint) {
     
     hunt.checkpoints.append(checkpoint)
     hunt.saveInBackgroundWithBlock { (success, error) -> Void in

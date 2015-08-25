@@ -1,5 +1,5 @@
 //
-//  CheckpointCreateViewController.swift
+//  CheckpointCreatorViewController.swift
 //  Scavenger
 //
 //  Created by Chris Budro on 8/24/15.
@@ -9,11 +9,11 @@
 import UIKit
 import Parse
 
-protocol CheckpointCreationDelegate {
-  func checkpointCreatorDidSaveCheckpoint(checkpoint: CheckPoint)
+protocol CheckpointCreatorDelegate {
+  func checkpointCreatorDidSaveCheckpoint(checkpoint: Checkpoint)
 }
 
-class CheckpointCreateViewController: UIViewController {
+class CheckpointCreatorViewController: UIViewController {
 
   //MARK: Outlets
   @IBOutlet weak var locationNameTextField: UITextField!
@@ -22,7 +22,7 @@ class CheckpointCreateViewController: UIViewController {
   @IBOutlet weak var clueTextView: UITextView!
   
   //MARK: Properties
-  var delegate: CheckpointCreationDelegate?
+  var delegate: CheckpointCreatorDelegate?
 
   //MARK: Life Cycle
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class CheckpointCreateViewController: UIViewController {
   
   //MARK: Actions
   func saveCheckpointWasPressed() {
-    let checkpoint = CheckPoint()
+    let checkpoint = Checkpoint()
     
     //TODO: Check input validation
     checkpoint.locationName = locationNameTextField.text

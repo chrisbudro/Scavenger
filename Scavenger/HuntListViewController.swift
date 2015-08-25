@@ -1,5 +1,5 @@
 //
-//  HuntViewController.swift
+//  HuntListViewController.swift
 //  Scavenger
 //
 //  Created by Sarah Hermanns on 8/24/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HuntViewController: UIViewController {
+class HuntListViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
@@ -26,10 +26,8 @@ class HuntViewController: UIViewController {
 
 }
 
-extension HuntViewController: UICollectionViewDataSource {
-  
+extension HuntListViewController: UICollectionViewDataSource {
 
-  
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 1
   }

@@ -1,5 +1,5 @@
 //
-//  HuntDetailViewController.swift
+//  CheckpointPlayerViewController.swift
 //  Scavenger
 //
 //  Created by Sarah Hermanns on 8/24/15.
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class HuntDetailViewController: UIViewController {
+class HuntPlayerViewController: UIViewController {
   
   let navigationTitle = "Hunt (User List View)"
   
@@ -24,7 +24,7 @@ class HuntDetailViewController: UIViewController {
   @IBOutlet weak var huntNameLabel: UILabel!
   @IBOutlet weak var tableView: UITableView! {
     didSet {
-      tableView.registerNib(UINib(nibName: "HuntDetailCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "HuntDetailCell")
+      tableView.registerNib(UINib(nibName: "CheckpointCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CheckpointCell")
       tableView.dataSource = self
       //tableView.estimatedRowHeight = tableView.rowHeight
       //tableView.rowHeight = UITableViewAutomaticDimension
@@ -41,10 +41,10 @@ class HuntDetailViewController: UIViewController {
     
     // stuff some data in to test
 //    hunt = Hunt(name: "Pike Place Market, Seattle", creatorName: "mdavis", huntDescription: "A way cool hunt through Pike Place Market")
-//    let cp1 = CheckPoint(locationName: "Checkpoint 1", detail: "Enter the market from the NE corner and look for a vender selling local brands of honey. Find the fish painting nearby.", location: 180.0)
-//    let cp2 = CheckPoint(locationName: "Checkpoint 2", detail: "Choose the staircase the takes you one level below the public restrooms and find exit that faces Puget Sound. Locate a unique but very ugly statue.", location: -180.0)
-//    let cp3 = CheckPoint(locationName: "Checkpoint 3", detail: "Enter the market from the NE corner and look for a vender selling local brands of honey. Find the fish painting nearby.", location: 180.0)
-//    let cp4 = CheckPoint(locationName: "Checkpoint 4", detail: "Choose the staircase the takes you one level below the public restrooms and find exit that faces Puget Sound. Locate a unique but very ugly statue.", location: -180.0)
+//    let cp1 = Checkpoint(locationName: "Checkpoint 1", detail: "Enter the market from the NE corner and look for a vender selling local brands of honey. Find the fish painting nearby.", location: 180.0)
+//    let cp2 = Checkpoint(locationName: "Checkpoint 2", detail: "Choose the staircase the takes you one level below the public restrooms and find exit that faces Puget Sound. Locate a unique but very ugly statue.", location: -180.0)
+//    let cp3 = Checkpoint(locationName: "Checkpoint 3", detail: "Enter the market from the NE corner and look for a vender selling local brands of honey. Find the fish painting nearby.", location: 180.0)
+//    let cp4 = Checkpoint(locationName: "Checkpoint 4", detail: "Choose the staircase the takes you one level below the public restrooms and find exit that faces Puget Sound. Locate a unique but very ugly statue.", location: -180.0)
 //    hunt!.checkpoints += [cp1, cp2, cp3, cp4]
   }
   
@@ -56,7 +56,7 @@ class HuntDetailViewController: UIViewController {
 }
 
 // MARK: UITableViewDataSource
-extension HuntDetailViewController: UITableViewDataSource {
+extension HuntPlayerViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let count = hunt?.checkpoints.count {
       return count
@@ -64,7 +64,7 @@ extension HuntDetailViewController: UITableViewDataSource {
     return 0
   }
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("HuntDetailCell", forIndexPath: indexPath) as! HuntDetailCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("CheckpointCell", forIndexPath: indexPath) as! CheckpointCell
     cell.checkPoint = hunt?.checkpoints[indexPath.row]
     return cell
   }

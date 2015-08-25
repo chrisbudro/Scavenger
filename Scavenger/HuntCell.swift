@@ -9,10 +9,8 @@
 import UIKit
 
 class HuntCell: UICollectionViewCell {
-  
-  
-  @IBOutlet weak var imageView: UIImageView!
 
+  @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var huntLabel: UILabel!
   
 }

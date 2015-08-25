@@ -1,5 +1,5 @@
 //
-//  HuntCreationViewController.swift
+//  HuntCreatorViewController.swift
 //  Scavenger
 //
 //  Created by Sarah Hermanns on 8/24/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HuntCreationViewController: UIViewController {
+class HuntCreatorViewController: UIViewController {
   
   //MARK: Outlets
   @IBOutlet weak var huntName: UITextField!

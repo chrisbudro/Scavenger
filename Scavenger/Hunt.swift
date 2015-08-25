@@ -12,11 +12,11 @@ import Parse
 class Hunt: PFObject {
   @NSManaged var name: String
   @NSManaged var huntDescription: String
-  @NSManaged var checkpoints: [CheckPoint]
+  @NSManaged var checkpoints: [Checkpoint]
   
   override init() {
     super.init()
-    checkpoints = [CheckPoint]()
+    checkpoints = [Checkpoint]()
   }
 }
 
