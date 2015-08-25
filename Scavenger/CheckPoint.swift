@@ -7,30 +7,39 @@
 //
 
 import Foundation
-//import Parse
+import Parse
 
-struct CheckPoint {
-  let locationName: String
-  let location: Double?
-  let detail: String
-  
-  init(locationName: String, detail: String, location: Double?) {
-    self.locationName = locationName
-    self.location = location
-    self.detail = detail
+class CheckPoint: PFObject {
+  @NSManaged var locationName: String
+  @NSManaged var location: PFGeoPoint
+  @NSManaged var clue: String
+}
+
+extension CheckPoint: PFSubclassing {
+  static func parseClassName() -> String {
+    return "CheckPoint"
   }
 }
 
+
 extension CheckPoint: Printable {
-  var description: String {
-    return "(\(locationName),\(location),\(detail))"
+  override var description: String {
+    return "(\(locationName),\(clue))"
   }
 }
 extension CheckPoint: Hashable {
-  var hashValue: Int {
-    return "\(locationName)\(location)".hashValue
+  override var hashValue: Int {
+    return "\(locationName)".hashValue
   }
 }
+
 func == (lhs: CheckPoint, rhs: CheckPoint) -> Bool {
   return (lhs.locationName == rhs.locationName) && (lhs.location == rhs.location)
 }
+
+
+
+
+
+
+
