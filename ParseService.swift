@@ -10,6 +10,10 @@ import Foundation
 import Parse
 
 class ParseService {
+  
+  enum SortOrder {
+    case Distance
+  }
 
   class func saveHunt(hunt: Hunt, completion: (Bool, error: String?) -> Void) {
     hunt.saveInBackgroundWithBlock { (succeeded, error) in
@@ -57,5 +61,33 @@ class ParseService {
         completion(true, error: nil)
       }
     }
+  }
+  
+  class func fetchCheckpointsForHunt(hunt: Hunt, sortOrder: SortOrder, completion: ([CheckPoint]?, error: String?) -> Void) {
+    PFObject.fetchAllIfNeededInBackground(hunt.checkpoints) { (checkpoints, error) -> Void in
+      if let error = error {
+        completion(nil, error: error.description)
+      } else if let checkpoints = checkpoints as? [CheckPoint] {
+
+        switch sortOrder {
+          case .Distance:
+            //FIXME
+            let currentLocation = PFGeoPoint(latitude: 47.623390, longitude: -122.336098) //Placeholder current location
+            let sortedCheckpoints = self.checkpointsByDistance(checkpoints, currentLocation: currentLocation)
+            completion(sortedCheckpoints, error: nil)
+          default:
+            completion(checkpoints, error: nil)
+        }
+      }
+    }
+  }
+  
+  
+  
+  private class func checkpointsByDistance(checkpoints: [CheckPoint], currentLocation: PFGeoPoint) -> [CheckPoint]? {
+    let sortedCheckpoints = sorted(checkpoints, { (checkpoint1: CheckPoint, checkpoint2: CheckPoint) -> Bool in
+      return checkpoint1.location.distanceInMilesTo(currentLocation) < checkpoint2.location.distanceInMilesTo(currentLocation)
+    })
+    return sortedCheckpoints
   }
 }

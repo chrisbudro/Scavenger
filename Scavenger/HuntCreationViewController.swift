@@ -10,28 +10,48 @@ import UIKit
 
 class HuntCreationViewController: UIViewController {
   
-  @IBOutlet weak var creatorName: UITextField!
+  //MARK: Outlets
   @IBOutlet weak var huntName: UITextField!
   @IBOutlet weak var huntDetail: UITextField!
   
-  @IBAction func creatorNameDidEnd(sender: AnyObject) {
+  
+  //MARK: Lifecyle Methods
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    navigationItem.title = "Hunt Creator"
+    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancelPressed")
+    
   }
   
-  @IBAction func huntNameDidEnd(sender: AnyObject) {
-  }
-  
-  @IBAction func huntDetailDidEnd(sender: AnyObject) {
-  }
-  
-  @IBOutlet weak var tableView: UITableView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-       navigationItem.title = "Hunt Creator"
-       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancelPressed")
-      
+  //MARK: Navigation
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "ShowCheckpointAdder" {
+      let checkpointAdderVC = segue.destinationViewController as! CheckpointAdderViewController
+      if let hunt = sender as? Hunt {
+        checkpointAdderVC.hunt = hunt
+      }
     }
-
+  }
   
+  //MARK: Actions
+  @IBAction func buildHuntWasPressed() {
+    
+    let hunt = Hunt()
+    hunt.name = huntName.text
+    hunt.huntDescription = huntDetail.text
+    
+    hunt.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+      if let error = error {
+        let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: "Hunt could not be saved.  Please try again.", handler: nil)
+        self.presentViewController(alertController, animated: true, completion: nil)
+      } else if succeeded {
+        self.performSegueWithIdentifier("ShowCheckpointAdder", sender: hunt)
+      }
+    }
+  }
+  
+  func cancelWasPressed() {
+    navigationController?.popViewControllerAnimated(true)
+  }
 }

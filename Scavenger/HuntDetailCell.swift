@@ -24,6 +24,6 @@ class HuntDetailCell: UITableViewCell {
   // MARK: Private Helper Methods
   private func updateUI() {
     nameLabel?.text = checkPoint?.locationName
-    detailLabel?.text = checkPoint?.detail
+    detailLabel?.text = checkPoint?.clue
   }
 }
