@@ -8,12 +8,13 @@
 
 import Foundation
 import Parse
+import CoreLocation
 
 class Hunt: PFObject {
   @NSManaged var name: String
   @NSManaged var huntDescription: String
   @NSManaged var checkpoints: [Checkpoint]
-  
+
   override init() {
     super.init()
     checkpoints = [Checkpoint]()
