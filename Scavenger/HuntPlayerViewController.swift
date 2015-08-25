@@ -65,7 +65,7 @@ extension HuntPlayerViewController: UITableViewDataSource {
   }
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("CheckpointCell", forIndexPath: indexPath) as! CheckpointCell
-    cell.checkPoint = hunt?.checkpoints[indexPath.row]
+    cell.checkpoint = hunt?.checkpoints[indexPath.row]
     return cell
   }
 }
