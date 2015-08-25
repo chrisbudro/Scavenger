@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mmQ-4M-oqe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mmQ-4M-oqe">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -41,11 +41,44 @@
                     <connections>
                         <outlet property="huntNameLabel" destination="LYc-su-LAt" id="Fog-Xg-qpL"/>
                         <outlet property="tableView" destination="emj-L2-Piu" id="riV-9f-FBO"/>
+                        <segue destination="Iw5-Sv-CYR" kind="presentation" identifier="showPlayerMap" id="UvG-xu-8KZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nh4-cB-uvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="447" y="992"/>
+        </scene>
+        <!--Player Map View Controller-->
+        <scene sceneID="49G-RC-P5P">
+            <objects>
+                <viewController id="Iw5-Sv-CYR" customClass="PlayerMapViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SyQ-Kl-RxF"/>
+                        <viewControllerLayoutGuide type="bottom" id="r96-9C-Zd3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jeu-Fx-wQg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xRT-FC-mwl">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r96-9C-Zd3" firstAttribute="top" secondItem="xRT-FC-mwl" secondAttribute="bottom" id="9R4-St-s2o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xRT-FC-mwl" secondAttribute="trailing" constant="-16" id="kku-Yc-fhT"/>
+                            <constraint firstItem="xRT-FC-mwl" firstAttribute="top" secondItem="Jeu-Fx-wQg" secondAttribute="topMargin" id="pML-IO-bod"/>
+                            <constraint firstItem="xRT-FC-mwl" firstAttribute="leading" secondItem="Jeu-Fx-wQg" secondAttribute="leading" id="uBR-1a-9pF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="xRT-FC-mwl" id="Q9a-wO-4Qo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cc2-p8-3yz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447" y="1696"/>
         </scene>
         <!--Scavenger-->
         <scene sceneID="tne-QT-ifu">
