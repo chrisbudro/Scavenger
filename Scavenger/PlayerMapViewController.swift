@@ -35,6 +35,11 @@ class PlayerMapViewController: UIViewController, MKMapViewDelegate {
     
    
     }
+//  
+//  override func viewDidAppear(animated: Bool) {
+//    <#code#>
+//  }
+//  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

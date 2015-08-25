@@ -36,8 +36,10 @@ class HuntPlayerViewController: UIViewController {
   // MARK: Lifecycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     navigationItem.title = navigationTitle
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map", style: .Plain, target: self, action: "showPlayerMap")
+
+    
     
     // stuff some data in to test
 //    hunt = Hunt(name: "Pike Place Market, Seattle", creatorName: "mdavis", huntDescription: "A way cool hunt through Pike Place Market")
@@ -46,6 +48,10 @@ class HuntPlayerViewController: UIViewController {
 //    let cp3 = Checkpoint(locationName: "Checkpoint 3", detail: "Enter the market from the NE corner and look for a vender selling local brands of honey. Find the fish painting nearby.", location: 180.0)
 //    let cp4 = Checkpoint(locationName: "Checkpoint 4", detail: "Choose the staircase the takes you one level below the public restrooms and find exit that faces Puget Sound. Locate a unique but very ugly statue.", location: -180.0)
 //    hunt!.checkpoints += [cp1, cp2, cp3, cp4]
+  }
+  
+  func showPlayerMap(){
+    performSegueWithIdentifier("showPlayerMap", sender: self)
   }
   
   // MARK: Private Helper Methods
