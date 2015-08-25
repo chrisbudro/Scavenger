@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
     Hunt.registerSubclass()
-    CheckPoint.registerSubclass()
+    Checkpoint.registerSubclass()
     
     Parse.setApplicationId(kParseApplicationID, clientKey: kParseClientKey)
     
