@@ -11,7 +11,7 @@ import UIKit
 class CheckpointCell: UITableViewCell {
 
   // MARK: Public Properties
-  var checkPoint: Checkpoint? {
+  var checkpoint: Checkpoint? {
     didSet {
       updateUI()
     }
@@ -23,7 +23,7 @@ class CheckpointCell: UITableViewCell {
 
   // MARK: Private Helper Methods
   private func updateUI() {
-    nameLabel?.text = checkPoint?.locationName
-    detailLabel?.text = checkPoint?.clue
+    nameLabel?.text = checkpoint?.locationName
+    detailLabel?.text = checkpoint?.clue
   }
 }
