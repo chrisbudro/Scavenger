@@ -10,15 +10,20 @@ import UIKit
 
 class HuntDetailCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+  // MARK: Public Properties
+  var checkPoint: CheckPoint? {
+    didSet {
+      updateUI()
     }
+  }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+  // MARK: IBOutlets
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var detailLabel: UILabel!
 
-        // Configure the view for the selected state
-    }
-
+  // MARK: Private Helper Methods
+  private func updateUI() {
+    nameLabel?.text = checkPoint?.locationName
+    detailLabel?.text = checkPoint?.detail
+  }
 }
