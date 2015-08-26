@@ -11,6 +11,11 @@ import GoogleMaps
 
 class PlayerMapViewController: UIViewController {
   
+  enum HuntStyle {
+    case AllCheckpoints
+    case CurrentCheckpoint
+  }
+  
   //MARK: Constants
   let kMapPadding: CGFloat = 128.0
   let kRegionCircleRadius: CLLocationDistance = 750
@@ -26,6 +31,7 @@ class PlayerMapViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = hunt.name
+    showMysteryPreferenceAlert()
     
     
     mapView = GMSMapView(frame: view.frame)
@@ -38,30 +44,47 @@ class PlayerMapViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
       } else if let checkpoints = checkpoints {
         self.checkpoints = checkpoints
-        self.setAnnotationsForCheckpoints()
+        self.setAnnotationsForCheckpoints(.AllCheckpoints)
       }
     }
   }
   
   //MARK: Helper Methods
-  func setAnnotationsForCheckpoints() {
+  func showMysteryPreferenceAlert() {
+    let alertController = UIAlertController(title: "Mystery Preference", message: "Would you like to see all of your clues at once, or find them as you go?", preferredStyle: .Alert)
+    
+    alertController.addAction(UIAlertAction(title: "Show All Checkpoints", style: .Default) { (action) in
+      
+    })
+    presentViewController(alertController, animated: true, completion: nil)
+  }
+
+  func setAnnotationsForCheckpoints(huntStyle: HuntStyle) {
+    
     var path = GMSMutablePath()
     if let checkpoints = checkpoints {
       for (index, checkpoint) in enumerate(checkpoints) {
         let actualPosition = checkpoint.coreLocation.coordinate
-        let offsetPosition = randomOffset(actualPosition)
-        let circle = GMSCircle(position: offsetPosition, radius: kRegionCircleRadius)
-        circle.fillColor = kRegionCircleColor
-        circle.tappable = true
-        circle.map = mapView
-        circle.title = checkpoint.clue
-        
-        path.addCoordinate(offsetPosition)
+        if checkpoint.completed {
+          let marker = GMSMarker(position: actualPosition)
+          marker.map = mapView
+          marker.title = checkpoint.locationName
+          marker.snippet = checkpoint.clue
+        } else {
+          let offsetPosition = randomOffset(actualPosition)
+          let circle = GMSCircle(position: offsetPosition, radius: kRegionCircleRadius)
+          circle.fillColor = kRegionCircleColor
+          circle.tappable = true
+          circle.map = mapView
+          circle.title = checkpoint.clue
+          
+          path.addCoordinate(offsetPosition)
+        }
+        let bounds = GMSCoordinateBounds(path: path)
+        //      mapView.cameraForBounds(bounds, insets: UIEdgeInsets())
+        let cameraUpdate = GMSCameraUpdate.fitBounds(bounds, withPadding: kMapPadding)
+        mapView.moveCamera(cameraUpdate)
       }
-      let bounds = GMSCoordinateBounds(path: path)
-      mapView.cameraForBounds(bounds, insets: UIEdgeInsets())
-      let cameraUpdate = GMSCameraUpdate.fitBounds(bounds, withPadding: kMapPadding)
-      mapView.moveCamera(cameraUpdate)
     }
   }
   
