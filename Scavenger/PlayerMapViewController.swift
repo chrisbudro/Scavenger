@@ -35,6 +35,7 @@ class PlayerMapViewController: UIViewController, MKMapViewDelegate {
       }
     }
     
+    //Testing
     var latitude: CLLocationDegrees = 47.623718
     var longitude: CLLocationDegrees = -122.336026
     var latDelta: CLLocationDegrees = 0.01
