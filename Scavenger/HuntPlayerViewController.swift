@@ -11,67 +11,60 @@ import UIKit
 
 class HuntPlayerViewController: UIViewController {
   
-  let navigationTitle = "Hunt (User List View)"
-  
   // MARK: Public Properties
-  var hunt: Hunt? {
-    didSet {
-      updateUI()
-    }
-  }
+  var hunt: Hunt!
+  var checkpoints: [Checkpoint]?
   
   // MARK: IBOutlets, IBActions
-  @IBOutlet weak var huntNameLabel: UILabel!
-  @IBOutlet weak var tableView: UITableView! {
-    didSet {
-      tableView.registerNib(UINib(nibName: "CheckpointCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CheckpointCell")
-      tableView.dataSource = self
-      //tableView.estimatedRowHeight = tableView.rowHeight
-      //tableView.rowHeight = UITableViewAutomaticDimension
-      tableView.rowHeight = 160
-    }
-  }
+  @IBOutlet weak var tableView: UITableView!
   @IBAction func segmentedControl(sender: UISegmentedControl) {}
   
   // MARK: Lifecycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationItem.title = navigationTitle
+    navigationItem.title = hunt.name
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map", style: .Plain, target: self, action: "showPlayerMap")
 
     
+    ParseService.fetchCheckpointsForHunt(hunt, sortOrder: .Distance) { (checkpoints, error) -> Void in
+      if let error = error {
+        let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: "Could not load checkpoints", handler: nil)
+        self.presentViewController(alertController, animated: true, completion: nil)
+      } else if let checkpoints = checkpoints {
+        self.checkpoints = checkpoints
+        self.tableView.reloadData()
+      }
+    }
     
-    // stuff some data in to test
-//    hunt = Hunt(name: "Pike Place Market, Seattle", creatorName: "mdavis", huntDescription: "A way cool hunt through Pike Place Market")
-//    let cp1 = Checkpoint(locationName: "Checkpoint 1", detail: "Enter the market from the NE corner and look for a vender selling local brands of honey. Find the fish painting nearby.", location: 180.0)
-//    let cp2 = Checkpoint(locationName: "Checkpoint 2", detail: "Choose the staircase the takes you one level below the public restrooms and find exit that faces Puget Sound. Locate a unique but very ugly statue.", location: -180.0)
-//    let cp3 = Checkpoint(locationName: "Checkpoint 3", detail: "Enter the market from the NE corner and look for a vender selling local brands of honey. Find the fish painting nearby.", location: 180.0)
-//    let cp4 = Checkpoint(locationName: "Checkpoint 4", detail: "Choose the staircase the takes you one level below the public restrooms and find exit that faces Puget Sound. Locate a unique but very ugly statue.", location: -180.0)
-//    hunt!.checkpoints += [cp1, cp2, cp3, cp4]
+    tableView.registerNib(UINib(nibName: "CheckpointCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CheckpointCell")
+    tableView.dataSource = self
+    tableView.estimatedRowHeight = tableView.rowHeight
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.rowHeight = 160
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showPlayerMap" {
+      let vc = segue.destinationViewController as! PlayerMapViewController
+      vc.hunt = hunt
+    }
   }
   
   func showPlayerMap(){
     performSegueWithIdentifier("showPlayerMap", sender: self)
-  }
-  
-  // MARK: Private Helper Methods
-  private func updateUI() {
-    huntNameLabel?.text = hunt?.name
-    tableView.reloadData()
   }
 }
 
 // MARK: UITableViewDataSource
 extension HuntPlayerViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if let count = hunt?.checkpoints.count {
-      return count
-    }
-    return 0
+    
+    return checkpoints != nil ? checkpoints!.count : 0
   }
+  
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("CheckpointCell", forIndexPath: indexPath) as! CheckpointCell
-    cell.checkpoint = hunt?.checkpoints[indexPath.row]
+    cell.checkpoint = checkpoints![indexPath.row]
     return cell
   }
 }

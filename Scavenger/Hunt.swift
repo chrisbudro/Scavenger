@@ -13,11 +13,26 @@ import CoreLocation
 class Hunt: PFObject {
   @NSManaged var name: String
   @NSManaged var huntDescription: String
-  @NSManaged var checkpoints: [Checkpoint]
-
-  override init() {
-    super.init()
-    checkpoints = [Checkpoint]()
+  @NSManaged private var checkpoints: [Checkpoint]?
+  
+//  override init() {
+//    super.init()
+//  }
+  
+  func getCheckpoints() -> [Checkpoint] {
+    if let checkpoints = checkpoints {
+      return checkpoints
+    } else {
+      return [Checkpoint]()
+    }
+//    return (checkpoints != nil) ? [Checkpoint]() : checkpoints
+  }
+  
+  func addCheckpoint(checkpoint: Checkpoint) {
+    if checkpoints == nil {
+      checkpoints = [Checkpoint]()
+    }
+    checkpoints!.append(checkpoint)
   }
 }
 
