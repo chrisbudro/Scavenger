@@ -71,7 +71,7 @@ class ParseService {
 
         switch sortOrder {
           case .Distance:
-            //FIXME
+            //TODO: Replace Current location with actual current location
             let currentLocation = PFGeoPoint(latitude: 47.623390, longitude: -122.336098) //Placeholder current location
             let sortedCheckpoints = self.checkpointsByDistance(checkpoints, currentLocation: currentLocation)
             completion(sortedCheckpoints, error: nil)
