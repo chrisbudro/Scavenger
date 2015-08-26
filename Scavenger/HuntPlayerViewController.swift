@@ -16,13 +16,15 @@ class HuntPlayerViewController: UIViewController {
   var checkpoints: [Checkpoint]?
   
   // MARK: IBOutlets, IBActions
-  @IBOutlet weak var huntNameLabel: UILabel!
   @IBOutlet weak var tableView: UITableView!
   @IBAction func segmentedControl(sender: UISegmentedControl) {}
   
   // MARK: Lifecycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationItem.title = hunt.name
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map", style: .Plain, target: self, action: "showPlayerMap")
+
     
     ParseService.fetchCheckpointsForHunt(hunt, sortOrder: .Distance) { (checkpoints, error) -> Void in
       if let error = error {
@@ -36,11 +38,20 @@ class HuntPlayerViewController: UIViewController {
     
     tableView.registerNib(UINib(nibName: "CheckpointCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CheckpointCell")
     tableView.dataSource = self
-    //tableView.estimatedRowHeight = tableView.rowHeight
-    //tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = tableView.rowHeight
+    tableView.rowHeight = UITableViewAutomaticDimension
     tableView.rowHeight = 160
-    
-//    navigationItem.title = hunt.name
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showPlayerMap" {
+      let vc = segue.destinationViewController as! PlayerMapViewController
+      vc.hunt = hunt
+    }
+  }
+  
+  func showPlayerMap(){
+    performSegueWithIdentifier("showPlayerMap", sender: self)
   }
 }
 
@@ -53,7 +64,7 @@ extension HuntPlayerViewController: UITableViewDataSource {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("CheckpointCell", forIndexPath: indexPath) as! CheckpointCell
-    cell.checkPoint = hunt.getCheckpoints()[indexPath.row]
+    cell.checkpoint = checkpoints![indexPath.row]
     return cell
   }
 }

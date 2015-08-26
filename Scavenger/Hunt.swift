@@ -29,7 +29,10 @@ class Hunt: PFObject {
   }
   
   func addCheckpoint(checkpoint: Checkpoint) {
-    checkpoints?.append(checkpoint)
+    if checkpoints == nil {
+      checkpoints = [Checkpoint]()
+    }
+    checkpoints!.append(checkpoint)
   }
 }
 

@@ -80,7 +80,7 @@ extension CheckpointAdderViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath) as! CheckpointCell
     let checkpoint = hunt.getCheckpoints()[indexPath.row]
-    cell.checkPoint = checkpoint
+    cell.checkpoint = checkpoint
     
     return cell
   }
