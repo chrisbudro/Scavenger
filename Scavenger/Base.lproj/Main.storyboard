@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nh4-cB-uvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="447" y="992"/>
+            <point key="canvasLocation" x="461" y="587"/>
         </scene>
         <!--Scavenger-->
         <scene sceneID="tne-QT-ifu">
@@ -101,7 +101,6 @@
                                         <connections>
                                             <outlet property="huntLabel" destination="zow-uo-8Il" id="wmW-B4-z1u"/>
                                             <outlet property="imageView" destination="LoL-nU-EEg" id="T1b-v7-OCw"/>
-                                            <segue destination="JHu-LF-OrN" kind="show" identifier="showHuntDetail" id="3JL-Kg-3RJ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -128,6 +127,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="CJK-rf-zkc" id="7Xi-n2-JA6"/>
+                        <segue destination="JHu-LF-OrN" kind="show" identifier="showHuntDetail" id="kkm-Z2-arW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

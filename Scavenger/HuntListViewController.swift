@@ -26,6 +26,16 @@ class HuntListViewController: UIViewController {
       }
     }
   }
+  
+  //MARK: Navigation
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showHuntDetail" {
+      let vc = segue.destinationViewController as! HuntPlayerViewController
+      if let hunt = sender as? Hunt {
+        vc.hunt = hunt
+      }
+    }
+  }
 }
 
 extension HuntListViewController: UICollectionViewDataSource {
@@ -42,5 +52,11 @@ extension HuntListViewController: UICollectionViewDataSource {
   
     return cell
   }
-  
+}
+
+extension HuntListViewController: UICollectionViewDelegate {
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    let hunt = hunts[indexPath.row]
+    performSegueWithIdentifier("showHuntDetail", sender: hunt)
+  }
 }
