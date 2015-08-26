@@ -146,7 +146,7 @@
                     <navigationItem key="navigationItem" title="Scavenger" id="bpO-ly-jjw">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NNT-AC-iwB">
                             <connections>
-                                <segue destination="7k3-6e-3R5" kind="show" identifier="showHuntCreation" id="xLO-nH-5Ra"/>
+                                <segue destination="fDy-00-fcl" kind="show" identifier="showHuntCreation" id="cJ2-Yg-E5S"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -171,12 +171,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your hunt here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mth-Ob-IEj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your hunt here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mth-Ob-IEj">
                                 <rect key="frame" x="16" y="110" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Describe your hunt here without giving too much away" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OPk-p1-gqz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Describe your hunt here without giving too much away" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OPk-p1-gqz">
                                 <rect key="frame" x="16" y="148" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -206,12 +206,11 @@
                     <connections>
                         <outlet property="huntDetail" destination="OPk-p1-gqz" id="i03-8u-tka"/>
                         <outlet property="huntName" destination="Mth-Ob-IEj" id="03T-Vl-KiN"/>
-                        <segue destination="fDy-00-fcl" kind="show" identifier="ShowCheckpointAdder" id="BN9-UR-epf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tD6-CT-eWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1841" y="349"/>
+            <point key="canvasLocation" x="1838" y="1156"/>
         </scene>
         <!--Checkpoint Adder View Controller-->
         <scene sceneID="Y0s-kT-5Mk">
@@ -226,11 +225,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dPw-1x-bwV">
-                                <rect key="frame" x="0.0" y="64" width="600" height="446"/>
+                                <rect key="frame" x="0.0" y="164" width="600" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLU-yI-2UA">
-                                <rect key="frame" x="16" y="518" width="568" height="30"/>
+                                <rect key="frame" x="16" y="562" width="568" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Add a Checkpoint">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -240,26 +239,46 @@
                                     <action selector="addCheckpointWasPressed" destination="fDy-00-fcl" eventType="touchUpInside" id="Zbx-Lj-Xb5"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name Your Hunt Here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EzI-z2-BjE">
+                                <rect key="frame" x="16" y="80" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Briefly Describe Your Hunt here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bE5-N6-ZJz">
+                                <rect key="frame" x="16" y="118" width="568" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bE5-N6-ZJz" firstAttribute="top" secondItem="EzI-z2-BjE" secondAttribute="bottom" constant="8" id="1RQ-HN-bGK"/>
                             <constraint firstItem="cLU-yI-2UA" firstAttribute="trailing" secondItem="NOO-af-ZxF" secondAttribute="trailingMargin" id="8Lf-fq-HYA"/>
-                            <constraint firstAttribute="trailing" secondItem="dPw-1x-bwV" secondAttribute="trailing" id="Q0g-vQ-hqZ"/>
+                            <constraint firstItem="dPw-1x-bwV" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" constant="-16" id="FNe-sh-Cjg"/>
+                            <constraint firstItem="dPw-1x-bwV" firstAttribute="top" secondItem="bE5-N6-ZJz" secondAttribute="bottom" constant="16" id="FUX-Zk-uI4"/>
+                            <constraint firstItem="EzI-z2-BjE" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" id="Nfo-sJ-Qxx"/>
+                            <constraint firstItem="bE5-N6-ZJz" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" id="VQ4-BD-AIY"/>
+                            <constraint firstItem="cLU-yI-2UA" firstAttribute="top" secondItem="dPw-1x-bwV" secondAttribute="bottom" constant="8" id="VQT-Mh-eTA"/>
                             <constraint firstItem="hXo-ro-bBD" firstAttribute="top" secondItem="cLU-yI-2UA" secondAttribute="bottom" constant="8" symbolic="YES" id="dJz-mO-WRt"/>
-                            <constraint firstItem="dPw-1x-bwV" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leading" id="fcs-Wp-aEn"/>
-                            <constraint firstItem="cLU-yI-2UA" firstAttribute="top" secondItem="dPw-1x-bwV" secondAttribute="bottom" constant="8" symbolic="YES" id="icV-2o-9ya"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dPw-1x-bwV" secondAttribute="trailing" constant="-16" id="f06-IH-qxp"/>
+                            <constraint firstItem="bE5-N6-ZJz" firstAttribute="trailing" secondItem="NOO-af-ZxF" secondAttribute="trailingMargin" id="iZR-VJ-tEx"/>
+                            <constraint firstItem="EzI-z2-BjE" firstAttribute="top" secondItem="FDb-eg-zdM" secondAttribute="bottom" constant="16" id="nJL-FZ-KIi"/>
                             <constraint firstItem="cLU-yI-2UA" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" id="xQt-vr-jD6"/>
-                            <constraint firstItem="dPw-1x-bwV" firstAttribute="top" secondItem="FDb-eg-zdM" secondAttribute="bottom" id="z7b-oe-mCs"/>
+                            <constraint firstItem="EzI-z2-BjE" firstAttribute="trailing" secondItem="NOO-af-ZxF" secondAttribute="trailingMargin" id="xlm-6K-bPN"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="huntDetail" destination="bE5-N6-ZJz" id="SLp-QV-jgl"/>
+                        <outlet property="huntName" destination="EzI-z2-BjE" id="7IB-Pc-AuZ"/>
                         <outlet property="tableView" destination="dPw-1x-bwV" id="cC7-OB-E1d"/>
-                        <segue destination="oqg-eQ-tw1" kind="show" identifier="ShowCheckpointCreate" id="uIV-Ho-9gX"/>
+                        <segue destination="oqg-eQ-tw1" kind="show" identifier="ShowCheckpointModify" id="uIV-Ho-9gX"/>
+                        <segue destination="oqg-eQ-tw1" kind="show" identifier="ShowCheckpointCreate" id="uSR-6C-JFp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBF-sd-dAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2589" y="349"/>
+            <point key="canvasLocation" x="1941" y="349"/>
         </scene>
         <!--Checkpoint Creator View Controller-->
         <scene sceneID="6cF-78-Xmi">
@@ -330,7 +349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nP0-rG-uLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3312" y="349"/>
+            <point key="canvasLocation" x="2686" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eao-Sw-jii">
@@ -351,4 +370,7 @@
             <point key="canvasLocation" x="279" y="-356"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="uSR-6C-JFp"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -23,39 +23,53 @@ class CheckpointCreatorViewController: UIViewController {
   
   //MARK: Properties
   var delegate: CheckpointCreatorDelegate?
+  var checkpoint: Checkpoint? {
+    didSet {
+      updateUI()
+    }
+  }
+  private func updateUI() {
+    locationNameTextField?.text = checkpoint?.locationName
+    latitudeInputField?.text = "/(checkpoint?.location.latitude)"
+    longitudeInputField?.text = "/(checkpoint?.location.longitude)"
+    clueTextView?.text = checkpoint?.clue
+  }
 
   //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-      let saveButton = UIBarButtonItem(title: "Save Checkpoint", style: .Done, target: self, action: "saveCheckpointWasPressed")
-      navigationItem.rightBarButtonItem = saveButton
-      
-      let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelWasPressed")
-      navigationItem.leftBarButtonItem = cancelButton
+            let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelWasPressed")
+      navigationItem.rightBarButtonItem = cancelButton
     }
   
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    saveCheckpoint()
+  }
+  
   //MARK: Actions
-  func saveCheckpointWasPressed() {
-    let checkpoint = Checkpoint()
+  func saveCheckpoint() {
     
     //TODO: Check input validation
-    checkpoint.locationName = locationNameTextField.text
-    checkpoint.clue = clueTextView.text
-    if let
-      latitude = latitudeInputField.text.toDouble(),
-      longitude = longitudeInputField.text.toDouble() {
-        let geoPoint = PFGeoPoint(latitude: latitude, longitude: longitude)
-        checkpoint.location = geoPoint
-    }
-    
-    checkpoint.saveInBackgroundWithBlock { (success, error) -> Void in
-      if let error = error {
-        let alert = ErrorAlertHandler.errorAlertWithPrompt(error: "There was an error saving your checkpoint.  Please try again", handler: nil)
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-      } else if success {
-        self.delegate?.checkpointCreatorDidSaveCheckpoint(checkpoint)
-        self.navigationController?.popViewControllerAnimated(true)
+    if let checkpoint = checkpoint {
+      checkpoint.locationName = locationNameTextField.text
+      checkpoint.clue = clueTextView.text
+      if let
+        latitude = latitudeInputField.text.toDouble(),
+        longitude = longitudeInputField.text.toDouble() {
+          let geoPoint = PFGeoPoint(latitude: latitude, longitude: longitude)
+          checkpoint.location = geoPoint
+      }
+      
+      checkpoint.saveInBackgroundWithBlock { (success, error) -> Void in
+        if let error = error {
+          let alert = ErrorAlertHandler.errorAlertWithPrompt(error: "There was an error saving your checkpoint.  Please try again", handler: nil)
+          self.presentViewController(alert, animated: true, completion: nil)
+          
+        } else if success {
+          self.delegate?.checkpointCreatorDidSaveCheckpoint(checkpoint)
+          //        self.navigationController?.popViewControllerAnimated(true)
+        }
       }
     }
   }

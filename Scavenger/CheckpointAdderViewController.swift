@@ -11,6 +11,9 @@ import Parse
 
 class CheckpointAdderViewController: UIViewController {
   
+  @IBOutlet weak var huntName: UITextField!
+  @IBOutlet weak var huntDetail: UITextField!
+  
   //MARK: Constants
   let kCellIdentifier = "CheckpointCell"
   let kCellNibName = "CheckpointCell"
@@ -19,31 +22,51 @@ class CheckpointAdderViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   //MARK: Properties
-  var hunt: Hunt!
-  
+  var hunt: Hunt? {
+    didSet {
+      updateUI()
+    }
+  }
+  private func updateUI() {
+    huntName?.text = hunt?.name
+    huntDetail?.text = hunt?.huntDescription
+    navigationItem.title = hunt?.name
+    tableView?.reloadData()
+  }
+
   //MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.estimatedRowHeight = 70
+    tableView.estimatedRowHeight = tableView.rowHeight
     tableView.rowHeight = UITableViewAutomaticDimension
     
-    let saveButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveButtonWasPressed")
-    navigationItem.rightBarButtonItem = saveButton
+//    let saveButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveButtonWasPressed")
+//    navigationItem.rightBarButtonItem = saveButton
     
     let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelWasPressed")
-    navigationItem.leftBarButtonItem = cancelButton
+    navigationItem.rightBarButtonItem = cancelButton
     
     tableView.registerNib(UINib(nibName: kCellNibName, bundle: nil), forCellReuseIdentifier: kCellIdentifier)
   }
   
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    saveHunt()
+  }
+  
   //MARK: Navigation
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "ShowCheckpointCreate" {
-      let vc = segue.destinationViewController as! CheckpointCreatorViewController
+    if segue.identifier == "ShowCheckpointCreate", let vc = segue.destinationViewController as? CheckpointCreatorViewController {
       vc.delegate = self
+      vc.checkpoint = Checkpoint()
+    } else if segue.identifier == "ShowCheckpointModify" {
+      if let vc = segue.destinationViewController as? CheckpointCreatorViewController, indexPath = tableView.indexPathForSelectedRow(), hunt = hunt {
+        vc.delegate = self
+        vc.checkpoint = hunt.getCheckpoints()[indexPath.row]
+      }
     }
   }
   
@@ -52,20 +75,26 @@ class CheckpointAdderViewController: UIViewController {
     performSegueWithIdentifier("ShowCheckpointCreate", sender: nil)
   }
   
-  func saveButtonWasPressed() {
-    ParseService.saveHunt(hunt) { (succeeded, error) -> Void in
-      if let error = error where !succeeded {
-        let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: error, handler: nil)
-        self.presentViewController(alertController, animated: true, completion: nil)
-      } else if succeeded {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+  private func saveHunt() {
+    
+    if let hunt = hunt {
+      hunt.name = huntName.text
+      hunt.huntDescription = huntDetail.text
+
+      ParseService.saveHunt(hunt) { (succeeded, error) -> Void in
+        if let error = error where !succeeded {
+          let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: error, handler: nil)
+          self.presentViewController(alertController, animated: true, completion: nil)
+        } else if succeeded {
+          //        self.navigationController?.popToRootViewControllerAnimated(true)
+        }
       }
     }
   }
   
   func cancelWasPressed() {
 
-    hunt.deleteEventually()
+//    hunt.deleteEventually()
     navigationController?.popViewControllerAnimated(true)
   }
 }
@@ -73,22 +102,28 @@ class CheckpointAdderViewController: UIViewController {
 //MARK: Table View Data Source
 extension CheckpointAdderViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return hunt.getCheckpoints().count
+    if let hunt = hunt {
+      return hunt.getCheckpoints().count
+    }
+    return 0
   }
 
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath) as! CheckpointCell
-    let checkpoint = hunt.getCheckpoints()[indexPath.row]
-    cell.checkpoint = checkpoint
-    
+    if let hunt = hunt {
+      let checkpoint = hunt.getCheckpoints()[indexPath.row]
+      cell.checkpoint = checkpoint
+    }
     return cell
   }
 }
 
 //MARK: Table View Delegate
 extension CheckpointAdderViewController: UITableViewDelegate {
-  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+     performSegueWithIdentifier("ShowCheckpointModify", sender: nil)
+  }
   
 }
 
@@ -96,13 +131,15 @@ extension CheckpointAdderViewController: UITableViewDelegate {
 extension CheckpointAdderViewController: CheckpointCreatorDelegate {
   func checkpointCreatorDidSaveCheckpoint(checkpoint: Checkpoint) {
     
-    hunt.addCheckpoint(checkpoint)
-    hunt.saveInBackgroundWithBlock { (success, error) -> Void in
-      if let error = error {
-        let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: "Unable to save hunt", handler: nil)
-        self.presentViewController(alertController, animated: true, completion: nil)
+    if let hunt = hunt {
+      hunt.addCheckpoint(checkpoint)
+      hunt.saveInBackgroundWithBlock { (success, error) -> Void in
+        if let error = error {
+          let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: "Unable to save hunt", handler: nil)
+          self.presentViewController(alertController, animated: true, completion: nil)
+        }
       }
+      tableView.reloadData()
     }
-    tableView.reloadData()
   }
 }
