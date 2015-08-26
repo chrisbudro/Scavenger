@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import CoreLocation
 
 class Hunt: PFObject {
   @NSManaged var name: String

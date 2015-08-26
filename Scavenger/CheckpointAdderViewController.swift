@@ -12,8 +12,8 @@ import Parse
 class CheckpointAdderViewController: UIViewController {
   
   //MARK: Constants
-  let kCellIdentifier = "HuntDetailCell"
-  let kCellNibName = "HuntDetailCell"
+  let kCellIdentifier = "CheckpointCell"
+  let kCellNibName = "CheckpointCell"
   
   //MARK: Outlets
   @IBOutlet weak var tableView: UITableView!
