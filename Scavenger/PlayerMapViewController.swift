@@ -32,7 +32,7 @@ class PlayerMapViewController: UIViewController {
     navigationItem.title = hunt.name
     
     if hunt.huntStyle == nil {
-      showMysteryPreferenceAlert()
+//      showMysteryPreferenceAlert()
     }
     
     let completeCheckpointButton = UIBarButtonItem(title: "Check In", style: .Done, target: self, action: "completeCheckpoint")
