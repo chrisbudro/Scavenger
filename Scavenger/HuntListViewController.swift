@@ -16,6 +16,7 @@ class HuntListViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     ParseService.loadHunts { (hunts, error) -> Void in
       if let error = error {
         let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: error, handler: nil)
@@ -24,6 +25,13 @@ class HuntListViewController: UIViewController {
         self.hunts = hunts
         self.collectionView.reloadData()
       }
+    }
+    
+    let locationService = AppDelegate.Location.Service
+    if let error = locationService.isAuthorized() {
+      println("Core Location Services Not Ready. \(error.localizedDescription)")
+    } else {
+      println("Core Location Services Ready.")
     }
   }
   
