@@ -245,10 +245,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dPw-1x-bwV">
-                                <rect key="frame" x="0.0" y="164" width="600" height="390"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLU-yI-2UA">
                                 <rect key="frame" x="16" y="562" width="568" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -271,19 +267,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2Zb-TZ-HZ8">
+                                <rect key="frame" x="0.0" y="156" width="600" height="398"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bE5-N6-ZJz" firstAttribute="top" secondItem="EzI-z2-BjE" secondAttribute="bottom" constant="8" id="1RQ-HN-bGK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Zb-TZ-HZ8" secondAttribute="trailing" constant="-16" id="2Mv-k9-GOB"/>
                             <constraint firstItem="cLU-yI-2UA" firstAttribute="trailing" secondItem="NOO-af-ZxF" secondAttribute="trailingMargin" id="8Lf-fq-HYA"/>
-                            <constraint firstItem="dPw-1x-bwV" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" constant="-16" id="FNe-sh-Cjg"/>
-                            <constraint firstItem="dPw-1x-bwV" firstAttribute="top" secondItem="bE5-N6-ZJz" secondAttribute="bottom" constant="16" id="FUX-Zk-uI4"/>
+                            <constraint firstItem="2Zb-TZ-HZ8" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" constant="-16" id="BOR-Xc-QQ6"/>
+                            <constraint firstItem="cLU-yI-2UA" firstAttribute="top" secondItem="2Zb-TZ-HZ8" secondAttribute="bottom" constant="8" id="EBc-XM-KIb"/>
                             <constraint firstItem="EzI-z2-BjE" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" id="Nfo-sJ-Qxx"/>
                             <constraint firstItem="bE5-N6-ZJz" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" id="VQ4-BD-AIY"/>
-                            <constraint firstItem="cLU-yI-2UA" firstAttribute="top" secondItem="dPw-1x-bwV" secondAttribute="bottom" constant="8" id="VQT-Mh-eTA"/>
                             <constraint firstItem="hXo-ro-bBD" firstAttribute="top" secondItem="cLU-yI-2UA" secondAttribute="bottom" constant="8" symbolic="YES" id="dJz-mO-WRt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dPw-1x-bwV" secondAttribute="trailing" constant="-16" id="f06-IH-qxp"/>
                             <constraint firstItem="bE5-N6-ZJz" firstAttribute="trailing" secondItem="NOO-af-ZxF" secondAttribute="trailingMargin" id="iZR-VJ-tEx"/>
+                            <constraint firstItem="2Zb-TZ-HZ8" firstAttribute="top" secondItem="bE5-N6-ZJz" secondAttribute="bottom" constant="8" id="jQ7-Dc-fsA"/>
                             <constraint firstItem="EzI-z2-BjE" firstAttribute="top" secondItem="FDb-eg-zdM" secondAttribute="bottom" constant="16" id="nJL-FZ-KIi"/>
                             <constraint firstItem="cLU-yI-2UA" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" id="xQt-vr-jD6"/>
                             <constraint firstItem="EzI-z2-BjE" firstAttribute="trailing" secondItem="NOO-af-ZxF" secondAttribute="trailingMargin" id="xlm-6K-bPN"/>
@@ -292,7 +292,7 @@
                     <connections>
                         <outlet property="huntDetail" destination="bE5-N6-ZJz" id="SLp-QV-jgl"/>
                         <outlet property="huntName" destination="EzI-z2-BjE" id="7IB-Pc-AuZ"/>
-                        <outlet property="tableView" destination="dPw-1x-bwV" id="cC7-OB-E1d"/>
+                        <outlet property="tableView" destination="2Zb-TZ-HZ8" id="Cxy-Ip-ARE"/>
                         <segue destination="oqg-eQ-tw1" kind="show" identifier="ShowCheckpointModify" id="uIV-Ho-9gX"/>
                         <segue destination="oqg-eQ-tw1" kind="show" identifier="ShowCheckpointCreate" id="uSR-6C-JFp"/>
                     </connections>

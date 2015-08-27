@@ -40,7 +40,7 @@ class CheckpointAdderViewController: UIViewController {
     
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.estimatedRowHeight = tableView.rowHeight
+    tableView.estimatedRowHeight = 70
     tableView.rowHeight = UITableViewAutomaticDimension
     
 //    let saveButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveButtonWasPressed")
