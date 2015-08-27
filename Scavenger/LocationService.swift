@@ -44,7 +44,7 @@ class LocationService: NSObject {
       //println("authorization denied")
       break
     case CLAuthorizationStatus.NotDetermined:
-      println("authorization not determined")
+      //println("authorization not determined")
       //manager.requestAlwaysAuthorization()
       manager.requestWhenInUseAuthorization()
     case CLAuthorizationStatus.Restricted: println("authorization restricted")
@@ -58,7 +58,7 @@ class LocationService: NSObject {
     if authorized && enabled && available {
       return nil
     }
-    return NSError(domain: "\(authorized),\(enabled),\(available)", code: Int(status.rawValue), userInfo: nil)
+    return NSError(domain: "\(authorized),\(enabled),\(available);", code: Int(status.rawValue), userInfo: nil)
   }
   
   private func cleanupRegionMonitoring() {
@@ -72,7 +72,7 @@ class LocationService: NSObject {
   private func cleanupCurrentLocationMonitoring() {
     currentLocationUpdatingStarted = nil
     currentLocationCompletionHander = nil
-    println("stopUpdatingLocation")
+    //println("stopUpdatingLocation")
     manager.stopUpdatingLocation()
   }
   private func cleanupSignificantLocationMonitoring() {
@@ -84,7 +84,7 @@ class LocationService: NSObject {
     //cleanupSignificantLocationMonitoring()
   }
 
-  func currentLocationWithBlock(accuracy: Double, interval: NSTimeInterval, completion: (location: CLLocation?, error: NSError?) -> Void) {
+  func currentLocationWithBlock(#accuracy: Double, interval: NSTimeInterval, completion: (location: CLLocation?, error: NSError?) -> Void) {
 
     var error: NSError?
     if let error = isAuthorized() {
@@ -93,27 +93,21 @@ class LocationService: NSObject {
     }
     currentLocationCompletionHander = completion
     currentLocationUpdatingStarted = NSDate()
-    println("startUpdatingLocation")
+    //println("startUpdatingLocation")
     manager.startUpdatingLocation()
   }
   
   class func currentLocation() -> CLLocation? {
     
-    let pulseCount = 1
     let pulseLocationSvc = LocationService()
     if let error = pulseLocationSvc.isAuthorized() {
       return nil
     }
     pulseLocationSvc.manager.desiredAccuracy = kCLLocationAccuracyBest
-    for var i = 0; i < pulseCount; i++ {
-      pulseLocationSvc.manager.startUpdatingLocation()
-      pulseLocationSvc.manager.stopUpdatingLocation()
-      if let location = pulseLocationSvc.manager.location {
-        println("pulse location manager (\(i+1); accuracy:  \(location.horizontalAccuracy))")
-      }
-      if let location = pulseLocationSvc.manager.location where location.horizontalAccuracy <= 15.0 {
-        return location
-      }
+    pulseLocationSvc.manager.startUpdatingLocation()
+    pulseLocationSvc.manager.stopUpdatingLocation()
+    if let location = pulseLocationSvc.manager.location {
+      return location
     }
     return nil
   }

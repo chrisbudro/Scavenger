@@ -19,6 +19,12 @@ class PlayerMapViewController: UIViewController {
   let kRegionCircleRadius: CLLocationDistance = 750
   let kRegionCirclePadding: CLLocationDistance = 200
   let kRegionCircleColor = UIColor(white: 0.8, alpha: 0.4)
+  let kFailureLatitude = 47.623559
+  let kFailureLongitude = -122.336069
+  let kCheckInDistanceLimit = 0.05
+  let kLocationAccuracy = 10.0          // meters
+  let kLocationTimeInterval = 15.0      //seconds
+
   
   //MARK: Properties
   var hunt: Hunt!
@@ -31,6 +37,17 @@ class PlayerMapViewController: UIViewController {
     super.viewDidLoad()
     navigationItem.title = hunt.name
     
+    // quick, in foreground, method of getting location is more accurate if we
+    // have already collected some location samples
+    let locationService = AppDelegate.Location.Service
+    locationService.currentLocationWithBlock(accuracy: kLocationAccuracy, interval: kLocationTimeInterval) { (location, error) -> Void in
+      if let location = location {
+        println("locationB: \(location.description)")
+      }  else if let error = error {
+        println("error: \(error.localizedDescription)")
+      }
+    }
+
     if hunt.huntStyle == nil {
 //      showMysteryPreferenceAlert()
     }
@@ -137,14 +154,19 @@ class PlayerMapViewController: UIViewController {
   }
   
   func completeCheckpoint() {
-    //TODO: remove Placeholder location
-    let currentLocation = PFGeoPoint(latitude: 47.623559,longitude: -122.336069)
+    let currentLocation: PFGeoPoint?
+    if let location = LocationService.currentLocation() {
+      currentLocation = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+      println("locationF: \(location.description)")
+    } else {
+      currentLocation = PFGeoPoint(latitude: kFailureLatitude,longitude: -kFailureLongitude)
+    }
     if let
       checkpoints = checkpoints,
-      sortedCheckpoints = ParseService.checkpointsByDistance(checkpoints, currentLocation: currentLocation)
+      sortedCheckpoints = ParseService.checkpointsByDistance(checkpoints, currentLocation: currentLocation!)
       where sortedCheckpoints.count > 0 {
         let closestCheckpoint = sortedCheckpoints.first!
-      if currentLocation.distanceInKilometersTo(closestCheckpoint.location) < 0.05  {
+      if currentLocation!.distanceInKilometersTo(closestCheckpoint.location) < kCheckInDistanceLimit  {
         closestCheckpoint.completed = true
         completedCheckpoints.append(closestCheckpoint)
         self.checkpoints!.removeAtIndex(0)
