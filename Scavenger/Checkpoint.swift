@@ -13,6 +13,7 @@ class Checkpoint: PFObject {
   @NSManaged var locationName: String
   @NSManaged var location: PFGeoPoint
   @NSManaged var clue: String
+  var completed = false
   
   var coreLocation: CLLocation {
     return CLLocation(latitude: location.latitude, longitude: location.longitude)

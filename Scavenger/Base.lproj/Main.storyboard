@@ -49,24 +49,11 @@
                         <viewControllerLayoutGuide type="bottom" id="r96-9C-Zd3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Jeu-Fx-wQg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xRT-FC-mwl">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </mapView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="r96-9C-Zd3" firstAttribute="top" secondItem="xRT-FC-mwl" secondAttribute="bottom" id="9R4-St-s2o"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xRT-FC-mwl" secondAttribute="trailing" constant="-16" id="kku-Yc-fhT"/>
-                            <constraint firstItem="xRT-FC-mwl" firstAttribute="top" secondItem="Jeu-Fx-wQg" secondAttribute="topMargin" id="pML-IO-bod"/>
-                            <constraint firstItem="xRT-FC-mwl" firstAttribute="leading" secondItem="Jeu-Fx-wQg" secondAttribute="leading" id="uBR-1a-9pF"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="mapView" destination="xRT-FC-mwl" id="Q9a-wO-4Qo"/>
-                    </connections>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cc2-p8-3yz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

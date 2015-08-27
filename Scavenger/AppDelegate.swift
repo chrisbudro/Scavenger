@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import Bolts
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Checkpoint.registerSubclass()
     
     Parse.setApplicationId(kParseApplicationID, clientKey: kParseClientKey)
+    GMSServices.provideAPIKey(kGoogleMapsKey)
     
     PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
     
