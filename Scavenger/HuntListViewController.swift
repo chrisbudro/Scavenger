@@ -29,11 +29,13 @@ class HuntListViewController: UIViewController {
   
   //MARK: Navigation
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "showHuntDetail" {
-      let vc = segue.destinationViewController as! HuntPlayerViewController
-      if let hunt = sender as? Hunt {
-        vc.hunt = hunt
-      }
+    if segue.identifier == "showHuntCreation", let vc = segue.destinationViewController as? CheckpointAdderViewController {
+      let hunt = Hunt()
+      hunt.name = ""
+      hunt.huntDescription = ""
+      vc.hunt = hunt
+    } else if segue.identifier == "showHuntDetail", let vc = segue.destinationViewController as? HuntPlayerViewController, indexPath = collectionView.indexPathsForSelectedItems().first as? NSIndexPath {
+      vc.hunt = hunts[indexPath.row]
     }
   }
 }
@@ -57,6 +59,6 @@ extension HuntListViewController: UICollectionViewDataSource {
 extension HuntListViewController: UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     let hunt = hunts[indexPath.row]
-    performSegueWithIdentifier("showHuntDetail", sender: hunt)
+    performSegueWithIdentifier("showHuntDetail", sender: self)
   }
 }
