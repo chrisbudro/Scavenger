@@ -59,7 +59,7 @@ class ParseService {
       query.findObjectsInBackgroundWithBlock { (hunts, error) in
         if let error = error {
           completion(hunts: nil, error: error.description)
-        } else if let hunts = hunts {
+        } else if let hunts = hunts as? [Hunt] {
           completion(hunts: hunts, error: nil)
         }
       }
