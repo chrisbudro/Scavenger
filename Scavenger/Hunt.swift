@@ -25,6 +25,7 @@ class Hunt: PFObject {
     if checkpoints == nil {
       return [Checkpoint]()
     }
+    return checkpoints!
   }
   
   func addCheckpoint(checkpoint: Checkpoint) {
