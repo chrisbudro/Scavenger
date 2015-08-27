@@ -16,8 +16,8 @@ enum HuntStyle {
 }
 
 class Hunt: PFObject {
-  @NSManaged var name: String
-  @NSManaged var huntDescription: String
+  @NSManaged var name: String?
+  @NSManaged var huntDescription: String?
   @NSManaged private var checkpoints: [Checkpoint]?
   var huntStyle: HuntStyle?
   
@@ -26,12 +26,10 @@ class Hunt: PFObject {
 //  }
   
   func getCheckpoints() -> [Checkpoint] {
-    if let checkpoints = checkpoints {
-      return checkpoints
-    } else {
+    if checkpoints == nil {
       return [Checkpoint]()
     }
-//    return (checkpoints != nil) ? [Checkpoint]() : checkpoints
+    return checkpoints!
   }
   
   func addCheckpoint(checkpoint: Checkpoint) {
@@ -39,6 +37,12 @@ class Hunt: PFObject {
       checkpoints = [Checkpoint]()
     }
     checkpoints!.append(checkpoint)
+  }
+  func deleteCheckpoint(atIndex: Int) -> Checkpoint? {
+    if checkpoints == nil || atIndex < 0 || atIndex >= checkpoints!.count {
+      return nil
+    }
+    return checkpoints!.removeAtIndex(atIndex)
   }
 }
 
