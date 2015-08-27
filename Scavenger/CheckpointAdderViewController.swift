@@ -22,21 +22,17 @@ class CheckpointAdderViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   //MARK: Properties
-  var hunt: Hunt? {
-    didSet {
-      updateUI()
-    }
-  }
-  private func updateUI() {
-    huntName?.text = hunt?.name
-    huntDetail?.text = hunt?.huntDescription
-    navigationItem.title = hunt?.name
-    tableView?.reloadData()
-  }
+  var hunt: Hunt!
+  var checkpointsFetched = false
 
   //MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    ParseService.fetchCheckpointsForHunt(hunt, sortOrder: .Distance) { (checkpoints, error) in
+      self.checkpointsFetched = true
+      self.updateUI()
+    }
     
     tableView.dataSource = self
     tableView.delegate = self
@@ -57,6 +53,14 @@ class CheckpointAdderViewController: UIViewController {
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     saveHunt()
+  }
+  
+  //MARK: Helper Methods
+  private func updateUI() {
+    huntName?.text = hunt?.name
+    huntDetail?.text = hunt?.huntDescription
+    navigationItem.title = hunt?.name
+    tableView?.reloadData()
   }
   
   //MARK: Navigation
@@ -88,7 +92,7 @@ class CheckpointAdderViewController: UIViewController {
           let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: error, handler: nil)
           self.presentViewController(alertController, animated: true, completion: nil)
         } else if succeeded {
-          //        self.navigationController?.popToRootViewControllerAnimated(true)
+          ParseService.assignCreatedHuntToCurrentUser(hunt: hunt)
         }
       }
     }
@@ -104,10 +108,8 @@ class CheckpointAdderViewController: UIViewController {
 //MARK: Table View Data Source
 extension CheckpointAdderViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if let hunt = hunt {
-      return hunt.getCheckpoints().count
-    }
-    return 0
+
+    return checkpointsFetched ? hunt.getCheckpoints().count : 0
   }
 
   
@@ -144,16 +146,15 @@ extension CheckpointAdderViewController: UITableViewDelegate {
 //MARK: Checkpoint Creation Delegate
 extension CheckpointAdderViewController: CheckpointCreatorDelegate {
   func checkpointCreatorDidSaveCheckpoint(checkpoint: Checkpoint) {
-    
     if let hunt = hunt {
-      hunt.addCheckpoint(checkpoint)
-      hunt.saveInBackgroundWithBlock { (success, error) -> Void in
+      ParseService.addCheckpointToHunt(hunt, checkpoint: checkpoint) { (success, error) in
         if let error = error {
           let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: "Unable to save hunt", handler: nil)
           self.presentViewController(alertController, animated: true, completion: nil)
+        } else if success {
+          self.tableView.reloadData()
         }
       }
-      tableView.reloadData()
     }
   }
 }
