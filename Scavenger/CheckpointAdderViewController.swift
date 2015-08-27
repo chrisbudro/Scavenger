@@ -42,6 +42,8 @@ class CheckpointAdderViewController: UIViewController {
     tableView.delegate = self
     tableView.estimatedRowHeight = 70
     tableView.rowHeight = UITableViewAutomaticDimension
+    huntName.delegate = self
+    huntDetail.delegate = self
     
 //    let saveButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveButtonWasPressed")
 //    navigationItem.rightBarButtonItem = saveButton
@@ -125,6 +127,18 @@ extension CheckpointAdderViewController: UITableViewDelegate {
      performSegueWithIdentifier("ShowCheckpointModify", sender: nil)
   }
   
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+    forRowAtIndexPath indexPath: NSIndexPath) {
+      if let hunt = hunt {
+        hunt.deleteCheckpoint(indexPath.row)
+        saveHunt()
+      }
+      let indexPaths = [indexPath]
+      tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+  }
+
+  
 }
 
 //MARK: Checkpoint Creation Delegate
@@ -142,4 +156,13 @@ extension CheckpointAdderViewController: CheckpointCreatorDelegate {
       tableView.reloadData()
     }
   }
+}
+
+extension CheckpointAdderViewController: UITextFieldDelegate {
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    huntName.resignFirstResponder()
+    huntDetail.resignFirstResponder()
+    return true
+  }
+  
 }
