@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0041B89B1B8BBCFF00E0D845 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B8991B8BBCFF00E0D845 /* Checkpoint.swift */; };
 		0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B89A1B8BBCFF00E0D845 /* Hunt.swift */; };
+		00A308DE1B8EB61A0039C858 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A308DD1B8EB6190039C858 /* LocationService.swift */; };
 		3E3EAAC11B8BBE6D00905F8B /* HuntCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */; };
 		3E3EAAC31B8BBE7700905F8B /* CheckpointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC21B8BBE7700905F8B /* CheckpointCell.swift */; };
 		3E3EAAC51B8BBE7F00905F8B /* CheckpointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC41B8BBE7F00905F8B /* CheckpointCell.xib */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		0041B8991B8BBCFF00E0D845 /* Checkpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
 		0041B89A1B8BBCFF00E0D845 /* Hunt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hunt.swift; sourceTree = "<group>"; };
+		00A308DD1B8EB6190039C858 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		0F3BE94274D242241F859BB9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntCell.swift; sourceTree = "<group>"; };
 		3E3EAAC21B8BBE7700905F8B /* CheckpointCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointCell.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				3E3EAACA1B8BBF3600905F8B /* Keys.swift */,
 				4C483CC41B8CFE54007B9215 /* View */,
 				4C483CC51B8CFE6D007B9215 /* Controller */,
+				00A308DD1B8EB6190039C858 /* LocationService.swift */,
 				4CB8B46A1B8CCADF00959136 /* Extensions.swift */,
 				4C9410FA1B88DE3B00CAE08B /* Images.xcassets */,
 				4C9410FC1B88DE3B00CAE08B /* LaunchScreen.xib */,
@@ -421,6 +424,7 @@
 				3E3EAAC91B8BBE9200905F8B /* HuntListViewController.swift in Sources */,
 				4C717AB11B8B953900D176FF /* ParseService.swift in Sources */,
 				4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */,
+				00A308DE1B8EB61A0039C858 /* LocationService.swift in Sources */,
 				0041B89B1B8BBCFF00E0D845 /* Checkpoint.swift in Sources */,
 				3E3EAAC71B8BBE8C00905F8B /* HuntPlayerViewController.swift in Sources */,
 				4CB8B4671B8CC28700959136 /* CheckpointCreatorViewController.swift in Sources */,
