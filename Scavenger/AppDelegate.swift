@@ -16,9 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
+  struct Location {
+    static let Service = LocationService()
+  }
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
+  
+    Location.Service.isAuthorized()
+
     Hunt.registerSubclass()
     Checkpoint.registerSubclass()
     User.registerSubclass()

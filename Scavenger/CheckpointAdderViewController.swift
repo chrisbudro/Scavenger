@@ -129,12 +129,13 @@ extension CheckpointAdderViewController: UITableViewDelegate {
      performSegueWithIdentifier("ShowCheckpointModify", sender: nil)
   }
   
+  
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
     forRowAtIndexPath indexPath: NSIndexPath) {
       if let hunt = hunt {
-        
+        hunt.deleteCheckpoint(indexPath.row)
+        saveHunt()
       }
-      
       let indexPaths = [indexPath]
       tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
   }
