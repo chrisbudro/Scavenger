@@ -60,6 +60,7 @@ class ParseService {
         if let error = error {
           completion(hunts: nil, error: error.description)
         } else if let hunts = hunts as? [Hunt] {
+          println(hunts.count)
           completion(hunts: hunts, error: nil)
         }
       }

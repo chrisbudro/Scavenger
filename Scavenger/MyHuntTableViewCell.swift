@@ -12,14 +12,4 @@ class MyHuntTableViewCell: UITableViewCell {
 
   @IBOutlet weak var huntNameLabel: UILabel!
   @IBOutlet weak var huntImageView: UIImageView!
-  
-  var hunt: Hunt? {
-    didSet {
-      updateUI()
-    }
-  }
-  
-  func updateUI() {
-    huntNameLabel.text = hunt?.name
-  }
 }

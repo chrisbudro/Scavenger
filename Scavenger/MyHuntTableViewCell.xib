@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,16 +13,26 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vqx-vC-Gyh" id="kcV-B5-wh5">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Se6-Sl-172">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Se6-Sl-172">
                         <rect key="frame" x="8" y="8" width="47" height="47.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="47" id="vt9-cn-59f"/>
+                            <constraint firstAttribute="width" constant="47" id="w3e-rI-l9a"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEf-LC-PlO" userLabel="Hunt name">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEf-LC-PlO" userLabel="Hunt name">
                         <rect key="frame" x="63" y="21" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="HEf-LC-PlO" firstAttribute="leading" secondItem="Se6-Sl-172" secondAttribute="trailing" constant="8" id="61l-kc-XlG"/>
+                    <constraint firstAttribute="centerY" secondItem="Se6-Sl-172" secondAttribute="centerY" id="Sxz-wL-UDz"/>
+                    <constraint firstItem="Se6-Sl-172" firstAttribute="leading" secondItem="kcV-B5-wh5" secondAttribute="leadingMargin" id="rSU-SE-70m"/>
+                    <constraint firstItem="Se6-Sl-172" firstAttribute="centerY" secondItem="HEf-LC-PlO" secondAttribute="centerY" id="vtY-lg-5bQ"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="huntImageView" destination="Se6-Sl-172" id="2iV-Ss-fdk"/>

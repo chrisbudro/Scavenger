@@ -20,18 +20,13 @@ class Hunt: PFObject {
   @NSManaged var huntDescription: String
   @NSManaged private var checkpoints: [Checkpoint]?
   var huntStyle: HuntStyle?
-  
-//  override init() {
-//    super.init()
-//  }
-  
+
   func getCheckpoints() -> [Checkpoint] {
     if let checkpoints = checkpoints {
       return checkpoints
     } else {
       return [Checkpoint]()
     }
-//    return (checkpoints != nil) ? [Checkpoint]() : checkpoints
   }
   
   func addCheckpoint(checkpoint: Checkpoint) {

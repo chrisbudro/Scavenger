@@ -13,8 +13,8 @@
             <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z7m-o3-Y3Y" id="SBO-BY-w1V">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gc0-g0-5h6">
-                        <rect key="frame" x="433" y="32" width="70" height="70"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Icon-76" translatesAutoresizingMaskIntoConstraints="NO" id="gc0-g0-5h6">
+                        <rect key="frame" x="433" y="8" width="70" height="70"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="Ad1-v9-YgB"/>
                             <constraint firstAttribute="width" constant="70" id="cAd-at-N9q"/>
@@ -64,4 +64,7 @@
             <point key="canvasLocation" x="288.5" y="268"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Icon-76" width="76" height="76"/>
+    </resources>
 </document>
