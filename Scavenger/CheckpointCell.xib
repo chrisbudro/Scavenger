@@ -57,6 +57,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="checkpointImageView" destination="gc0-g0-5h6" id="ynE-JA-Hal"/>
                 <outlet property="detailLabel" destination="dWR-QD-6a9" id="a86-fx-nod"/>
                 <outlet property="nameLabel" destination="hWR-5f-i4v" id="UCD-tl-jhe"/>
             </connections>

@@ -65,7 +65,17 @@ extension HuntPlayerViewController: UITableViewDataSource {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("CheckpointCell", forIndexPath: indexPath) as! CheckpointCell
-    cell.checkpoint = checkpoints![indexPath.row]
+    let checkpoint = checkpoints![indexPath.row]
+    cell.checkpoint = checkpoint
+    
+    ParseService.imageForCheckpoint(checkpoint) { (image, error) -> Void in
+      if let error = error {
+        //TODO: Error Alert Handler
+      } else if let image = image {
+        cell.checkpointImageView.image = image
+      }
+    }
+    
     return cell
   }
 }
