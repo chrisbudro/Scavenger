@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     Hunt.registerSubclass()
     Checkpoint.registerSubclass()
+    User.registerSubclass()
     
     Parse.enableLocalDatastore()
     Parse.setApplicationId(kParseApplicationID, clientKey: kParseClientKey)
