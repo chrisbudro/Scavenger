@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Hunt.registerSubclass()
     Checkpoint.registerSubclass()
     
+    Parse.enableLocalDatastore()
     Parse.setApplicationId(kParseApplicationID, clientKey: kParseClientKey)
+    
     GMSServices.provideAPIKey(kGoogleMapsKey)
     
     PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)

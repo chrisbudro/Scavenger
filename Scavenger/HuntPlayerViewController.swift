@@ -22,6 +22,7 @@ class HuntPlayerViewController: UIViewController {
   // MARK: Lifecycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
+    hunt.pinInBackground()
     navigationItem.title = hunt.name
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map", style: .Plain, target: self, action: "showPlayerMap")
 

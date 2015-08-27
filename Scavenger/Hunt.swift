@@ -10,10 +10,16 @@ import Foundation
 import Parse
 import CoreLocation
 
+enum HuntStyle {
+  case AllCheckpoints
+  case CurrentCheckpoint
+}
+
 class Hunt: PFObject {
   @NSManaged var name: String
   @NSManaged var huntDescription: String
   @NSManaged private var checkpoints: [Checkpoint]?
+  var huntStyle: HuntStyle?
   
 //  override init() {
 //    super.init()
