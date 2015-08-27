@@ -20,6 +20,7 @@ class CheckpointCell: UITableViewCell {
   // MARK: IBOutlets
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var detailLabel: UILabel!
+  @IBOutlet weak var checkpointImageView: UIImageView!
 
   // MARK: Private Helper Methods
   private func updateUI() {

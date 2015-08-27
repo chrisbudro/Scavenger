@@ -15,6 +15,7 @@ class Checkpoint: PFObject {
   @NSManaged var location: PFGeoPoint
   @NSManaged var clue: String?
   @NSManaged var placeID: String?
+  @NSManaged var photo: PFFile?
   
   var completed = false
   var marker: GMSMarker?
@@ -23,7 +24,7 @@ class Checkpoint: PFObject {
   var coreLocation: CLLocation {
     return CLLocation(latitude: location.latitude, longitude: location.longitude)
   }
-  
+
   func setMarker() {
     marker = GMSMarker(position: coreLocation.coordinate)
     marker?.title = locationName
