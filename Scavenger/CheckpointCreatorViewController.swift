@@ -16,23 +16,24 @@ protocol CheckpointCreatorDelegate {
 class CheckpointCreatorViewController: UIViewController {
 
   //MARK: Outlets
-  @IBOutlet weak var locationNameTextField: UITextField!
-  @IBOutlet weak var latitudeInputField: UITextField!
-  @IBOutlet weak var longitudeInputField: UITextField!
   @IBOutlet weak var clueTextView: UITextView!
+  @IBOutlet weak var viewForSearchBar: UIView!
   
   //MARK: Properties
   var delegate: CheckpointCreatorDelegate?
+  let resultsTableController = UITableViewController()
+  var searchController: UISearchController!
+  var placePredictions: [(placeName: String, placeID: String)] = []
+  var clueText: String?
+  
   var checkpoint: Checkpoint? {
     didSet {
       updateUI()
     }
   }
   private func updateUI() {
-    locationNameTextField?.text = checkpoint?.locationName
-    latitudeInputField?.text = "/(checkpoint?.location.latitude)"
-    longitudeInputField?.text = "/(checkpoint?.location.longitude)"
     clueTextView?.text = checkpoint?.clue
+    clueText = checkpoint?.clue
   }
 
   //MARK: Life Cycle
@@ -40,6 +41,27 @@ class CheckpointCreatorViewController: UIViewController {
         super.viewDidLoad()
             let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelWasPressed")
       navigationItem.rightBarButtonItem = cancelButton
+      
+      setCluePlaceholder()
+      
+      
+      resultsTableController.tableView.frame = view.frame
+      searchController = UISearchController(searchResultsController: resultsTableController)
+      searchController.searchBar.sizeToFit()
+      searchController.searchBar.placeholder = "Find a Place"
+      viewForSearchBar.addSubview(searchController.searchBar)
+      
+      resultsTableController.tableView.delegate = self
+      resultsTableController.tableView.dataSource = self
+      resultsTableController.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "Cell")
+      
+      searchController.delegate = self
+      searchController.searchBar.delegate = self
+      searchController.searchResultsUpdater = self
+      clueTextView.delegate = self
+      
+      definesPresentationContext = true
+      
     }
   
   override func viewWillDisappear(animated: Bool) {
@@ -49,18 +71,8 @@ class CheckpointCreatorViewController: UIViewController {
   
   //MARK: Actions
   func saveCheckpoint() {
-    
-    //TODO: Check input validation
     if let checkpoint = checkpoint {
-      checkpoint.locationName = locationNameTextField.text
       checkpoint.clue = clueTextView.text
-      if let
-        latitude = latitudeInputField.text.toDouble(),
-        longitude = longitudeInputField.text.toDouble() {
-          let geoPoint = PFGeoPoint(latitude: latitude, longitude: longitude)
-          checkpoint.location = geoPoint
-      }
-      
       checkpoint.saveInBackgroundWithBlock { (success, error) -> Void in
         if let error = error {
           let alert = ErrorAlertHandler.errorAlertWithPrompt(error: "There was an error saving your checkpoint.  Please try again", handler: nil)
@@ -68,7 +80,6 @@ class CheckpointCreatorViewController: UIViewController {
           
         } else if success {
           self.delegate?.checkpointCreatorDidSaveCheckpoint(checkpoint)
-          //        self.navigationController?.popViewControllerAnimated(true)
         }
       }
     }
@@ -77,4 +88,106 @@ class CheckpointCreatorViewController: UIViewController {
   func cancelWasPressed() {
     navigationController?.popViewControllerAnimated(true)
   }
+  
+  //MARK: Helper Methods
+  func setCluePlaceholder() {
+    clueTextView.textColor = UIColor.lightGrayColor()
+    clueTextView.text = "Write a clue"
+  }
+  
+  func clearCluePlaceholder() {
+    clueTextView.textColor = UIColor.blackColor()
+    clueTextView.text = clueText
+  }
 }
+
+//MARK: Search Controller Table View Datasource
+extension CheckpointCreatorViewController: UITableViewDataSource {
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return placePredictions.count
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+    let placePrediction = placePredictions[indexPath.row]
+    
+    cell.textLabel?.text = placePrediction.placeName
+    cell.detailTextLabel?.text = placePrediction.placeID
+    
+    return cell
+  }
+}
+
+//MARK: Search Controller Table View Delegate
+extension CheckpointCreatorViewController: UITableViewDelegate {
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    let placePrediction = placePredictions[indexPath.row]
+    
+    checkpoint?.locationName = placePrediction.placeName
+    checkpoint?.placeID = placePrediction.placeID
+    
+    GooglePlacesService.defaultService.locationForPlaceID(placePrediction.placeID) { (location, error) in
+      if let error = error {
+        //TODO: Error Alert Handler Without Prompt
+      } else if let location = location {
+        let geoPoint = PFGeoPoint(location: location)
+        self.checkpoint?.location = geoPoint
+      }
+      self.dismissViewControllerAnimated(true, completion: nil)
+      self.searchController.searchBar.text = self.checkpoint?.locationName
+    }
+  }
+}
+
+//MARK: Search Bar Delegate
+extension CheckpointCreatorViewController: UISearchBarDelegate {
+  func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    presentViewController(searchController, animated: true, completion: nil)
+  }
+  
+  func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+
+  }
+}
+
+//MARK: Search Controller Delegate
+extension CheckpointCreatorViewController: UISearchControllerDelegate {
+  
+}
+
+//MARK: Search Results Updating
+extension CheckpointCreatorViewController: UISearchResultsUpdating {
+  func updateSearchResultsForSearchController(searchController: UISearchController) {
+    let query = searchController.searchBar.text
+    GooglePlacesService.defaultService.resultsFromAutoCompleteQuery(query) { (placePredictions, error) in
+      if let error = error {
+        //TODO: Alert Controller for error
+      } else if let placePredictions = placePredictions {
+        self.placePredictions = placePredictions
+        self.resultsTableController.tableView.reloadData()
+      }
+    }
+  }
+}
+
+extension CheckpointCreatorViewController: UITextViewDelegate {
+  func textViewDidBeginEditing(textView: UITextView) {
+    clearCluePlaceholder()
+  }
+  
+  func textViewDidChange(textView: UITextView) {
+    clueText = textView.text
+  }
+  
+  func textViewDidEndEditing(textView: UITextView) {
+    if clueText == nil || clueText == "" {
+      setCluePlaceholder()
+    }
+  }
+}
+
+
+
+
+

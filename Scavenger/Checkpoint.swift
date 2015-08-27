@@ -13,7 +13,9 @@ import GoogleMaps
 class Checkpoint: PFObject {
   @NSManaged var locationName: String
   @NSManaged var location: PFGeoPoint
-  @NSManaged var clue: String
+  @NSManaged var clue: String?
+  @NSManaged var placeID: String?
+  
   var completed = false
   var marker: GMSMarker?
   var circleOverlay: GMSCircle?

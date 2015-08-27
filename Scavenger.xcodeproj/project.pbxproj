@@ -44,6 +44,7 @@
 		4CB8B4671B8CC28700959136 /* CheckpointCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8B4651B8CC28700959136 /* CheckpointCreatorViewController.swift */; };
 		4CB8B4691B8CC6C300959136 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8B4681B8CC6C300959136 /* ErrorAlertHandler.swift */; };
 		4CB8B46B1B8CCADF00959136 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8B46A1B8CCADF00959136 /* Extensions.swift */; };
+		4CEE7D4C1B8EC7B500F31A13 /* GooglePlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE7D4B1B8EC7B500F31A13 /* GooglePlacesService.swift */; };
 		6D27DDD91D24F2DCC84B52E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5308C7A509D7087AE25BBE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		4CB8B4651B8CC28700959136 /* CheckpointCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointCreatorViewController.swift; sourceTree = "<group>"; };
 		4CB8B4681B8CC6C300959136 /* ErrorAlertHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertHandler.swift; sourceTree = "<group>"; };
 		4CB8B46A1B8CCADF00959136 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4CEE7D4B1B8EC7B500F31A13 /* GooglePlacesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesService.swift; sourceTree = "<group>"; };
 		4D5308C7A509D7087AE25BBE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		552F1D898A88B4D9BF452023 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 		4C483CC31B8CFE3B007B9215 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4CEE7D4B1B8EC7B500F31A13 /* GooglePlacesService.swift */,
 				4C717AB01B8B953900D176FF /* ParseService.swift */,
 				0041B8991B8BBCFF00E0D845 /* Checkpoint.swift */,
 				0041B89A1B8BBCFF00E0D845 /* Hunt.swift */,
@@ -425,6 +428,7 @@
 				4C717AB11B8B953900D176FF /* ParseService.swift in Sources */,
 				4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */,
 				00A308DE1B8EB61A0039C858 /* LocationService.swift in Sources */,
+				4CEE7D4C1B8EC7B500F31A13 /* GooglePlacesService.swift in Sources */,
 				0041B89B1B8BBCFF00E0D845 /* Checkpoint.swift in Sources */,
 				3E3EAAC71B8BBE8C00905F8B /* HuntPlayerViewController.swift in Sources */,
 				4CB8B4671B8CC28700959136 /* CheckpointCreatorViewController.swift in Sources */,
