@@ -57,14 +57,16 @@ class PlayerMapViewController: UIViewController {
     var path = GMSMutablePath()
     if let checkpoints = checkpoints {
       for checkpoint in checkpoints {
-        let northPoint = GMSGeometryOffset(checkpoint.coreLocation.coordinate, kRegionCircleRadius, 0)
-        let southPoint = GMSGeometryOffset(checkpoint.coreLocation.coordinate, kRegionCircleRadius, 180)
-        let eastPoint = GMSGeometryOffset(checkpoint.coreLocation.coordinate, kRegionCircleRadius, 90)
-        let westPoint = GMSGeometryOffset(checkpoint.coreLocation.coordinate, kRegionCircleRadius, 270)
-        path.addCoordinate(northPoint)
-        path.addCoordinate(southPoint)
-        path.addCoordinate(eastPoint)
-        path.addCoordinate(westPoint)
+        if let coreLocation = checkpoint.coreLocation {
+          let northPoint = GMSGeometryOffset(coreLocation.coordinate, kRegionCircleRadius, 0)
+          let southPoint = GMSGeometryOffset(coreLocation.coordinate, kRegionCircleRadius, 180)
+          let eastPoint = GMSGeometryOffset(coreLocation.coordinate, kRegionCircleRadius, 90)
+          let westPoint = GMSGeometryOffset(coreLocation.coordinate, kRegionCircleRadius, 270)
+          path.addCoordinate(northPoint)
+          path.addCoordinate(southPoint)
+          path.addCoordinate(eastPoint)
+          path.addCoordinate(westPoint)
+        }
       }
       let bounds = GMSCoordinateBounds(path: path)
       let cameraUpdate = GMSCameraUpdate.fitBounds(bounds, withPadding: kMapPadding)
@@ -92,15 +94,19 @@ class PlayerMapViewController: UIViewController {
     if let checkpoints = checkpoints {
       for checkpoints in [checkpoints, completedCheckpoints] {
         for (index, checkpoint) in enumerate(checkpoints) {
-          let position = setCheckpoint(checkpoint)
-          
+          if let position = setCheckpoint(checkpoint) {
+            // TODO
+          }
         }
       }
     }
   }
   
-  func setCheckpoint(checkpoint: Checkpoint) -> CLLocationCoordinate2D {
-    let actualPosition = checkpoint.coreLocation.coordinate
+  func setCheckpoint(checkpoint: Checkpoint) -> CLLocationCoordinate2D? {
+    if checkpoint.coreLocation == nil {
+      return nil
+    }
+    let actualPosition = checkpoint.coreLocation!.coordinate
     if checkpoint.completed {
       let marker = GMSMarker(position: actualPosition)
       marker.map = mapView

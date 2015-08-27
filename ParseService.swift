@@ -99,7 +99,12 @@ class ParseService {
 
   class func checkpointsByDistance(checkpoints: [Checkpoint], currentLocation: PFGeoPoint) -> [Checkpoint]? {
     let sortedCheckpoints = sorted(checkpoints, { (checkpoint1: Checkpoint, checkpoint2: Checkpoint) -> Bool in
-      return checkpoint1.location.distanceInMilesTo(currentLocation) < checkpoint2.location.distanceInMilesTo(currentLocation)
+      if let location1 = checkpoint1.location, location2 = checkpoint2.location {
+        return location1.distanceInMilesTo(currentLocation) < location2.distanceInMilesTo(currentLocation)
+      } else if checkpoint1.location == nil {
+        return false
+      }
+      return true
     })
     return sortedCheckpoints
   }
