@@ -10,8 +10,10 @@ import Foundation
 import Parse
 import CoreLocation
 
+typealias HuntCompletionHandler = (hunts: [Hunt]?, error: String?) -> Void
+
 class ParseService {
-  
+
   enum SortOrder {
     case Distance
   }
@@ -26,7 +28,7 @@ class ParseService {
     }
   }
   
-  class func loadHunts(completion: (hunts: [Hunt]?, error: String?) -> Void) {
+  class func loadHunts(completion: HuntCompletionHandler) {
     if let query = Hunt.query() {
       query.findObjectsInBackgroundWithBlock { (hunts, error) in
         if let error = error {
@@ -40,7 +42,7 @@ class ParseService {
     }
   }
   
-  class func loadHuntsWithTags(tags: [String], completion: (hunts: [Hunt]?, error: String?) -> Void) {
+  class func loadHuntsWithTags(tags: [String], completion: HuntCompletionHandler) {
     if let query = Hunt.query() {
       query.whereKey("tags", containedIn: tags)
       query.findObjectsInBackgroundWithBlock { (hunts, error) -> Void in
@@ -53,7 +55,7 @@ class ParseService {
     }
   }
   
-  class func loadStoredHunts(#completion: (hunts: [Hunt]?, error: String?) -> Void) {
+  class func loadStoredHunts(#completion: HuntCompletionHandler) {
     if let query = Hunt.query() {
       query.fromLocalDatastore()
       query.findObjectsInBackgroundWithBlock { (hunts, error) in
@@ -67,6 +69,20 @@ class ParseService {
     }
   }
   
+  class func loadCurrentUserCreatedHunts(#completion: HuntCompletionHandler) {
+    if let currentUser = PFUser.currentUser() as? User {
+      PFObject.fetchAllIfNeededInBackground(currentUser.createdHunts) { (createdHunts, error) in
+        if let error = error {
+          completion(hunts: nil, error: error.description)
+        } else if let createdHunts = createdHunts as? [Hunt] {
+          completion(hunts: createdHunts, error: nil)
+        }
+      }
+    } else {
+      completion(hunts: nil, error: "Please login to view your created hunts")
+    }
+  }
+  
   class func deleteHunt(hunt: Hunt, completion: (Bool, error: String?) -> Void) {
     hunt.deleteInBackgroundWithBlock { (succeeded, error) in
       if let error = error where !succeeded {
@@ -77,7 +93,25 @@ class ParseService {
     }
   }
   
+  class func addCheckpointToHunt(hunt: Hunt?, checkpoint: Checkpoint, completion: (Bool, error: String?) -> Void) {
+    if let hunt = hunt {
+      hunt.addUniqueObject(checkpoint, forKey: "checkpoints")
+      hunt.saveInBackgroundWithBlock { (success, error) -> Void in
+        if let error = error {
+          completion(false, error: error.description)
+        } else if success {
+          completion(true, error: nil)
+        }
+      }
+    }
+  }
   
+  class func assignCreatedHuntToCurrentUser(#hunt: Hunt) {
+    if let currentUser = PFUser.currentUser() as? User {
+      currentUser.addUniqueObject(hunt, forKey: "createdHunts")
+      currentUser.saveInBackground()
+    }
+  }
   
   class func fetchCheckpointsForHunt(hunt: Hunt, sortOrder: SortOrder, completion: ([Checkpoint]?, error: String?) -> Void) {
     PFObject.fetchAllIfNeededInBackground(hunt.getCheckpoints()) { (checkpoints, error) -> Void in
