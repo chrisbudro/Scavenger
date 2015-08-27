@@ -35,40 +35,42 @@ class CheckpointCreatorViewController: UIViewController {
     clueTextView?.text = checkpoint?.clue
     clueText = checkpoint?.clue
   }
+  private var clueHasChanged = false
 
   //MARK: Life Cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-            let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelWasPressed")
-      navigationItem.rightBarButtonItem = cancelButton
-      
-      setCluePlaceholder()
-      
-      
-      resultsTableController.tableView.frame = view.frame
-      searchController = UISearchController(searchResultsController: resultsTableController)
-      searchController.searchBar.sizeToFit()
-      searchController.searchBar.placeholder = "Find a Place"
-      viewForSearchBar.addSubview(searchController.searchBar)
-      
-      if let locationName = checkpoint?.locationName {
-        searchController.searchBar.text = checkpoint?.locationName
-        clueTextView.textColor = UIColor.blackColor()
-        clueTextView.text = checkpoint?.clue
-      }
-      
-      resultsTableController.tableView.delegate = self
-      resultsTableController.tableView.dataSource = self
-      resultsTableController.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "Cell")
-      
-      searchController.delegate = self
-      searchController.searchBar.delegate = self
-      searchController.searchResultsUpdater = self
-      clueTextView.delegate = self
-      
-      definesPresentationContext = true
-      
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "doneWasPressed")
+    navigationItem.rightBarButtonItem = doneButton
+    let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelWasPressed")
+    navigationItem.leftBarButtonItem = cancelButton
+    
+    setCluePlaceholder()
+    
+    if let locationName = checkpoint?.locationName {
+      searchController.searchBar.text = checkpoint?.locationName
+      clueTextView.textColor = UIColor.blackColor()
+      clueTextView.text = checkpoint?.clue
     }
+    
+    resultsTableController.tableView.frame = view.frame
+    searchController = UISearchController(searchResultsController: resultsTableController)
+    searchController.searchBar.sizeToFit()
+    searchController.searchBar.placeholder = "Find a Place"
+    viewForSearchBar.addSubview(searchController.searchBar)
+    
+    resultsTableController.tableView.delegate = self
+    resultsTableController.tableView.dataSource = self
+    resultsTableController.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "Cell")
+    
+    searchController.delegate = self
+    searchController.searchBar.delegate = self
+    searchController.searchResultsUpdater = self
+    clueTextView.delegate = self
+    
+    definesPresentationContext = true
+    
+  }
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
@@ -77,7 +79,8 @@ class CheckpointCreatorViewController: UIViewController {
   
   //MARK: Actions
   func saveCheckpoint() {
-    if let checkpoint = checkpoint {
+    if let checkpoint = checkpoint where clueHasChanged {
+      clueHasChanged = false
       checkpoint.clue = clueTextView.text
       checkpoint.saveInBackgroundWithBlock { (success, error) -> Void in
         if let error = error {
@@ -91,6 +94,10 @@ class CheckpointCreatorViewController: UIViewController {
     }
   }
   
+  func doneWasPressed() {
+    saveCheckpoint()
+    navigationController?.popViewControllerAnimated(true)
+  }
   func cancelWasPressed() {
     navigationController?.popViewControllerAnimated(true)
   }
@@ -184,6 +191,7 @@ extension CheckpointCreatorViewController: UISearchResultsUpdating {
 extension CheckpointCreatorViewController: UITextViewDelegate {
   func textViewDidBeginEditing(textView: UITextView) {
     clearCluePlaceholder()
+    clueHasChanged = true
   }
   
   func textViewDidChange(textView: UITextView) {

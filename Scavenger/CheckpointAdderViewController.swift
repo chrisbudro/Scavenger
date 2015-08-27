@@ -33,7 +33,8 @@ class CheckpointAdderViewController: UIViewController {
     navigationItem.title = hunt?.name
     tableView?.reloadData()
   }
-
+  private var huntHasChanged = false
+  
   //MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,11 +46,10 @@ class CheckpointAdderViewController: UIViewController {
     huntName.delegate = self
     huntDetail.delegate = self
     
-//    let saveButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveButtonWasPressed")
-//    navigationItem.rightBarButtonItem = saveButton
-    
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "doneWasPressed")
+    navigationItem.rightBarButtonItem = doneButton
     let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelWasPressed")
-    navigationItem.rightBarButtonItem = cancelButton
+    navigationItem.leftBarButtonItem = cancelButton
     
     tableView.registerNib(UINib(nibName: kCellNibName, bundle: nil), forCellReuseIdentifier: kCellIdentifier)
   }
@@ -79,7 +79,8 @@ class CheckpointAdderViewController: UIViewController {
   
   private func saveHunt() {
     
-    if let hunt = hunt {
+    if let hunt = hunt where huntHasChanged {
+      huntHasChanged = false
       hunt.name = huntName.text
       hunt.huntDescription = huntDetail.text
 
@@ -87,16 +88,16 @@ class CheckpointAdderViewController: UIViewController {
         if let error = error where !succeeded {
           let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: error, handler: nil)
           self.presentViewController(alertController, animated: true, completion: nil)
-        } else if succeeded {
-          //        self.navigationController?.popToRootViewControllerAnimated(true)
         }
       }
     }
   }
-  
-  func cancelWasPressed() {
 
-//    hunt.deleteEventually()
+  func doneWasPressed() {
+    saveHunt()
+    navigationController?.popViewControllerAnimated(true)
+  }
+  func cancelWasPressed() {
     navigationController?.popViewControllerAnimated(true)
   }
 }
@@ -159,6 +160,9 @@ extension CheckpointAdderViewController: CheckpointCreatorDelegate {
 }
 
 extension CheckpointAdderViewController: UITextFieldDelegate {
+  func textFieldDidBeginEditing(textField: UITextField) {
+    huntHasChanged = true
+  }
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     huntName.resignFirstResponder()
     huntDetail.resignFirstResponder()
