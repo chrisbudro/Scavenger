@@ -60,6 +60,7 @@ class ParseService {
         if let error = error {
           completion(hunts: nil, error: error.description)
         } else if let hunts = hunts as? [Hunt] {
+          println(hunts.count)
           completion(hunts: hunts, error: nil)
         }
       }
@@ -107,5 +108,25 @@ class ParseService {
       return true
     })
     return sortedCheckpoints
+  }
+  
+  class func imageForCheckpoint(checkpoint: Checkpoint, completion: (UIImage?, error: String?) -> Void) {
+    checkpoint.fetchIfNeededInBackgroundWithBlock { (checkpoint, error) in
+      if let
+        checkpoint = checkpoint as? Checkpoint,
+        imageFile = checkpoint.photo {
+        imageFile.getDataInBackgroundWithBlock { (data, error) in
+          if let error = error {
+            completion(nil, error: error.description)
+          } else if let
+            data = data,
+            image = UIImage(data: data) {
+              completion(image, error: nil)
+          }
+        }
+      } else {
+        completion(nil, error: "No image available")
+      }
+    }
   }
 }
