@@ -70,15 +70,3 @@ extension HuntPlayerViewController: UITableViewDataSource {
   }
 }
 
-extension HuntPlayerViewController: UITableViewDelegate {
-  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-    forRowAtIndexPath indexPath: NSIndexPath) {
-      if let hunt = hunt {
-        
-      }
-      
-      let indexPaths = [indexPath]
-      tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
-  }
-
-}
