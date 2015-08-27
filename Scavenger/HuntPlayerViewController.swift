@@ -38,9 +38,8 @@ class HuntPlayerViewController: UIViewController {
     
     tableView.registerNib(UINib(nibName: "CheckpointCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CheckpointCell")
     tableView.dataSource = self
-    tableView.estimatedRowHeight = tableView.rowHeight
+    tableView.estimatedRowHeight = 70
     tableView.rowHeight = UITableViewAutomaticDimension
-    tableView.rowHeight = 160
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
