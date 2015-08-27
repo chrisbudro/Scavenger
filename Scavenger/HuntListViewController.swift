@@ -30,10 +30,7 @@ class HuntListViewController: UIViewController {
   //MARK: Navigation
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showHuntCreation", let vc = segue.destinationViewController as? CheckpointAdderViewController {
-      let hunt = Hunt()
-      hunt.name = ""
-      hunt.huntDescription = ""
-      vc.hunt = hunt
+      vc.hunt = Hunt()
     } else if segue.identifier == "showHuntDetail", let vc = segue.destinationViewController as? HuntPlayerViewController, indexPath = collectionView.indexPathsForSelectedItems().first as? NSIndexPath {
       vc.hunt = hunts[indexPath.row]
     }
@@ -47,7 +44,6 @@ extension HuntListViewController: UICollectionViewDataSource {
   }
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HuntCell", forIndexPath: indexPath) as! HuntCell
-    
     
     cell.imageView.image = UIImage(named: "redx.png")
     cell.hunt = hunts[indexPath.row]

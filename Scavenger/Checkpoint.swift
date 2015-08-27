@@ -11,8 +11,8 @@ import Parse
 import GoogleMaps
 
 class Checkpoint: PFObject {
-  @NSManaged var locationName: String
-  @NSManaged var location: PFGeoPoint
+  @NSManaged var locationName: String?
+  @NSManaged var location: PFGeoPoint?
   @NSManaged var clue: String?
   @NSManaged var placeID: String?
   @NSManaged var photo: PFFile?
@@ -21,13 +21,18 @@ class Checkpoint: PFObject {
   var marker: GMSMarker?
   var circleOverlay: GMSCircle?
   
-  var coreLocation: CLLocation {
-    return CLLocation(latitude: location.latitude, longitude: location.longitude)
+  var coreLocation: CLLocation? {
+    if let location = location {
+      return CLLocation(latitude: location.latitude, longitude: location.longitude)
+    }
+    return nil
   }
 
   func setMarker() {
-    marker = GMSMarker(position: coreLocation.coordinate)
-    marker?.title = locationName
+    if let coreLocation = coreLocation {
+      marker = GMSMarker(position: coreLocation.coordinate)
+      marker?.title = locationName
+    }
   }
 }
 

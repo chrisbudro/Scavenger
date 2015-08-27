@@ -149,6 +149,10 @@ extension CheckpointCreatorViewController: UISearchBarDelegate {
   func searchBarCancelButtonClicked(searchBar: UISearchBar) {
 
   }
+  
+  func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    searchController.resignFirstResponder()
+  }
 }
 
 //MARK: Search Controller Delegate
