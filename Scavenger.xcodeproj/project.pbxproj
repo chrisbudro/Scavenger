@@ -45,6 +45,9 @@
 		4CB8B4691B8CC6C300959136 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8B4681B8CC6C300959136 /* ErrorAlertHandler.swift */; };
 		4CB8B46B1B8CCADF00959136 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8B46A1B8CCADF00959136 /* Extensions.swift */; };
 		4CEE7D4C1B8EC7B500F31A13 /* GooglePlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE7D4B1B8EC7B500F31A13 /* GooglePlacesService.swift */; };
+		4CEE7D4E1B8EEE8B00F31A13 /* MyHuntsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE7D4D1B8EEE8B00F31A13 /* MyHuntsViewController.swift */; };
+		4CEE7D501B8EF2A900F31A13 /* MyHuntTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE7D4F1B8EF2A900F31A13 /* MyHuntTableViewCell.swift */; };
+		4CEE7D521B8EF2D000F31A13 /* MyHuntTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEE7D511B8EF2D000F31A13 /* MyHuntTableViewCell.xib */; };
 		6D27DDD91D24F2DCC84B52E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5308C7A509D7087AE25BBE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +105,9 @@
 		4CB8B4681B8CC6C300959136 /* ErrorAlertHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertHandler.swift; sourceTree = "<group>"; };
 		4CB8B46A1B8CCADF00959136 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4CEE7D4B1B8EC7B500F31A13 /* GooglePlacesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesService.swift; sourceTree = "<group>"; };
+		4CEE7D4D1B8EEE8B00F31A13 /* MyHuntsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHuntsViewController.swift; sourceTree = "<group>"; };
+		4CEE7D4F1B8EF2A900F31A13 /* MyHuntTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHuntTableViewCell.swift; sourceTree = "<group>"; };
+		4CEE7D511B8EF2D000F31A13 /* MyHuntTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHuntTableViewCell.xib; sourceTree = "<group>"; };
 		4D5308C7A509D7087AE25BBE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		552F1D898A88B4D9BF452023 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +160,8 @@
 		4C483CC41B8CFE54007B9215 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4CEE7D4F1B8EF2A900F31A13 /* MyHuntTableViewCell.swift */,
+				4CEE7D511B8EF2D000F31A13 /* MyHuntTableViewCell.xib */,
 				3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */,
 				3E3EAAC21B8BBE7700905F8B /* CheckpointCell.swift */,
 				3E3EAAC41B8BBE7F00905F8B /* CheckpointCell.xib */,
@@ -164,6 +172,7 @@
 		4C483CC51B8CFE6D007B9215 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4CEE7D4D1B8EEE8B00F31A13 /* MyHuntsViewController.swift */,
 				3E3EAAC81B8BBE9200905F8B /* HuntListViewController.swift */,
 				3E3EAACC1B8BCC7100905F8B /* HuntCreatorViewController.swift */,
 				3E3EAAD41B8CCBD500905F8B /* PlayerMapViewController.swift */,
@@ -364,6 +373,7 @@
 				4C9410F91B88DE3B00CAE08B /* (null) in Resources */,
 				3E3EAAC51B8BBE7F00905F8B /* CheckpointCell.xib in Resources */,
 				3E3EAAC51B8BBE7F00905F8B /* CheckpointCell.xib in Resources */,
+				4CEE7D521B8EF2D000F31A13 /* MyHuntTableViewCell.xib in Resources */,
 				3E3EAAD31B8BE74400905F8B /* Main.storyboard in Resources */,
 				4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */,
 				4C9410FB1B88DE3B00CAE08B /* Images.xcassets in Resources */,
@@ -420,12 +430,14 @@
 				0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */,
 				3E3EAAD51B8CCBD500905F8B /* PlayerMapViewController.swift in Sources */,
 				3E3EAAC11B8BBE6D00905F8B /* HuntCell.swift in Sources */,
+				4CEE7D501B8EF2A900F31A13 /* MyHuntTableViewCell.swift in Sources */,
 				4CB8B4691B8CC6C300959136 /* ErrorAlertHandler.swift in Sources */,
 				4CB8B4661B8CC28700959136 /* CheckpointAdderViewController.swift in Sources */,
 				3E3EAACD1B8BCC7100905F8B /* HuntCreatorViewController.swift in Sources */,
 				3E3EAACB1B8BBF3600905F8B /* Keys.swift in Sources */,
 				3E3EAAC91B8BBE9200905F8B /* HuntListViewController.swift in Sources */,
 				4C717AB11B8B953900D176FF /* ParseService.swift in Sources */,
+				4CEE7D4E1B8EEE8B00F31A13 /* MyHuntsViewController.swift in Sources */,
 				4C9410F41B88DE3B00CAE08B /* AppDelegate.swift in Sources */,
 				00A308DE1B8EB61A0039C858 /* LocationService.swift in Sources */,
 				4CEE7D4C1B8EC7B500F31A13 /* GooglePlacesService.swift in Sources */,

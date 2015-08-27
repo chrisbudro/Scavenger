@@ -146,6 +146,40 @@
             </objects>
             <point key="canvasLocation" x="1104" y="349"/>
         </scene>
+        <!--My Hunts View Controller-->
+        <scene sceneID="mMw-Wa-JT4">
+            <objects>
+                <viewController id="XPV-dc-Qm4" customClass="MyHuntsViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="51e-jT-MJ1"/>
+                        <viewControllerLayoutGuide type="bottom" id="evk-Z6-Ykj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XKE-fs-AXs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-vG-H07">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ifb-vG-H07" firstAttribute="top" secondItem="XKE-fs-AXs" secondAttribute="top" id="8Jy-Nl-mSh"/>
+                            <constraint firstAttribute="trailing" secondItem="ifb-vG-H07" secondAttribute="trailing" id="8Xz-gi-Bem"/>
+                            <constraint firstItem="evk-Z6-Ykj" firstAttribute="top" secondItem="ifb-vG-H07" secondAttribute="bottom" id="N5p-2n-9Q8"/>
+                            <constraint firstItem="ifb-vG-H07" firstAttribute="leading" secondItem="XKE-fs-AXs" secondAttribute="leading" id="SLw-Qh-bLp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="015-00-A1G"/>
+                    <connections>
+                        <outlet property="tableView" destination="ifb-vG-H07" id="IhL-8D-KOh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rTa-5M-Z3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1935" y="1156"/>
+        </scene>
         <!--Hunt Creator View Controller-->
         <scene sceneID="14c-is-x8Z">
             <objects>
@@ -197,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tD6-CT-eWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="1156"/>
+            <point key="canvasLocation" x="3498" y="1162"/>
         </scene>
         <!--Checkpoint Adder View Controller-->
         <scene sceneID="Y0s-kT-5Mk">
@@ -340,6 +374,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bq-vd-aLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="279" y="-356"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9oc-Jm-wbF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YPP-Ll-IUP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Imc-nx-4Rv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XPV-dc-Qm4" kind="relationship" relationship="rootViewController" id="LK2-TC-rFP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cgg-8w-mlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1123" y="1156"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
