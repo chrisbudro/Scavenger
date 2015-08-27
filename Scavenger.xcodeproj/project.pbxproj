@@ -16,7 +16,6 @@
 		3E3EAAC71B8BBE8C00905F8B /* HuntPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC61B8BBE8C00905F8B /* HuntPlayerViewController.swift */; };
 		3E3EAAC91B8BBE9200905F8B /* HuntListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC81B8BBE9200905F8B /* HuntListViewController.swift */; };
 		3E3EAACB1B8BBF3600905F8B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAACA1B8BBF3600905F8B /* Keys.swift */; };
-		3E3EAACD1B8BCC7100905F8B /* HuntCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAACC1B8BCC7100905F8B /* HuntCreatorViewController.swift */; };
 		3E3EAAD31B8BE74400905F8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3EAAD11B8BE74400905F8B /* Main.storyboard */; };
 		3E3EAAD51B8CCBD500905F8B /* PlayerMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAD41B8CCBD500905F8B /* PlayerMapViewController.swift */; };
 		4C717A931B8B8F9F00D176FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C717A911B8B8F9F00D176FF /* Bolts.framework */; };
@@ -69,7 +68,6 @@
 		3E3EAAC61B8BBE8C00905F8B /* HuntPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntPlayerViewController.swift; sourceTree = "<group>"; };
 		3E3EAAC81B8BBE9200905F8B /* HuntListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntListViewController.swift; sourceTree = "<group>"; };
 		3E3EAACA1B8BBF3600905F8B /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		3E3EAACC1B8BCC7100905F8B /* HuntCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntCreatorViewController.swift; sourceTree = "<group>"; };
 		3E3EAAD21B8BE74400905F8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E3EAAD41B8CCBD500905F8B /* PlayerMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMapViewController.swift; sourceTree = "<group>"; };
 		4C717A911B8B8F9F00D176FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				3E3EAAC81B8BBE9200905F8B /* HuntListViewController.swift */,
-				3E3EAACC1B8BCC7100905F8B /* HuntCreatorViewController.swift */,
 				3E3EAAD41B8CCBD500905F8B /* PlayerMapViewController.swift */,
 				3E3EAAC61B8BBE8C00905F8B /* HuntPlayerViewController.swift */,
 				4CB8B4641B8CC28700959136 /* CheckpointAdderViewController.swift */,
@@ -422,7 +419,6 @@
 				3E3EAAC11B8BBE6D00905F8B /* HuntCell.swift in Sources */,
 				4CB8B4691B8CC6C300959136 /* ErrorAlertHandler.swift in Sources */,
 				4CB8B4661B8CC28700959136 /* CheckpointAdderViewController.swift in Sources */,
-				3E3EAACD1B8BCC7100905F8B /* HuntCreatorViewController.swift in Sources */,
 				3E3EAACB1B8BBF3600905F8B /* Keys.swift in Sources */,
 				3E3EAAC91B8BBE9200905F8B /* HuntListViewController.swift in Sources */,
 				4C717AB11B8B953900D176FF /* ParseService.swift in Sources */,
