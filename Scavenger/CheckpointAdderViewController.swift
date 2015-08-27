@@ -40,7 +40,7 @@ class CheckpointAdderViewController: UIViewController {
     
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.estimatedRowHeight = tableView.rowHeight
+    tableView.estimatedRowHeight = 70
     tableView.rowHeight = UITableViewAutomaticDimension
     huntName.delegate = self
     huntDetail.delegate = self
