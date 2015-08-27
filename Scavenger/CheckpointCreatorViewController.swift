@@ -47,6 +47,12 @@ class CheckpointCreatorViewController: UIViewController {
     
     setCluePlaceholder()
     
+    if let locationName = checkpoint?.locationName {
+      searchController.searchBar.text = checkpoint?.locationName
+      clueTextView.textColor = UIColor.blackColor()
+      clueTextView.text = checkpoint?.clue
+    }
+    
     resultsTableController.tableView.frame = view.frame
     searchController = UISearchController(searchResultsController: resultsTableController)
     searchController.searchBar.sizeToFit()
