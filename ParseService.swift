@@ -53,6 +53,19 @@ class ParseService {
     }
   }
   
+  class func loadStoredHunts(#completion: (hunts: [Hunt]?, error: String?) -> Void) {
+    if let query = Hunt.query() {
+      query.fromLocalDatastore()
+      query.findObjectsInBackgroundWithBlock { (hunts, error) in
+        if let error = error {
+          completion(hunts: nil, error: error.description)
+        } else if let hunts = hunts {
+          completion(hunts: hunts, error: nil)
+        }
+      }
+    }
+  }
+  
   class func deleteHunt(hunt: Hunt, completion: (Bool, error: String?) -> Void) {
     hunt.deleteInBackgroundWithBlock { (succeeded, error) in
       if let error = error where !succeeded {
@@ -62,6 +75,8 @@ class ParseService {
       }
     }
   }
+  
+  
   
   class func fetchCheckpointsForHunt(hunt: Hunt, sortOrder: SortOrder, completion: ([Checkpoint]?, error: String?) -> Void) {
     PFObject.fetchAllIfNeededInBackground(hunt.getCheckpoints()) { (checkpoints, error) -> Void in
