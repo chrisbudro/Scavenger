@@ -166,14 +166,18 @@ extension MyHuntsViewController: UITableViewDelegate {
 }
 
 extension MyHuntsViewController: PFLogInViewControllerDelegate {
-  
+  func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+    toggleLoginButton()
+    dismissViewControllerAnimated(true, completion: nil)
+  }
 }
 
 extension MyHuntsViewController: PFSignUpViewControllerDelegate {
   func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+    toggleLoginButton()
     dismissViewControllerAnimated(true, completion: nil)
     if let currentUser = PFUser.currentUser() {
-      println(currentUser)
+      
     }
   }
 }

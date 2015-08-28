@@ -144,6 +144,15 @@ class ParseService {
     return sortedCheckpoints
   }
   
+  class func imageForHunt(hunt: Hunt, completion: (UIImage?, error: String?) -> Void) {
+    
+    if let firstCheckpoint = hunt.getCheckpoints().first {
+      imageForCheckpoint(firstCheckpoint) { (image, error) -> Void in
+        completion(image, error: error)
+      }
+    }
+  }
+
   class func imageForCheckpoint(checkpoint: Checkpoint, completion: (UIImage?, error: String?) -> Void) {
     checkpoint.fetchIfNeededInBackgroundWithBlock { (checkpoint, error) in
       if let

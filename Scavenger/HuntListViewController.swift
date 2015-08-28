@@ -52,10 +52,19 @@ extension HuntListViewController: UICollectionViewDataSource {
   }
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HuntCell", forIndexPath: indexPath) as! HuntCell
-    
+    let hunt = hunts[indexPath.row]
+    cell.tag++
+    let tag = cell.tag
     cell.imageView.image = UIImage(named: "redx.png")
-    cell.hunt = hunts[indexPath.row]
-  
+    cell.hunt = hunt
+    ParseService.imageForHunt(hunt) { (image, error) in
+      if let error = error {
+        println(error)
+        //TODO: Alert Error
+      } else if let image = image where tag == cell.tag {
+        cell.imageView.image = image
+      }
+    }
     return cell
   }
 }
