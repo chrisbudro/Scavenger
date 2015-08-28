@@ -205,13 +205,13 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name Your Hunt Here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EzI-z2-BjE">
                                 <rect key="frame" x="16" y="80" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Briefly Describe Your Hunt here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bE5-N6-ZJz">
                                 <rect key="frame" x="16" y="118" width="568" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2Zb-TZ-HZ8">
                                 <rect key="frame" x="0.0" y="156" width="600" height="349"/>
@@ -272,8 +272,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Enter a Clue" translatesAutoresizingMaskIntoConstraints="NO" id="NFl-Ek-Dxp">
-                                <rect key="frame" x="16" y="169.5" width="568" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a Clue" translatesAutoresizingMaskIntoConstraints="NO" id="NFl-Ek-Dxp">
+                                <rect key="frame" x="16" y="171" width="568" height="128"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.98823529409999999" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Bdr-a0-wms"/>

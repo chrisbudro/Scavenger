@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CheckpointCell.xib">
-   </FileRef>
-   <FileRef
       location = "group:Scavenger.xcodeproj">
    </FileRef>
    <FileRef

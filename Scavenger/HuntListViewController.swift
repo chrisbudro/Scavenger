@@ -21,7 +21,7 @@ class HuntListViewController: UIViewController {
   //MARK: Properties
   var hunts = [Hunt]()
   var refreshControl = UIRefreshControl()
-  let placeholderImage = UIImage(named: "redx.png")
+  let placeholderImage = UIImage(named: "Icon-60-1.png")
   var numberOfDividers: CGFloat {
     return kNumberOfColumns - 1
   }

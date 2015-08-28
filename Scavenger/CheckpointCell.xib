@@ -14,18 +14,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zj1-Zr-r3m">
-                        <rect key="frame" x="6" y="2" width="499" height="112.5"/>
+                        <rect key="frame" x="6" y="2" width="499" height="112"/>
                         <color key="backgroundColor" red="0.46666666666666667" green="0.52549019607843139" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-wt-lP0">
-                        <rect key="frame" x="8" y="4" width="495" height="108.5"/>
+                        <rect key="frame" x="8" y="4" width="495" height="108"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWR-5f-i4v">
-                                <rect key="frame" x="8" y="81" width="409" height="19.5"/>
+                                <rect key="frame" x="8" y="80" width="409" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Icon-76" translatesAutoresizingMaskIntoConstraints="NO" id="gc0-g0-5h6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Icon-76-1" translatesAutoresizingMaskIntoConstraints="NO" id="gc0-g0-5h6">
                                 <rect key="frame" x="425" y="8" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="1yk-ie-PQV"/>
@@ -39,7 +39,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="detail" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-QD-6a9">
-                                <rect key="frame" x="8" y="8" width="409" height="37"/>
+                                <rect key="frame" x="8" y="8" width="409" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -104,6 +104,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Icon-76" width="76" height="76"/>
+        <image name="Icon-76-1" width="76" height="76"/>
     </resources>
 </document>
