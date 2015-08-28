@@ -24,7 +24,8 @@ class CheckpointAdderViewController: UIViewController {
   //MARK: Properties
   var hunt: Hunt!
   var checkpointsFetched = false
-
+  private var huntHasChanged = false
+  
   //MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,18 +42,12 @@ class CheckpointAdderViewController: UIViewController {
     huntName.delegate = self
     huntDetail.delegate = self
     
-//    let saveButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveButtonWasPressed")
-//    navigationItem.rightBarButtonItem = saveButton
-    
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "doneWasPressed")
+    navigationItem.rightBarButtonItem = doneButton
     let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelWasPressed")
-    navigationItem.rightBarButtonItem = cancelButton
+    navigationItem.leftBarButtonItem = cancelButton
     
     tableView.registerNib(UINib(nibName: kCellNibName, bundle: nil), forCellReuseIdentifier: kCellIdentifier)
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    saveHunt()
   }
   
   //MARK: Helper Methods
@@ -83,7 +78,8 @@ class CheckpointAdderViewController: UIViewController {
   
   private func saveHunt() {
     
-    if let hunt = hunt {
+    if let hunt = hunt where huntHasChanged {
+      huntHasChanged = false
       hunt.name = huntName.text
       hunt.huntDescription = huntDetail.text
 
@@ -97,10 +93,12 @@ class CheckpointAdderViewController: UIViewController {
       }
     }
   }
-  
-  func cancelWasPressed() {
 
-//    hunt.deleteEventually()
+  func doneWasPressed() {
+    saveHunt()
+    navigationController?.popViewControllerAnimated(true)
+  }
+  func cancelWasPressed() {
     navigationController?.popViewControllerAnimated(true)
   }
 }
@@ -160,6 +158,9 @@ extension CheckpointAdderViewController: CheckpointCreatorDelegate {
 }
 
 extension CheckpointAdderViewController: UITextFieldDelegate {
+  func textFieldDidBeginEditing(textField: UITextField) {
+    huntHasChanged = true
+  }
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     huntName.resignFirstResponder()
     huntDetail.resignFirstResponder()
