@@ -241,7 +241,7 @@
         <!--Checkpoint Adder View Controller-->
         <scene sceneID="Y0s-kT-5Mk">
             <objects>
-                <viewController id="fDy-00-fcl" customClass="CheckpointAdderViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HuntCreatorViewController" id="fDy-00-fcl" customClass="CheckpointAdderViewController" customModule="Scavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FDb-eg-zdM"/>
                         <viewControllerLayoutGuide type="bottom" id="hXo-ro-bBD"/>
@@ -420,7 +420,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yvX-4v-vD7"/>
+        <segue reference="cJ2-Yg-E5S"/>
         <segue reference="uSR-6C-JFp"/>
     </inferredMetricsTieBreakers>
 </document>

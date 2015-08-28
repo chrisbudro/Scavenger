@@ -51,6 +51,12 @@ class CheckpointCreatorViewController: UIViewController {
       searchController.searchBar.placeholder = "Find a Place"
       viewForSearchBar.addSubview(searchController.searchBar)
       
+      if let locationName = checkpoint?.locationName {
+        searchController.searchBar.text = checkpoint?.locationName
+        clueTextView.textColor = UIColor.blackColor()
+        clueTextView.text = checkpoint?.clue
+      }
+      
       resultsTableController.tableView.delegate = self
       resultsTableController.tableView.dataSource = self
       resultsTableController.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "Cell")
