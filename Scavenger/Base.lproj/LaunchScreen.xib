@@ -16,7 +16,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SightSeekerTitle" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-wm-51Q">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SightSeekerTitle" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-wm-51Q">
                     <rect key="frame" x="74" y="195" width="332" height="91"/>
                 </imageView>
             </subviews>
