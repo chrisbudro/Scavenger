@@ -133,13 +133,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="Scavenger" id="bpO-ly-jjw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NNT-AC-iwB">
-                            <connections>
-                                <segue destination="fDy-00-fcl" kind="show" identifier="showHuntCreation" id="cJ2-Yg-E5S"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Scavenger" id="bpO-ly-jjw"/>
                     <connections>
                         <outlet property="collectionView" destination="CJK-rf-zkc" id="7Xi-n2-JA6"/>
                         <segue destination="JHu-LF-OrN" kind="show" identifier="showHuntDetail" id="kkm-Z2-arW"/>
@@ -232,7 +226,7 @@
                             <constraint firstItem="cLU-yI-2UA" firstAttribute="top" secondItem="2Zb-TZ-HZ8" secondAttribute="bottom" constant="8" id="EBc-XM-KIb"/>
                             <constraint firstItem="EzI-z2-BjE" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" id="Nfo-sJ-Qxx"/>
                             <constraint firstItem="bE5-N6-ZJz" firstAttribute="leading" secondItem="NOO-af-ZxF" secondAttribute="leadingMargin" id="VQ4-BD-AIY"/>
-                            <constraint firstItem="hXo-ro-bBD" firstAttribute="top" secondItem="cLU-yI-2UA" secondAttribute="bottom" constant="8" symbolic="YES" id="dJz-mO-WRt"/>
+                            <constraint firstItem="hXo-ro-bBD" firstAttribute="top" secondItem="cLU-yI-2UA" secondAttribute="bottom" constant="8" id="dJz-mO-WRt"/>
                             <constraint firstItem="bE5-N6-ZJz" firstAttribute="trailing" secondItem="NOO-af-ZxF" secondAttribute="trailingMargin" id="iZR-VJ-tEx"/>
                             <constraint firstItem="2Zb-TZ-HZ8" firstAttribute="top" secondItem="bE5-N6-ZJz" secondAttribute="bottom" constant="8" id="jQ7-Dc-fsA"/>
                             <constraint firstItem="EzI-z2-BjE" firstAttribute="top" secondItem="FDb-eg-zdM" secondAttribute="bottom" constant="16" id="nJL-FZ-KIi"/>
@@ -241,6 +235,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addCheckpointBottomConstraint" destination="dJz-mO-WRt" id="WhT-qt-0Pv"/>
                         <outlet property="huntDetail" destination="bE5-N6-ZJz" id="SLp-QV-jgl"/>
                         <outlet property="huntName" destination="EzI-z2-BjE" id="7IB-Pc-AuZ"/>
                         <outlet property="tableView" destination="2Zb-TZ-HZ8" id="Cxy-Ip-ARE"/>
@@ -367,7 +362,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cJ2-Yg-E5S"/>
         <segue reference="uSR-6C-JFp"/>
     </inferredMetricsTieBreakers>
 </document>

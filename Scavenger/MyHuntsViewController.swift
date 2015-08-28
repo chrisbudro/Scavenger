@@ -38,12 +38,19 @@ class MyHuntsViewController: UIViewController {
     configureLogInController()
     configureTableView()
   }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    loadHunts()
+  }
 
   //MARK: Helper Methods
   
   func loadHunts() {
-    loadPlayedHunts()
-    loadCreatedHunts()
+    if let currentUser = PFUser.currentUser() as? User {
+      loadPlayedHunts()
+      loadCreatedHunts()
+    }
   }
   
   func loadPlayedHunts() {
@@ -67,6 +74,12 @@ class MyHuntsViewController: UIViewController {
         self.tableView.reloadData()
       }
     }
+  }
+  
+  func clearAllHunts() {
+    createdHunts = [Hunt]()
+    playedHunts = [Hunt]()
+    tableView.reloadData()
   }
   
   func toggleLoginButton() {
@@ -117,6 +130,7 @@ class MyHuntsViewController: UIViewController {
   
   func logoutWasPressed() {
     PFUser.logOut()
+    clearAllHunts()
     toggleLoginButton()
     presentLoginController()
   }
@@ -181,6 +195,25 @@ extension MyHuntsViewController: UITableViewDelegate {
       let huntPlayerController = storyboard?.instantiateViewControllerWithIdentifier("HuntPlayerViewController") as! HuntPlayerViewController
       huntPlayerController.hunt = playedHunts[indexPath.row]
       navigationController?.pushViewController(huntPlayerController, animated: true)
+    }
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == .Delete {
+      if indexPath.section == kCreatedHuntsSection {
+        let createdHunt = createdHunts[indexPath.row]
+        if let currentUser = PFUser.currentUser() as? User {
+          currentUser.removeObject(createdHunt, forKey: "createdHunts")
+          currentUser.saveInBackground()
+        }
+        createdHunts.removeAtIndex(indexPath.row)
+      } else if indexPath.section == kPlayedHuntsSection {
+        let playedHunt = playedHunts[indexPath.row]
+        playedHunt.unpinInBackground()
+        playedHunts.removeAtIndex(indexPath.row)
+      }
+      let indexPaths = [indexPath]
+      tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Fade)
     }
   }
 }
