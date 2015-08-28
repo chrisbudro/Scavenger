@@ -39,6 +39,7 @@ class HuntPlayerViewController: UIViewController {
     
     tableView.registerNib(UINib(nibName: "CheckpointCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CheckpointCell")
     tableView.dataSource = self
+    tableView.delegate = self
     tableView.estimatedRowHeight = 70
     tableView.rowHeight = UITableViewAutomaticDimension
 
@@ -84,6 +85,14 @@ extension HuntPlayerViewController: UITableViewDataSource {
     }
     
     return cell
+  }
+}
+
+//MARK: TableView Delegate
+extension HuntPlayerViewController: UITableViewDelegate {
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("showPlayerMap", sender: self)
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
 }
 

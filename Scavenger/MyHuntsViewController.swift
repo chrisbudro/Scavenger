@@ -27,6 +27,8 @@ class MyHuntsViewController: UIViewController {
   
   let loginController = PFLogInViewController()
   
+  
+  //MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -100,6 +102,8 @@ class MyHuntsViewController: UIViewController {
   func configureTableView() {
     tableView.delegate = self
     tableView.dataSource = self
+    tableView.estimatedRowHeight = 70
+    tableView.rowHeight = UITableViewAutomaticDimension
     tableView.registerNib(UINib(nibName: "MyHuntTableViewCell", bundle: nil), forCellReuseIdentifier: kCellIdentifier)
   }
   
@@ -179,8 +183,21 @@ extension MyHuntsViewController: UITableViewDataSource {
     } else if indexPath.section == kPlayedHuntsSection {
       hunt = playedHunts[indexPath.row]
     }
-    cell.huntNameLabel.text = hunt?.name
-    
+    if let hunt = hunt {
+      cell.huntNameLabel.text = hunt.name
+      ParseService.imageForHunt(hunt) { (image, error) -> Void in
+        if let error = error {
+          println("Error Downloading Image")
+        } else if let image = image {
+          cell.huntImageView.image = image
+          if indexPath.section == self.kCreatedHuntsSection {
+            self.createdHunts[indexPath.row].huntImage = image
+          } else if indexPath.section == self.kPlayedHuntsSection {
+            self.playedHunts[indexPath.row].huntImage = image
+          }
+        }
+      }
+    }
     return cell
   }
 }
