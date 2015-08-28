@@ -49,6 +49,7 @@
 		4CEE7D521B8EF2D000F31A13 /* MyHuntTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEE7D511B8EF2D000F31A13 /* MyHuntTableViewCell.xib */; };
 		4CEE7D541B8FA32600F31A13 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEE7D531B8FA32600F31A13 /* ParseUI.framework */; };
 		4CEE7D561B8FB04600F31A13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE7D551B8FB04600F31A13 /* User.swift */; };
+		4CEE7D581B8FF85200F31A13 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE7D571B8FF85200F31A13 /* Constants.swift */; };
 		6D27DDD91D24F2DCC84B52E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5308C7A509D7087AE25BBE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		4CEE7D511B8EF2D000F31A13 /* MyHuntTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHuntTableViewCell.xib; sourceTree = "<group>"; };
 		4CEE7D531B8FA32600F31A13 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		4CEE7D551B8FB04600F31A13 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4CEE7D571B8FF85200F31A13 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4D5308C7A509D7087AE25BBE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		552F1D898A88B4D9BF452023 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +233,7 @@
 		4C9410F01B88DE3B00CAE08B /* Scavenger */ = {
 			isa = PBXGroup;
 			children = (
+				4CEE7D571B8FF85200F31A13 /* Constants.swift */,
 				4C9410F31B88DE3B00CAE08B /* AppDelegate.swift */,
 				3E3EAAD11B8BE74400905F8B /* Main.storyboard */,
 				4C483CC31B8CFE3B007B9215 /* Model */,
@@ -446,6 +449,7 @@
 				4CEE7D4C1B8EC7B500F31A13 /* GooglePlacesService.swift in Sources */,
 				0041B89B1B8BBCFF00E0D845 /* Checkpoint.swift in Sources */,
 				3E3EAAC71B8BBE8C00905F8B /* HuntPlayerViewController.swift in Sources */,
+				4CEE7D581B8FF85200F31A13 /* Constants.swift in Sources */,
 				4CB8B4671B8CC28700959136 /* CheckpointCreatorViewController.swift in Sources */,
 				3E3EAAC31B8BBE7700905F8B /* CheckpointCell.swift in Sources */,
 				4CB8B46B1B8CCADF00959136 /* Extensions.swift in Sources */,

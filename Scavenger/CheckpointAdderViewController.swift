@@ -30,6 +30,8 @@ class CheckpointAdderViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow", name: UIKeyboardDidShowNotification, object: nil)
+    
     ParseService.fetchCheckpointsForHunt(hunt, sortOrder: .Distance) { (checkpoints, error) in
       self.checkpointsFetched = true
       self.updateUI()
@@ -56,6 +58,10 @@ class CheckpointAdderViewController: UIViewController {
     huntDetail?.text = hunt?.huntDescription
     navigationItem.title = hunt?.name
     tableView?.reloadData()
+  }
+  
+  func keyboardDidShow() {
+    
   }
   
   //MARK: Navigation
@@ -166,5 +172,4 @@ extension CheckpointAdderViewController: UITextFieldDelegate {
     huntDetail.resignFirstResponder()
     return true
   }
-  
 }

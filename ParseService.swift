@@ -73,7 +73,7 @@ class ParseService {
     if let currentUser = PFUser.currentUser() as? User {
       PFObject.fetchAllIfNeededInBackground(currentUser.createdHunts) { (createdHunts, error) in
         if let error = error {
-          completion(hunts: nil, error: error.description)
+          completion(hunts: nil, error: "\(error.code)")
         } else if let createdHunts = createdHunts as? [Hunt] {
           completion(hunts: createdHunts, error: nil)
         }
