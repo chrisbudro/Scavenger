@@ -27,15 +27,15 @@ class GooglePlacesService {
     }
   }
   
-  func locationForPlaceID(placeID: String, completion: (location: CLLocation?, error: String?) -> Void) {
+  func detailsForPlaceID(placeID: String, completion: (details: (name: String, location: CLLocation)?, error: String?) -> Void) {
     placesClient.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
       if let error = error {
-        completion(location: nil, error: error.description)
+        completion(details: nil, error: error.description)
       } else if let place = place {
         let location = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
-        completion(location: location, error: nil)
+        completion(details: (name: place.name, location: location), error: nil)
       } else {
-        completion(location: nil, error: "No place was found")
+        completion(details: nil, error: "No place was found")
       }
     })
   }

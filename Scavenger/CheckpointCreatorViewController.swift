@@ -135,12 +135,13 @@ extension CheckpointCreatorViewController: UITableViewDelegate {
     checkpoint?.locationName = placePrediction.placeName
     checkpoint?.placeID = placePrediction.placeID
     
-    GooglePlacesService.defaultService.locationForPlaceID(placePrediction.placeID) { (location, error) in
+    GooglePlacesService.defaultService.detailsForPlaceID(placePrediction.placeID) { (details, error) in
       if let error = error {
         //TODO: Error Alert Handler Without Prompt
-      } else if let location = location {
-        let geoPoint = PFGeoPoint(location: location)
+      } else if let details = details {
+        let geoPoint = PFGeoPoint(location: details.location)
         self.checkpoint?.location = geoPoint
+        self.checkpoint?.locationName = details.name
       }
       self.dismissViewControllerAnimated(true, completion: nil)
       self.searchController.searchBar.text = self.checkpoint?.locationName
