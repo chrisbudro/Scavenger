@@ -9,22 +9,44 @@
 import UIKit
 
 class CheckpointCell: UITableViewCell {
-
+  
   // MARK: Public Properties
   var checkpoint: Checkpoint? {
     didSet {
-      updateUI()
+      updateTextUI()
     }
   }
-
+  var clueImage: UIImage? {
+    didSet {
+      updateImageUI()
+    }
+  }
+  var hideNameAndImage = false {
+    didSet {
+      updateTextUI()
+      updateImageUI()
+    }
+  }
+  
   // MARK: IBOutlets
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var detailLabel: UILabel!
-  @IBOutlet weak var checkpointImageView: UIImageView!
-
+  @IBOutlet private weak var nameLabel: UILabel!
+  @IBOutlet private weak var detailLabel: UILabel!
+  @IBOutlet private weak var checkpointImageView: UIImageView!
+  
   // MARK: Private Helper Methods
-  private func updateUI() {
-    nameLabel?.text = checkpoint?.locationName
+  private func updateTextUI() {
+    if hideNameAndImage {
+      nameLabel?.text = nil
+    } else {
+      nameLabel?.text = checkpoint?.locationName
+    }
     detailLabel?.text = checkpoint?.clue
+  }
+  private func updateImageUI() {
+    if hideNameAndImage {
+      //checkpointImageView?.image = nil
+    } else {
+      checkpointImageView?.image = clueImage
+    }
   }
 }
