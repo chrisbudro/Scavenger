@@ -44,6 +44,11 @@ class HuntPlayerViewController: UIViewController {
 
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView?.reloadData()
+  }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showPlayerMap" {
       let vc = segue.destinationViewController as! PlayerMapViewController
@@ -66,13 +71,15 @@ extension HuntPlayerViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("CheckpointCell", forIndexPath: indexPath) as! CheckpointCell
     let checkpoint = checkpoints![indexPath.row]
+
+    cell.hideNameAndImage = !checkpoint.completed
     cell.checkpoint = checkpoint
     
     ParseService.imageForCheckpoint(checkpoint) { (image, error) -> Void in
       if let error = error {
         //TODO: Error Alert Handler
       } else if let image = image {
-        cell.checkpointImageView.image = image
+        cell.clueImage = image
       }
     }
     
