@@ -17,18 +17,28 @@ class CheckpointAdderViewController: UIViewController {
   //MARK: Constants
   let kCellIdentifier = "CheckpointCell"
   let kCellNibName = "CheckpointCell"
-  
+  let kCheckpointButtonStandardMargin: CGFloat = 8
+
   //MARK: Outlets
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var addCheckpointBottomConstraint: NSLayoutConstraint!
   
   //MARK: Properties
   var hunt: Hunt!
   var checkpointsFetched = false
   private var huntHasChanged = false
   
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
   //MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+ 
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
     ParseService.fetchCheckpointsForHunt(hunt, sortOrder: .Distance) { (checkpoints, error) in
       self.checkpointsFetched = true
@@ -56,6 +66,27 @@ class CheckpointAdderViewController: UIViewController {
     huntDetail?.text = hunt?.huntDescription
     navigationItem.title = hunt?.name
     tableView?.reloadData()
+  }
+  
+  func keyboardWillShow(notification: NSNotification) {
+    let info = notification.userInfo!
+    let keyboard = info[UIKeyboardFrameEndUserInfoKey] as! NSValue
+    let keyboardFrame = keyboard.CGRectValue()
+    let tabBarHeight = tabBarController!.tabBar.frame.height
+    let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey] as! Double
+    UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+      self.addCheckpointBottomConstraint.constant = keyboardFrame.height - tabBarHeight + self.kCheckpointButtonStandardMargin
+      self.view.layoutIfNeeded()
+    })
+  }
+  
+  func keyboardWillHide(notification: NSNotification) {
+    let info = notification.userInfo!
+    let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey] as! Double
+    UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+      self.addCheckpointBottomConstraint.constant = self.kCheckpointButtonStandardMargin
+      self.view.layoutIfNeeded()
+    })
   }
   
   //MARK: Navigation
@@ -162,9 +193,7 @@ extension CheckpointAdderViewController: UITextFieldDelegate {
     huntHasChanged = true
   }
   func textFieldShouldReturn(textField: UITextField) -> Bool {
-    huntName.resignFirstResponder()
-    huntDetail.resignFirstResponder()
+    textField.resignFirstResponder()
     return true
   }
-  
 }

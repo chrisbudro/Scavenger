@@ -73,7 +73,7 @@ class ParseService {
     if let currentUser = PFUser.currentUser() as? User {
       PFObject.fetchAllIfNeededInBackground(currentUser.createdHunts) { (createdHunts, error) in
         if let error = error {
-          completion(hunts: nil, error: error.description)
+          completion(hunts: nil, error: "\(error.code)")
         } else if let createdHunts = createdHunts as? [Hunt] {
           completion(hunts: createdHunts, error: nil)
         }
@@ -144,6 +144,15 @@ class ParseService {
     return sortedCheckpoints
   }
   
+  class func imageForHunt(hunt: Hunt, completion: (UIImage?, error: String?) -> Void) {
+    
+    if let firstCheckpoint = hunt.getCheckpoints().first {
+      imageForCheckpoint(firstCheckpoint) { (image, error) -> Void in
+        completion(image, error: error)
+      }
+    }
+  }
+
   class func imageForCheckpoint(checkpoint: Checkpoint, completion: (UIImage?, error: String?) -> Void) {
     checkpoint.fetchIfNeededInBackgroundWithBlock { (checkpoint, error) in
       if let

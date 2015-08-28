@@ -18,7 +18,6 @@ class MyHuntsViewController: UIViewController {
   let kNumberOfSections = 2
   let kCellIdentifier = "MyHuntCell"
   
-  
   //MARK: Outlets
   @IBOutlet weak var tableView: UITableView!
   
@@ -26,26 +25,34 @@ class MyHuntsViewController: UIViewController {
   var createdHunts = [Hunt]()
   var playedHunts = [Hunt]()
   
+  let loginController = PFLogInViewController()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    let createHuntButton = UIBarButtonItem(title: "Create a Hunt", style: .Plain, target: self, action: "createHuntWasPressed")
-    navigationItem.leftBarButtonItem = createHuntButton
+    
+    title = "My Hunts"
+    PFUser.currentUser() != nil ? loadHunts() : presentLoginController()
+    
     toggleLoginButton()
- 
-    super.viewDidLoad()
-    tableView.delegate = self
-    tableView.dataSource = self
-    tableView.registerNib(UINib(nibName: "MyHuntTableViewCell", bundle: nil), forCellReuseIdentifier: kCellIdentifier)
+    configureCreateHuntButton()
+    configureLogInController()
+    configureTableView()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    loadHunts()
+  }
 
-    loadPlayedHunts()
-    loadCreatedHunts()
+  //MARK: Helper Methods
+  
+  func loadHunts() {
+    if let currentUser = PFUser.currentUser() as? User {
+      loadPlayedHunts()
+      loadCreatedHunts()
+    }
   }
   
-  //MARK: Helper Methods
   func loadPlayedHunts() {
     ParseService.loadStoredHunts { (playedHunts, error) -> Void in
       if let error = error {
@@ -69,6 +76,12 @@ class MyHuntsViewController: UIViewController {
     }
   }
   
+  func clearAllHunts() {
+    createdHunts = [Hunt]()
+    playedHunts = [Hunt]()
+    tableView.reloadData()
+  }
+  
   func toggleLoginButton() {
     if let currentUser = PFUser.currentUser() {
       let logoutButton = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "logoutWasPressed")
@@ -77,6 +90,28 @@ class MyHuntsViewController: UIViewController {
       let loginButton = UIBarButtonItem(title: "Login", style: .Plain, target: self, action: "loginWasPressed")
       navigationItem.rightBarButtonItem = loginButton
     }
+  }
+  
+  func configureCreateHuntButton() {
+    let createHuntButton = UIBarButtonItem(title: "Create a Hunt", style: .Plain, target: self, action: "createHuntWasPressed")
+    navigationItem.leftBarButtonItem = createHuntButton
+  }
+  
+  func configureTableView() {
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.registerNib(UINib(nibName: "MyHuntTableViewCell", bundle: nil), forCellReuseIdentifier: kCellIdentifier)
+  }
+  
+  func configureLogInController() {
+    loginController.delegate = self
+    loginController.signUpController?.delegate = self
+    let imageView = UIImageView(image: UIImage(named: "SightSeekerTitle")!)
+    imageView.contentMode = .ScaleAspectFit
+    loginController.logInView?.logo = imageView
+    let signupImageView = UIImageView(image: UIImage(named: "SightSeekerTitle")!)
+    signupImageView.contentMode = .ScaleAspectFit
+    loginController.signUpController?.signUpView?.logo = signupImageView
   }
   
   //MARK: Actions
@@ -88,20 +123,19 @@ class MyHuntsViewController: UIViewController {
       presentViewController(alertController, animated: true, completion: nil)
     }
   }
-  
+
   func loginWasPressed() {
     presentLoginController()
   }
   
   func logoutWasPressed() {
     PFUser.logOut()
+    clearAllHunts()
     toggleLoginButton()
+    presentLoginController()
   }
   
   func presentLoginController() {
-    let loginController = PFLogInViewController()
-    loginController.delegate = self
-    loginController.signUpController?.delegate = self
     presentViewController(loginController, animated: true, completion: nil)
     
   }
@@ -163,17 +197,42 @@ extension MyHuntsViewController: UITableViewDelegate {
       navigationController?.pushViewController(huntPlayerController, animated: true)
     }
   }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == .Delete {
+      if indexPath.section == kCreatedHuntsSection {
+        let createdHunt = createdHunts[indexPath.row]
+        if let currentUser = PFUser.currentUser() as? User {
+          currentUser.removeObject(createdHunt, forKey: "createdHunts")
+          currentUser.saveInBackground()
+        }
+        createdHunts.removeAtIndex(indexPath.row)
+      } else if indexPath.section == kPlayedHuntsSection {
+        let playedHunt = playedHunts[indexPath.row]
+        playedHunt.unpinInBackground()
+        playedHunts.removeAtIndex(indexPath.row)
+      }
+      let indexPaths = [indexPath]
+      tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Fade)
+    }
+  }
 }
 
 extension MyHuntsViewController: PFLogInViewControllerDelegate {
-  
+  func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+    toggleLoginButton()
+    loadHunts()
+    dismissViewControllerAnimated(true, completion: nil)
+  }
 }
 
 extension MyHuntsViewController: PFSignUpViewControllerDelegate {
   func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+    toggleLoginButton()
     dismissViewControllerAnimated(true, completion: nil)
     if let currentUser = PFUser.currentUser() {
-      println(currentUser)
+      
     }
   }
 }
+
