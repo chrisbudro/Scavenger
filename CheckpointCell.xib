@@ -13,20 +13,20 @@
             <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z7m-o3-Y3Y" id="SBO-BY-w1V">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zj1-Zr-r3m">
-                        <rect key="frame" x="2" y="8" width="507" height="98"/>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zj1-Zr-r3m">
+                        <rect key="frame" x="2" y="8" width="507" height="99"/>
                         <color key="backgroundColor" red="0.46666666666666667" green="0.52549019607843139" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-wt-lP0">
-                        <rect key="frame" x="4" y="10" width="502" height="93"/>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-wt-lP0">
+                        <rect key="frame" x="4" y="10" width="502" height="94"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWR-5f-i4v">
-                                <rect key="frame" x="8" y="65" width="415" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWR-5f-i4v">
+                                <rect key="frame" x="8" y="66" width="415" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Icon-76" translatesAutoresizingMaskIntoConstraints="NO" id="gc0-g0-5h6">
-                                <rect key="frame" x="431" y="11" width="70" height="70"/>
+                                <rect key="frame" x="431" y="8" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="1yk-ie-PQV"/>
                                     <constraint firstAttribute="height" constant="70" id="QwR-ld-FLa"/>
@@ -38,8 +38,8 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="detail" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-QD-6a9">
-                                <rect key="frame" x="8" y="8" width="415" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="detail" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-QD-6a9">
+                                <rect key="frame" x="8" y="8" width="415" height="22"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -54,9 +54,8 @@
                             <constraint firstAttribute="trailing" secondItem="gc0-g0-5h6" secondAttribute="trailing" constant="1" id="QnJ-oB-Zlf"/>
                             <constraint firstItem="gc0-g0-5h6" firstAttribute="leading" secondItem="dWR-QD-6a9" secondAttribute="trailing" constant="8" id="Ryx-PM-DyT"/>
                             <constraint firstItem="dWR-QD-6a9" firstAttribute="top" secondItem="hLg-wt-lP0" secondAttribute="top" constant="8" id="ZkW-e3-XwK"/>
-                            <constraint firstItem="gc0-g0-5h6" firstAttribute="top" secondItem="hLg-wt-lP0" secondAttribute="top" constant="11" id="aIw-lP-ey4"/>
+                            <constraint firstItem="gc0-g0-5h6" firstAttribute="top" secondItem="hLg-wt-lP0" secondAttribute="top" constant="8" id="aIw-lP-ey4"/>
                             <constraint firstItem="gc0-g0-5h6" firstAttribute="leading" secondItem="hWR-5f-i4v" secondAttribute="trailing" constant="8" id="fRn-HD-haw"/>
-                            <constraint firstAttribute="bottom" secondItem="gc0-g0-5h6" secondAttribute="bottom" constant="12" id="tT9-0r-9ad"/>
                             <constraint firstAttribute="bottom" secondItem="gc0-g0-5h6" secondAttribute="bottom" constant="12" id="uoP-aO-Rjn"/>
                         </constraints>
                         <variation key="default">
