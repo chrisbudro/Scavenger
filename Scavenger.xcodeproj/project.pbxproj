@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		0041B89B1B8BBCFF00E0D845 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B8991B8BBCFF00E0D845 /* Checkpoint.swift */; };
 		0041B89C1B8BBCFF00E0D845 /* Hunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0041B89A1B8BBCFF00E0D845 /* Hunt.swift */; };
+		005CA63F1B9003A600A5D971 /* CheckpointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005CA63E1B9003A600A5D971 /* CheckpointCell.xib */; };
 		00A308DE1B8EB61A0039C858 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A308DD1B8EB6190039C858 /* LocationService.swift */; };
 		3E3EAAC11B8BBE6D00905F8B /* HuntCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */; };
 		3E3EAAC31B8BBE7700905F8B /* CheckpointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC21B8BBE7700905F8B /* CheckpointCell.swift */; };
-		3E3EAAC51B8BBE7F00905F8B /* CheckpointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC41B8BBE7F00905F8B /* CheckpointCell.xib */; };
 		3E3EAAC71B8BBE8C00905F8B /* HuntPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC61B8BBE8C00905F8B /* HuntPlayerViewController.swift */; };
 		3E3EAAC91B8BBE9200905F8B /* HuntListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAAC81B8BBE9200905F8B /* HuntListViewController.swift */; };
 		3E3EAACB1B8BBF3600905F8B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EAACA1B8BBF3600905F8B /* Keys.swift */; };
@@ -65,11 +65,11 @@
 /* Begin PBXFileReference section */
 		0041B8991B8BBCFF00E0D845 /* Checkpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
 		0041B89A1B8BBCFF00E0D845 /* Hunt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hunt.swift; sourceTree = "<group>"; };
+		005CA63E1B9003A600A5D971 /* CheckpointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckpointCell.xib; sourceTree = "<group>"; };
 		00A308DD1B8EB6190039C858 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		0F3BE94274D242241F859BB9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntCell.swift; sourceTree = "<group>"; };
 		3E3EAAC21B8BBE7700905F8B /* CheckpointCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointCell.swift; sourceTree = "<group>"; };
-		3E3EAAC41B8BBE7F00905F8B /* CheckpointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckpointCell.xib; sourceTree = "<group>"; };
 		3E3EAAC61B8BBE8C00905F8B /* HuntPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntPlayerViewController.swift; sourceTree = "<group>"; };
 		3E3EAAC81B8BBE9200905F8B /* HuntListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntListViewController.swift; sourceTree = "<group>"; };
 		3E3EAACA1B8BBF3600905F8B /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -167,8 +167,8 @@
 				4CEE7D4F1B8EF2A900F31A13 /* MyHuntTableViewCell.swift */,
 				4CEE7D511B8EF2D000F31A13 /* MyHuntTableViewCell.xib */,
 				3E3EAAC01B8BBE6D00905F8B /* HuntCell.swift */,
+				005CA63E1B9003A600A5D971 /* CheckpointCell.xib */,
 				3E3EAAC21B8BBE7700905F8B /* CheckpointCell.swift */,
-				3E3EAAC41B8BBE7F00905F8B /* CheckpointCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -375,12 +375,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C9410F91B88DE3B00CAE08B /* (null) in Resources */,
-				3E3EAAC51B8BBE7F00905F8B /* CheckpointCell.xib in Resources */,
-				3E3EAAC51B8BBE7F00905F8B /* CheckpointCell.xib in Resources */,
 				4CEE7D521B8EF2D000F31A13 /* MyHuntTableViewCell.xib in Resources */,
 				3E3EAAD31B8BE74400905F8B /* Main.storyboard in Resources */,
 				4C9410FE1B88DE3B00CAE08B /* LaunchScreen.xib in Resources */,
 				4C9410FB1B88DE3B00CAE08B /* Images.xcassets in Resources */,
+				005CA63F1B9003A600A5D971 /* CheckpointCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
