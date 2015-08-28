@@ -24,6 +24,7 @@ class MyHuntsViewController: UIViewController {
   //MARK: Properties
   var createdHunts = [Hunt]()
   var playedHunts = [Hunt]()
+  let placeHolderImage = UIImage(named: "icon-60-1")
   
   let loginController = PFLogInViewController()
   
@@ -178,6 +179,10 @@ extension MyHuntsViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath) as! MyHuntTableViewCell
     var hunt: Hunt?
+    
+    cell.huntImageView.image = nil
+    cell.tag++
+    let tag = cell.tag
     if indexPath.section == kCreatedHuntsSection {
       hunt = createdHunts[indexPath.row]
     } else if indexPath.section == kPlayedHuntsSection {
@@ -187,8 +192,9 @@ extension MyHuntsViewController: UITableViewDataSource {
       cell.huntNameLabel.text = hunt.name
       ParseService.imageForHunt(hunt) { (image, error) -> Void in
         if let error = error {
-          println("Error Downloading Image")
-        } else if let image = image {
+          println(error)
+          cell.huntImageView.image = self.placeHolderImage
+        } else if let image = image where tag == cell.tag {
           cell.huntImageView.image = image
           if indexPath.section == self.kCreatedHuntsSection {
             self.createdHunts[indexPath.row].huntImage = image
@@ -222,6 +228,11 @@ extension MyHuntsViewController: UITableViewDelegate {
         if let currentUser = PFUser.currentUser() as? User {
           currentUser.removeObject(createdHunt, forKey: "createdHunts")
           currentUser.saveInBackground()
+          ParseService.deleteHunt(createdHunt) { (success, error) -> Void in
+            if let error = error {
+              println(error)
+            }
+          }
         }
         createdHunts.removeAtIndex(indexPath.row)
       } else if indexPath.section == kPlayedHuntsSection {
