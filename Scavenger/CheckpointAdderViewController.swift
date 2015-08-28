@@ -22,17 +22,8 @@ class CheckpointAdderViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   //MARK: Properties
-  var hunt: Hunt? {
-    didSet {
-      updateUI()
-    }
-  }
-  private func updateUI() {
-    huntName?.text = hunt?.name
-    huntDetail?.text = hunt?.huntDescription
-    navigationItem.title = hunt?.name
-    tableView?.reloadData()
-  }
+  var hunt: Hunt!
+  var checkpointsFetched = false
   private var huntHasChanged = false
   
   //MARK: Life Cycle
@@ -57,11 +48,6 @@ class CheckpointAdderViewController: UIViewController {
     navigationItem.leftBarButtonItem = cancelButton
     
     tableView.registerNib(UINib(nibName: kCellNibName, bundle: nil), forCellReuseIdentifier: kCellIdentifier)
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    saveHunt()
   }
   
   //MARK: Helper Methods
@@ -101,6 +87,8 @@ class CheckpointAdderViewController: UIViewController {
         if let error = error where !succeeded {
           let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: error, handler: nil)
           self.presentViewController(alertController, animated: true, completion: nil)
+        } else if succeeded {
+          ParseService.assignCreatedHuntToCurrentUser(hunt: hunt)
         }
       }
     }

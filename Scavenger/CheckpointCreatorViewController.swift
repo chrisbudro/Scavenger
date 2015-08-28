@@ -72,11 +72,6 @@ class CheckpointCreatorViewController: UIViewController {
     
   }
   
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    saveCheckpoint()
-  }
-  
   //MARK: Actions
   func saveCheckpoint() {
     if let checkpoint = checkpoint where clueHasChanged {
