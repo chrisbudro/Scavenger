@@ -20,6 +20,7 @@ class Hunt: PFObject {
   @NSManaged var huntDescription: String?
   @NSManaged private var checkpoints: [Checkpoint]?
   var huntStyle: HuntStyle?
+  var huntImage: UIImage?
 
   func getCheckpoints() -> [Checkpoint] {
     if checkpoints == nil {

@@ -68,11 +68,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CJK-rf-zkc">
-                                <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CJK-rf-zkc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0ES-iy-mGD">
                                     <size key="itemSize" width="100" height="125"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -97,13 +97,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hunt Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zow-uo-8Il">
                                                     <rect key="frame" x="21" y="103" width="59" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.15218014099999999" green="0.75037484219999995" blue="0.50215475899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerX" secondItem="zow-uo-8Il" secondAttribute="centerX" id="0wn-qw-93V"/>
                                             <constraint firstItem="LoL-nU-EEg" firstAttribute="leading" secondItem="f2j-wP-15w" secondAttribute="leading" id="75Y-q0-mxa"/>
@@ -124,12 +124,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="CJK-rf-zkc" secondAttribute="trailing" constant="-16" id="FBR-PQ-dgi"/>
-                            <constraint firstItem="CJK-rf-zkc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="HSV-Kw-Ys6"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="CJK-rf-zkc" secondAttribute="bottom" constant="-64" id="OZJ-qg-QM7"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="CJK-rf-zkc" secondAttribute="bottom" id="OZJ-qg-QM7"/>
+                            <constraint firstItem="CJK-rf-zkc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="boH-Bk-eRr"/>
                             <constraint firstItem="CJK-rf-zkc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="goD-04-hIn"/>
+                            <constraint firstAttribute="trailing" secondItem="CJK-rf-zkc" secondAttribute="trailing" id="pKZ-94-Awa"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Scavenger" id="bpO-ly-jjw">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NNT-AC-iwB">
                             <connections>
