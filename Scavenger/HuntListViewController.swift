@@ -112,8 +112,6 @@ extension HuntListViewController: UICollectionViewDataSource {
       ParseService.imageForHunt(hunt) { (image, error) in
         if let error = error {
           println(error)
-          self.hunts[indexPath.row].huntImage = self.placeholderImage
-          hunt.huntImage = self.placeholderImage
           cell.imageView.image = self.placeholderImage
         } else if let image = image where tag == cell.tag {
           self.hunts[indexPath.row].huntImage = image
