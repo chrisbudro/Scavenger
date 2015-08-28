@@ -27,6 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.96078431369999995" green="0.98823529409999999" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="HEf-LC-PlO" firstAttribute="leading" secondItem="Se6-Sl-172" secondAttribute="trailing" constant="8" id="61l-kc-XlG"/>
                     <constraint firstAttribute="centerY" secondItem="Se6-Sl-172" secondAttribute="centerY" id="Sxz-wL-UDz"/>
