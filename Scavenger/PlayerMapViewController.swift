@@ -24,6 +24,7 @@ class PlayerMapViewController: UIViewController {
   let kCheckInDistanceLimit = 0.05
   let kLocationAccuracy = 10.0          // meters
   let kLocationTimeInterval = 15.0      //seconds
+  let kDemonstratinoMode = true
 
   
   //MARK: Properties
@@ -153,14 +154,39 @@ class PlayerMapViewController: UIViewController {
     return offsetPosition
   }
   
+  // for testing and demonstration
+  func randomLocation(checkpoints: [Checkpoint]) -> Checkpoint? {
+    if checkpoints.isEmpty { return nil }
+    return checkpoints[Int(arc4random_uniform(UInt32(checkpoints.count)))]
+  }
+  
   func completeCheckpoint() {
-    let currentLocation: PFGeoPoint?
+    var currentLocation: PFGeoPoint?
     if let location = LocationService.currentLocation() {
       currentLocation = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
       println("locationF: \(location.description)")
     } else {
       currentLocation = PFGeoPoint(latitude: kFailureLatitude,longitude: -kFailureLongitude)
     }
+    
+    // if demonstrating or testing then check if at least one location is close enough
+    // otherwise reset currentLocation to a random location
+    if kDemonstratinoMode, let checkpoints = checkpoints, testLocation = currentLocation {
+      var closeCheckpoint = false
+      var farCheckpoints = [Checkpoint]()
+      for checkpoint in checkpoints {
+        if testLocation.distanceInKilometersTo(checkpoint.location) < kCheckInDistanceLimit  {
+          closeCheckpoint = true
+          break
+        } else if !checkpoint.completed {
+          farCheckpoints.append(checkpoint)
+        }
+      }
+      if !closeCheckpoint, let randomLocation = randomLocation(farCheckpoints) {
+        currentLocation = randomLocation.location
+      }
+    }
+    
     if let
       checkpoints = checkpoints,
       sortedCheckpoints = ParseService.checkpointsByDistance(checkpoints, currentLocation: currentLocation!)
