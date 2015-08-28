@@ -9,7 +9,7 @@
 import UIKit
 
 class CheckpointCell: UITableViewCell {
-
+  
   // MARK: Public Properties
   var checkpoint: Checkpoint? {
     didSet {
@@ -27,12 +27,12 @@ class CheckpointCell: UITableViewCell {
       updateImageUI()
     }
   }
-
+  
   // MARK: IBOutlets
   @IBOutlet private weak var nameLabel: UILabel!
   @IBOutlet private weak var detailLabel: UILabel!
   @IBOutlet private weak var checkpointImageView: UIImageView!
-
+  
   // MARK: Private Helper Methods
   private func updateTextUI() {
     if hideNameAndImage {
@@ -44,7 +44,7 @@ class CheckpointCell: UITableViewCell {
   }
   private func updateImageUI() {
     if hideNameAndImage {
-      checkpointImageView?.image = nil
+      //checkpointImageView?.image = nil
     } else {
       checkpointImageView?.image = clueImage
     }
