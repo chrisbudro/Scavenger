@@ -25,7 +25,7 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Icon-76" translatesAutoresizingMaskIntoConstraints="NO" id="gc0-g0-5h6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Icon-76-1" translatesAutoresizingMaskIntoConstraints="NO" id="gc0-g0-5h6">
                                 <rect key="frame" x="425" y="8" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="1yk-ie-PQV"/>
@@ -104,6 +104,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Icon-76" width="76" height="76"/>
+        <image name="Icon-76-1" width="76" height="76"/>
     </resources>
 </document>
