@@ -16,17 +16,31 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SightSeekerTitle" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-wm-51Q">
-                    <rect key="frame" x="74" y="195" width="332" height="91"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SightSeekerTitle" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-wm-51Q">
+                    <rect key="frame" x="116" y="131" width="249" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="eJh-am-oI0"/>
+                        <constraint firstAttribute="width" constant="249" id="iOT-Qx-pjb"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="Icon-76-1" translatesAutoresizingMaskIntoConstraints="NO" id="jOs-Rz-W2P">
+                    <rect key="frame" x="203" y="203" width="75" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="Tii-bJ-iuk"/>
+                        <constraint firstAttribute="height" constant="75" id="kpZ-zz-SaA"/>
+                    </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.98823529409999999" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="tfM-wm-51Q" secondAttribute="centerY" id="7zC-rX-gUq"/>
+                <constraint firstItem="jOs-Rz-W2P" firstAttribute="top" secondItem="tfM-wm-51Q" secondAttribute="bottom" constant="8" id="6Nw-ZS-8Qs"/>
+                <constraint firstAttribute="centerX" secondItem="tfM-wm-51Q" secondAttribute="centerX" id="D0Z-ZK-z7o"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="37" id="LEY-fG-Tfs"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstAttribute="centerX" secondItem="tfM-wm-51Q" secondAttribute="centerX" id="dY0-Sa-jve"/>
+                <constraint firstAttribute="centerX" secondItem="jOs-Rz-W2P" secondAttribute="centerX" id="ob1-0K-3w0"/>
+                <constraint firstItem="tfM-wm-51Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="131" id="qtq-Oj-sJ4"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="jOs-Rz-W2P" secondAttribute="bottom" constant="141" id="u9u-i5-VDT"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -34,6 +48,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Icon-76-1" width="76" height="76"/>
         <image name="SightSeekerTitle" width="332" height="91"/>
     </resources>
 </document>
