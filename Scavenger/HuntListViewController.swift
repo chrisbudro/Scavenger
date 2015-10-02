@@ -39,9 +39,9 @@ class HuntListViewController: UIViewController {
 
     let locationService = AppDelegate.Location.Service
     if let error = locationService.isAuthorized() {
-      println("Core Location Services Not Ready. \(error.localizedDescription)")
+      print("Core Location Services Not Ready. \(error.localizedDescription)")
     } else {
-      println("Core Location Services Ready.")
+      print("Core Location Services Ready.")
     }
   }
   
@@ -81,7 +81,7 @@ class HuntListViewController: UIViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showHuntCreation", let vc = segue.destinationViewController as? CheckpointAdderViewController {
       vc.hunt = Hunt()
-    } else if segue.identifier == "showHuntDetail", let vc = segue.destinationViewController as? HuntPlayerViewController, indexPath = collectionView.indexPathsForSelectedItems().first as? NSIndexPath {
+    } else if segue.identifier == "showHuntDetail", let vc = segue.destinationViewController as? HuntPlayerViewController, indexPath = collectionView.indexPathsForSelectedItems()?.first {
       vc.hunt = hunts[indexPath.row]
     }
   }
@@ -111,7 +111,7 @@ extension HuntListViewController: UICollectionViewDataSource {
       
       ParseService.imageForHunt(hunt) { (image, error) in
         if let error = error {
-          println(error)
+          print(error)
           cell.imageView.image = self.placeholderImage
         } else if let image = image where tag == cell.tag {
           self.hunts[indexPath.row].huntImage = image
@@ -137,7 +137,6 @@ extension HuntListViewController: UICollectionViewDataSource {
 
 extension HuntListViewController: UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    let hunt = hunts[indexPath.row]
     performSegueWithIdentifier("showHuntDetail", sender: self)
   }
 }

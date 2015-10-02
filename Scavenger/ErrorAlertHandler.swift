@@ -9,7 +9,7 @@
 import UIKit
 
 class ErrorAlertHandler {
-  class func errorAlertWithPrompt(#error: String, handler: (() -> Void)?) -> UIAlertController {
+  class func errorAlertWithPrompt(error error: String, handler: (() -> Void)?) -> UIAlertController {
     let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .Alert)
     alertController.addAction(UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
       handler?()
@@ -19,7 +19,7 @@ class ErrorAlertHandler {
     return alertController
   }
   
-  class func errorAlertWithoutPrompt(#error: String, handler: (() -> Void)?) -> UIAlertController {
+  class func errorAlertWithoutPrompt(error error: String, handler: (() -> Void)?) -> UIAlertController {
     let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .Alert)
 
     return alertController

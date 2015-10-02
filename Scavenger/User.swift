@@ -19,7 +19,3 @@ class User: PFUser {
     createdHunts!.append(hunt)
   }
 }
-
-extension User: PFSubclassing {
-  
-}

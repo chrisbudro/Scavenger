@@ -54,7 +54,7 @@ class CheckpointCreatorViewController: UIViewController {
     viewForSearchBar.addSubview(searchController.searchBar)
     
     if let locationName = checkpoint?.locationName {
-      searchController.searchBar.text = checkpoint?.locationName
+      searchController.searchBar.text = locationName
       clueTextView.textColor = UIColor.blackColor()
       clueTextView.text = checkpoint?.clue
     }
@@ -116,7 +116,7 @@ extension CheckpointCreatorViewController: UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
     let placePrediction = placePredictions[indexPath.row]
     
     cell.textLabel?.text = placePrediction.placeName
@@ -172,13 +172,14 @@ extension CheckpointCreatorViewController: UISearchControllerDelegate {
 //MARK: Search Results Updating
 extension CheckpointCreatorViewController: UISearchResultsUpdating {
   func updateSearchResultsForSearchController(searchController: UISearchController) {
-    let query = searchController.searchBar.text
-    GooglePlacesService.defaultService.resultsFromAutoCompleteQuery(query) { (placePredictions, error) in
-      if let error = error {
-        //TODO: Alert Controller for error
-      } else if let placePredictions = placePredictions {
-        self.placePredictions = placePredictions
-        self.resultsTableController.tableView.reloadData()
+    if let query = searchController.searchBar.text where !query.isEmpty {
+      GooglePlacesService.defaultService.resultsFromAutoCompleteQuery(query) { (placePredictions, error) in
+        if let error = error {
+          //TODO: Alert Controller for error
+        } else if let placePredictions = placePredictions {
+          self.placePredictions = placePredictions
+          self.resultsTableController.tableView.reloadData()
+        }
       }
     }
   }
