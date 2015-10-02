@@ -55,21 +55,21 @@ class ParseService {
     }
   }
   
-  class func loadStoredHunts(#completion: HuntCompletionHandler) {
+  class func loadStoredHunts(completion completion: HuntCompletionHandler) {
     if let query = Hunt.query() {
       query.fromLocalDatastore()
       query.findObjectsInBackgroundWithBlock { (hunts, error) in
         if let error = error {
           completion(hunts: nil, error: error.description)
         } else if let hunts = hunts as? [Hunt] {
-          println(hunts.count)
+          print(hunts.count)
           completion(hunts: hunts, error: nil)
         }
       }
     }
   }
   
-  class func loadCurrentUserCreatedHunts(#completion: HuntCompletionHandler) {
+  class func loadCurrentUserCreatedHunts(completion completion: HuntCompletionHandler) {
     if let currentUser = PFUser.currentUser() as? User {
       PFObject.fetchAllIfNeededInBackground(currentUser.createdHunts) { (createdHunts, error) in
         if let error = error {
@@ -106,7 +106,7 @@ class ParseService {
     }
   }
   
-  class func assignCreatedHuntToCurrentUser(#hunt: Hunt) {
+  class func assignCreatedHuntToCurrentUser(hunt hunt: Hunt) {
     if let currentUser = PFUser.currentUser() as? User {
       currentUser.addUniqueObject(hunt, forKey: "createdHunts")
       currentUser.saveInBackground()
@@ -133,7 +133,7 @@ class ParseService {
   }
 
   class func checkpointsByDistance(checkpoints: [Checkpoint], currentLocation: PFGeoPoint) -> [Checkpoint]? {
-    let sortedCheckpoints = sorted(checkpoints, { (checkpoint1: Checkpoint, checkpoint2: Checkpoint) -> Bool in
+    let sortedCheckpoints = checkpoints.sort({ (checkpoint1: Checkpoint, checkpoint2: Checkpoint) -> Bool in
       if let location1 = checkpoint1.location, location2 = checkpoint2.location {
         return location1.distanceInMilesTo(currentLocation) < location2.distanceInMilesTo(currentLocation)
       } else if checkpoint1.location == nil {

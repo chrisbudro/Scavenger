@@ -50,7 +50,7 @@ class MyHuntsViewController: UIViewController {
   //MARK: Helper Methods
   
   func loadHunts() {
-    if let currentUser = PFUser.currentUser() as? User {
+    if let _ = PFUser.currentUser() as? User {
       loadPlayedHunts()
       loadCreatedHunts()
     }
@@ -86,7 +86,7 @@ class MyHuntsViewController: UIViewController {
   }
   
   func toggleLoginButton() {
-    if let currentUser = PFUser.currentUser() {
+    if let _ = PFUser.currentUser() {
       let logoutButton = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "logoutWasPressed")
       navigationItem.rightBarButtonItem = logoutButton
     } else {
@@ -121,7 +121,7 @@ class MyHuntsViewController: UIViewController {
   
   //MARK: Actions
   func createHuntWasPressed() {
-    if let currentUser = PFUser.currentUser() as? User {
+    if let _ = PFUser.currentUser() as? User {
       performSegueWithIdentifier("ShowHuntCreator", sender: nil)
     } else {
       let alertController = ErrorAlertHandler.errorAlertWithPrompt(error: "Please login to create a hunt", handler: nil)
@@ -192,7 +192,7 @@ extension MyHuntsViewController: UITableViewDataSource {
       cell.huntNameLabel.text = hunt.name
       ParseService.imageForHunt(hunt) { (image, error) -> Void in
         if let error = error {
-          println(error)
+          print(error)
           cell.huntImageView.image = self.placeHolderImage
         } else if let image = image where tag == cell.tag {
           cell.huntImageView.image = image
@@ -230,7 +230,7 @@ extension MyHuntsViewController: UITableViewDelegate {
           currentUser.saveInBackground()
           ParseService.deleteHunt(createdHunt) { (success, error) -> Void in
             if let error = error {
-              println(error)
+              print(error)
             }
           }
         }
@@ -258,7 +258,7 @@ extension MyHuntsViewController: PFSignUpViewControllerDelegate {
   func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
     toggleLoginButton()
     dismissViewControllerAnimated(true, completion: nil)
-    if let currentUser = PFUser.currentUser() {
+    if let _ = PFUser.currentUser() {
       
     }
   }

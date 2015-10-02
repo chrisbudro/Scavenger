@@ -43,9 +43,9 @@ class PlayerMapViewController: UIViewController {
     let locationService = AppDelegate.Location.Service
     locationService.currentLocationWithBlock(accuracy: kLocationAccuracy, interval: kLocationTimeInterval) { (location, error) -> Void in
       if let location = location {
-        println("locationB: \(location.description)")
+        print("locationB: \(location.description)")
       }  else if let error = error {
-        println("error: \(error.localizedDescription)")
+        print("error: \(error.localizedDescription)")
       }
     }
 
@@ -72,7 +72,7 @@ class PlayerMapViewController: UIViewController {
   }
   
   func setMapBounds() {
-    var path = GMSMutablePath()
+    let path = GMSMutablePath()
     if let checkpoints = checkpoints {
       for checkpoint in checkpoints {
         if let coreLocation = checkpoint.coreLocation {
@@ -111,7 +111,7 @@ class PlayerMapViewController: UIViewController {
     setMapBounds()
     if let checkpoints = checkpoints {
       for checkpoints in [checkpoints, completedCheckpoints] {
-        for (index, checkpoint) in enumerate(checkpoints) {
+        for (_, checkpoint) in checkpoints.enumerate() {
           if let position = setCheckpoint(checkpoint) {
             // TODO
           }
@@ -164,7 +164,7 @@ class PlayerMapViewController: UIViewController {
     var currentLocation: PFGeoPoint?
     if let location = LocationService.currentLocation() {
       currentLocation = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-      println("locationF: \(location.description)")
+      print("locationF: \(location.description)")
     } else {
       currentLocation = PFGeoPoint(latitude: kFailureLatitude,longitude: -kFailureLongitude)
     }

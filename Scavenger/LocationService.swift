@@ -34,27 +34,27 @@ class LocationService: NSObject {
     let status = CLLocationManager.authorizationStatus()
     switch status {
     case CLAuthorizationStatus.AuthorizedAlways:
-      //println("authorized always")
+      //print("authorized always")
       authorized = true
     case CLAuthorizationStatus.AuthorizedWhenInUse:
-      //println("authorized when in use")
+      //print("authorized when in use")
       authorized = true
       break
     case CLAuthorizationStatus.Denied:
-      //println("authorization denied")
+      //print("authorization denied")
       break
     case CLAuthorizationStatus.NotDetermined:
-      //println("authorization not determined")
+      //print("authorization not determined")
       //manager.requestAlwaysAuthorization()
       manager.requestWhenInUseAuthorization()
-    case CLAuthorizationStatus.Restricted: println("authorization restricted")
+    case CLAuthorizationStatus.Restricted: print("authorization restricted")
     }
     let enabled = CLLocationManager.locationServicesEnabled()
-    //println(enabled)
+    //print(enabled)
     let available = true
     //let available = CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)
     //let available = CLLocationManager.significantLocationChangeMonitoringAvailable()
-    //println(available)
+    //print(available)
     if authorized && enabled && available {
       return nil
     }
@@ -64,15 +64,13 @@ class LocationService: NSObject {
   private func cleanupRegionMonitoring() {
     // this stops ALL regions
     for region in manager.monitoredRegions {
-      if let region = region as? CLRegion {
-        manager.stopMonitoringForRegion(region)
-      }
+      manager.stopMonitoringForRegion(region)
     }
   }
   private func cleanupCurrentLocationMonitoring() {
     currentLocationUpdatingStarted = nil
     currentLocationCompletionHander = nil
-    //println("stopUpdatingLocation")
+    //print("stopUpdatingLocation")
     manager.stopUpdatingLocation()
   }
   private func cleanupSignificantLocationMonitoring() {
@@ -84,9 +82,8 @@ class LocationService: NSObject {
     //cleanupSignificantLocationMonitoring()
   }
 
-  func currentLocationWithBlock(#accuracy: Double, interval: NSTimeInterval, completion: (location: CLLocation?, error: NSError?) -> Void) {
+  func currentLocationWithBlock(accuracy accuracy: Double, interval: NSTimeInterval, completion: (location: CLLocation?, error: NSError?) -> Void) {
 
-    var error: NSError?
     if let error = isAuthorized() {
       completion(location: nil, error: error)
       return
@@ -100,7 +97,7 @@ class LocationService: NSObject {
   class func currentLocation() -> CLLocation? {
     
     let pulseLocationSvc = LocationService()
-    if let error = pulseLocationSvc.isAuthorized() {
+    if let _ = pulseLocationSvc.isAuthorized() {
       return nil
     }
     pulseLocationSvc.manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -114,10 +111,10 @@ class LocationService: NSObject {
 }
 
 extension LocationService: CLLocationManagerDelegate {
-  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     
     if locations.isEmpty { return }
-    let location = locations.last as! CLLocation
+    let location = locations.last!
     let accuracy = location.horizontalAccuracy
     if let elapsed = currentLocationUpdatingStarted?.timeIntervalSinceNow where -elapsed > currentLocationElapsedMaxSeconds {
       if let currentLocationCompletionHander = currentLocationCompletionHander {
@@ -135,35 +132,35 @@ extension LocationService: CLLocationManagerDelegate {
     }
     cleanupCurrentLocationMonitoring()
   }
-  func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-    println("didFailWithError: \(error.localizedDescription)")
+  func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    print("didFailWithError: \(error.localizedDescription)")
     cleanupCurrentLocationMonitoring()
   }
-  func locationManagerDidPauseLocationUpdates(manager: CLLocationManager!) {
-    println("didPauseLocatonUpdates:")
+  func locationManagerDidPauseLocationUpdates(manager: CLLocationManager) {
+    print("didPauseLocatonUpdates:")
   }
-  func locationManagerDidResumeLocationUpdates(manager: CLLocationManager!) {
-    println("didResumeLocationUpdates:")
+  func locationManagerDidResumeLocationUpdates(manager: CLLocationManager) {
+    print("didResumeLocationUpdates:")
   }
-  func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
-    println("didEnterRegion: \(region.identifier)")
-    println(manager.location.description)
+  func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+    print("didEnterRegion: \(region.identifier)")
+    print(manager.location?.description)
   }
-  func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
-    println("didExitRegion: \(region.identifier)")
-    println(manager.location.description)
+  func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+    print("didExitRegion: \(region.identifier)")
+    print(manager.location?.description)
   }
-  func locationManager(manager: CLLocationManager!, didDetermineState state: CLRegionState, forRegion region: CLRegion!) {
+  func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
     switch state {
     case .Unknown:
-      println("didDetermineState: Unknown")
+      print("didDetermineState: Unknown")
     case .Inside:
-      println("didDetermineState: INSIDE!")
+      print("didDetermineState: INSIDE!")
     case .Outside:
-      println("didDetermineState: OUTSIDE!")
+      print("didDetermineState: OUTSIDE!")
     }
   }
-  func locationManager(manager: CLLocationManager!, monitoringDidFailForRegion region: CLRegion!, withError error: NSError!) {
-    println("monitoringDidFailForRegion: \(region.identifier)")
+  func locationManager(manager: CLLocationManager, monitoringDidFailForRegion region: CLRegion?, withError error: NSError) {
+    print("monitoringDidFailForRegion: \(region?.identifier)")
   }
 }

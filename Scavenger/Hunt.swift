@@ -49,12 +49,15 @@ extension Hunt: PFSubclassing {
   }
 }
 
-extension Hunt: Printable {
+// mark - CustomStringConvertible
+extension Hunt {
   override var description: String {
     return "(\(name), \(huntDescription))"
   }
 }
-extension Hunt: Hashable {
+
+// mark - Hashable
+extension Hunt {
   override var hashValue: Int {
     return "\(name)\(huntDescription)".hashValue
   }

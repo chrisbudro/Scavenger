@@ -95,7 +95,7 @@ class CheckpointAdderViewController: UIViewController {
       vc.delegate = self
       vc.checkpoint = Checkpoint()
     } else if segue.identifier == "ShowCheckpointModify" {
-      if let vc = segue.destinationViewController as? CheckpointCreatorViewController, indexPath = tableView.indexPathForSelectedRow(), hunt = hunt {
+      if let vc = segue.destinationViewController as? CheckpointCreatorViewController, indexPath = tableView.indexPathForSelectedRow, hunt = hunt {
         vc.delegate = self
         vc.checkpoint = hunt.getCheckpoints()[indexPath.row]
       }

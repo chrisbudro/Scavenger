@@ -42,13 +42,15 @@ extension Checkpoint: PFSubclassing {
   }
 }
 
-
-extension Checkpoint: Printable {
+// mark - CustomStringConvertible
+extension Checkpoint {
   override var description: String {
     return "(\(locationName),\(clue))"
   }
 }
-extension Checkpoint: Hashable {
+
+// mark - Hashable
+extension Checkpoint {
   override var hashValue: Int {
     return "\(locationName)".hashValue
   }
